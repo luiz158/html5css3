@@ -3,73 +3,105 @@
   <head>
 
     <title>HTML5 and CSS3 course</title>
-    <link rel="stylesheet" href="public/css/bootstrap.css"></link>
-    <!-- <link rel="stylesheet" href="public/css/bootstrap-responsive.css"></link> -->
+
+    <meta name="viewport" content="width=device-width">
+
     <link rel="stylesheet" href="public/css/style.css"></link>
 
   </head>
 
 
   <body>
-    <aside>
-      <a class="forkme" href="https://github.com/instructormatters/html5css3">Fork me in GitHub</a>
-    </aside>
+    <div class="container-fluid wrapper">
 
-    <header>
-
-
-      <h1>
-        HTML5 and CSS3 
-        <br>
-        <small>A copyleft course by Extrema Sistemas</small>
-      </h1>
-
-    </header>
-
-    <div class="home-content content container-fluid">
-      <section>
+      <header>
+        <h1>
+          HTML5 and CSS3 
+          <br>
+          <small>A copyleft course by Extrema Sistemas</small>
+        </h1>
+      </header>
+  
+      <aside class="ribbon">
+        <a class="forkme btn btn-warning" href="https://github.com/instructormatters/html5css3">Fork me on GitHub</a>
+      </aside>
+  
+      <section class="home-content content">
         <h2>The web can be a much better place</h2>
-        <p>This course introduces the latest updates to HTML5 and CSS3, dedicating special attention to current support in Firefox, Chrome and Internet Explorer.</p>
-      </section>
+        <p>This course introduces the latest updates to <b>HTML5 and CSS3</b>. This is intended to be an easy introduction to get up-to-date with the current standard, but not a complete reference. You have the W3C for that.
+  
+        <p>What we <b>do</b> provide:
+        <ul>
+          <li><b>600 slides</b>
+          <li><b>30 labs</b>
+          <li><b>90+ interactive examples</b> embedded in the slides
+        </ul>
+  
+        <p>A great opportunity for an interactive learning experience, the course is designed to be delivered in 24 hours including the labs. The slides are deliberately sketchy, since we strongly believe that <b>Instructor Matters</b>.
+  
+        <hr>
+        <div class="row-fluid"> 
+          <div class="span4 contents">
+            <h2>Contents</h2>
+            <ol>
+              <li><a href="slides/version-0.2/introduction.html" target="_blank">
+                Introduction
+              </a></li>
+              <li><a href="slides/version-0.2/classic-html.html" target="_blank">
+                Classic HTML and CSS
+              </a></li>
+              <li><a href="slides/version-0.2/css3.html" target="_blank">
+                CSS3
+              </a></li>
+              <li><a href="slides/version-0.2/html5.html" target="_blank">
+                HTML5
+              </a></li>
+              <li><a href="slides/version-0.2/javascript.html" target="_blank">
+                JavaScript
+              </a></li>
+              <li><a href="slides/version-0.2/browsers-and-seo.html" target="_blank">
+                Browsers and SEO
+              </a></li>
+              <li><a href="slides/version-0.2/performance.html" target="_blank">
+                Performance
+              </a></li>
+              <li><a href="slides/version-0.2/ui-patterns.html" target="_blank">
+                UI patterns
+              </a></li>
+            </ol>
+          </div>
+          <aside class="span8 well readme">      
+            <div class="supported-browsers">
+              <div class="browser" data-browser="chrome" title="Google Chrome">
+                Google Chrome
+              </div>
+            </div>
+            <h3>README</h3>
 
-      <section class="unit">
-        <h2>Contents <small>(A work in progress...)</small></h2>
-        <ol>
-          <li><a href="slides/version-0.2/introduction.html" target="_blank">
-            Introduction
-          </a></li>
-          <li><a href="slides/version-0.2/classic-html.html" target="_blank">
-            Classic HTML and CSS
-          </a></li>
-          <li><a href="slides/version-0.2/css3.html" target="_blank">
-            CSS3
-          </a></li>
-          <li><a href="slides/version-0.2/html5.html" target="_blank">
-            HTML5
-          </a></li>
-          <li><a href="slides/version-0.2/javascript.html" target="_blank">
-            Javascript
-          </a></li>
-          <li><a href="slides/version-0.2/browsers-and-seo.html" target="_blank">
-            Browsers and SEO
-          </a></li>
-          <li><a href="slides/version-0.2/performance.html" target="_blank">
-            Performance
-          </a></li>
-          <li><a href="slides/version-0.2/ui-patterns.html" target="_blank">
-            UI patterns
-          </a></li>
-        </ol></section>
-      
-      <section>
+            <p>These slides have been built with <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>, a framework for HTML presentations. <a href="slides/version-0.2/introduction.html#/slideshow-controls" target="_blank">Learn by using it.</a></p>
+
+            <p>They have only been tested to work in Google Chrome. </p>
+          </aside>
+        </div>
+        <hr>
+  
         <h2>Copyleft!</h2>
-        <p>This course is distributed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>. This means that you can do a lot of stuff with it!</p>
-
-        <p>In addition to that, we encourage your own version of this material in your courses. Check the full <a href="license.html">license</a>.</p>
+        <p>This course is distributed under a <b>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</b>. This means that you can use it for your own courses, modify it, and/or contribute back. We only ask you to keep a reference to the original authors. 
+        <p>Check the full <a href="license.html">license</a> for details.</p>
       </section>
-    </div>
-    
 
+    </div>
+
+    <script>
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-2309405-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 
   </body>
 </html>

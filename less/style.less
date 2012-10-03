@@ -1,4 +1,4 @@
-
+@import "bootstrap/bootstrap";
 
 body {
   background: #F0F2F2 url(../img/background.png) no-repeat;
@@ -38,17 +38,18 @@ header {
   }
 }
 
+.wrapper {
+  max-width: 940px;
+  margin: auto;
+}
+
 .content {
   margin-top: 50px;
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-  section {
-    border-radius: 15px;
-    background-color: white;
-    padding: 45px 30px;
-    margin-bottom: 20px;
-  }
+  border-radius: 15px;
+  background-color: white;
+  padding: 45px 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px #CCC;
 }
 
 .home-content {
@@ -63,64 +64,98 @@ a:not([href]) {
   }
 }
 
-aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 150px;
+.readme {
+  box-sizing: border-box;
+  font-size: 0.8em;
+}
 
-  .forkme {
-    display: block;
-    width: 150px;
-    height: 150px;
+.supported-browsers {
+  float: right;
+  & > .browser {
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
 
     text-indent: 110%;
     white-space: nowrap;
     overflow: hidden;
 
-    background: url(https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png) no-repeat 0 0;
+    background: url(../img/browsers.png) no-repeat 0 0;
   }
 }
 
+@media (min-width: 551px) {
+  .ribbon {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
 
-// @hTopMargin2: 50px;
-// @hTextHeight2: 100px;
-// @hBgHeight2: 250px;
-// @hBottomMargin2: 50px;
+    & > .forkme {
+      display: block;
+      width: 150px;
+      height: 150px;
 
+      text-indent: 110%;
+      white-space: nowrap;
+      overflow: hidden;
 
-// @headerFullHeight2: @hTopMargin2 + @hTextHeight2 + @hBgHeight2 + @hBottomMargin2;
+      background: url(https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png) no-repeat 0 0;
+      border: none;
+      box-shadow: none;
+    }
+  }
+}
 
+@media (max-width: 800px) {
+  .row-fluid {
+    .contents, .readme {
+      float: none;
+      display: block;
+      width: auto;
+      margin-left: 0;
+    }
+  }
+}
+@media (max-width: 550px) {
 
+  body {
+    background-attachment: scroll;
+  }
 
-// @media (max-width: 980px) {
+  @hTopMargin2: 30px;
+  @hTextHeight2: 70px;
+  @hBgHeight2: 170px;
 
-//   header {
-//     top: @hTopMargin2;
-//     background-size: auto @hBgHeight2;
-//     height: @hTextHeight2 + @hBgHeight2;
-//     h1 {
-//       font-size: @hTextHeight2*0.4;
-//       line-height: @hTextHeight2*0.4;
-//     }
-//   }
+  header {
+    position: static;
+    width: auto;
+    margin: auto;
 
-//   .content {
-//     margin-top: @headerFullHeight2;
-//   }
-// }
+    margin-top: @hTopMargin2;
+    padding-bottom: @hBgHeight2;
+    background-size: auto @hBgHeight2;
+    height: auto;
+    h1 {
+      font-size: @hTextHeight2*0.4;
+      line-height: @hTextHeight2*0.4;
+    }
+  }
 
+  .content {
+    margin-top: 0;
+    padding: 22.5px 20px;
+  }
 
-// @hTopMargin3: 50px;
-// @hTextHeight3: 150px;
-// @hBgHeight3: 350px;
-// @hBottomMargin3: 50px;
+  .wrapper {
+    padding: 0 5px;
+  }
 
+  .ribbon {
+    text-align: center;
+    margin: 10px auto;
+  }
 
-// @headerFullHeight3: @hTopMargin3 + @hTextHeight3 + @hBgHeight3 + @hBottomMargin3;
-
-// @media (max-width: 480px) {
-
-// }
-
+}
