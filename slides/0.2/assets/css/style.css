@@ -636,8 +636,8 @@ textarea::-webkit-input-placeholder {
   float: left;
   margin-left: -18px;
 }
-.controls > .radio:first-child,
-.controls > .checkbox:first-child {
+.controls-bs > .radio:first-child,
+.controls-bs > .checkbox:first-child {
   padding-top: 5px;
 }
 .radio.inline,
@@ -1183,13 +1183,13 @@ legend + .control-group {
   padding-top: 5px;
   text-align: right;
 }
-.form-horizontal .controls {
+.form-horizontal .controls-bs {
   *display: inline-block;
   *padding-left: 20px;
   margin-left: 180px;
   *margin-left: 0;
 }
-.form-horizontal .controls:first-child {
+.form-horizontal .controls-bs:first-child {
   *padding-left: 180px;
 }
 .form-horizontal .help-block {
@@ -2923,6 +2923,9 @@ video {
   text-align: center;
   font-size: 70%;
   line-height: 120%;
+}
+.reveal table td.read-block {
+  text-align: left;
 }
 .reveal table tbody th {
   text-align: left;

@@ -94,24 +94,26 @@ myStuff.remove('key');
 
 ...
 
-&lt;/html&gt;</code></pre></section><section><h2>Process</h2><img src="assets/svg/appcache-flow.svg" width="80%"></section><section><h2>The AppCache contents</h2><p class="read-block">Contents that <b>can be cached</b></p><p class="read-block">Contents that <b>will never be cached</b></p><p class="read-block"><b>Fallback contents</b> to use when offline</p></section><section><h2>Cache.manifest</h2><pre><code>CACHE MANIFEST
+&lt;/html&gt;
+</code></pre></section><section><h2>Cache.manifest</h2><pre><code>CACHE MANIFEST
 # Remember to update the version number!
 # version 2.3.1
-
+<span class="fragment">
 # Explicit cache: (no wildcard allowed)
 CACHE:
 /css/style.css
 /img/funny_image.png
-
+</span><span class="fragment">
 # Do not cache: (folders and wildcards are allowed)
 NETWORK:
 /js
 /status.html
-
+</span><span class="fragment">
 # If A is not online, serve B
 FALLBACK:
 /account /offline.HTML
-</code></pre></section><section><h2>AppCache JavaScript API</h2><ul><li>applicationCache.status</li><ul><li>Return the current status</li></ul><li>applicationCache.update()</li><ul><li>Update the manifest, download the files but do not replace them yet</li></ul><li>applicationCache.swapCache()</li><ul><li>Refresh the cached contents</li></ul></ul></section><section data-state="lab"><h2>Lab: AppCache</h2><p>Configure a web app to work offline</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>Geolocation</h2><p>Where are we?</p><pre><code>if (navigator.geolocation) {
+</span>
+</code></pre></section><section><h2>Process</h2><img src="assets/svg/appcache-flow.svg" width="80%"></section><section data-state="lab"><h2>Lab: AppCache</h2><p>Configure a web app to work offline</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>Geolocation</h2><p>Where are we?</p><pre><code>if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error, options);
 } else {
     alert('Get a fancier browser!');

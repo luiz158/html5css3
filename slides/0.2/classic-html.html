@@ -670,7 +670,11 @@ abbr[title] {
 @inputBorderRadius: 3px;
 @gridColumns: 12;
   ...
-  </code></pre></li></ul></div></div></section><section data-state="lab"><h2>Lab: Bootstrap 2</h2><p>Experiment with the Bootstrap components</p></section><section><h2>print CSS</h2><p>Media-specific stylesheet</p><pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;print.css&quot; media=&quot;print&quot; /&gt;
+  </code></pre></li></ul></div></div></section><section data-state="lab"><h2>Lab: Bootstrap 2</h2><p>Experiment with the Bootstrap components</p></section><section><h2>print CSS</h2><p>Media-specific stylesheet</p><pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;print.css&quot; media=&quot;print&quot; /&gt;</code></pre><pre><code>/* Regular CSS */
+
+@media print {
+  /* Print CSS */
+}
 </code></pre></section><section><h2>Whitewashed backgrounds</h2><p class="read-block">All background colors and images are <b>removed</b></p><p class="read-block"><b>Not all browsers are configured with the defaults</b>. You should remove your backgrounds anyway.</p><p class="read-block">Borders, images and font colors still apply.</p></section><section><h2>Fonts for printing</h2><p class="read-block"><b>font-size: 12pt</b> is usually fine for printing</p><p class="read-block"><b>Choose serif / sans serif</b></p><p class="read-block"><b>Underline links</b></p><p class="read-block"><b>Modify font color</b> for best contrast with white background</p></section><section><h2>A note about color-blind users</h2><p class="read-block"><b>1 in 12</b> people have some sort of color deficiency</p><p class="read-block"><b>Underlining links</b> on screen is usually considered good practice</p></section><section><h2>Print link target</h2><pre><code>p a:after {
   content: " ("attr(href)") ";
   font-size: 10pt;

@@ -12,7 +12,7 @@ JägerMonkey (4+)</td></tr><tr><th>Internet Explorer</th><td>Trident</td><td>Cha
 #ex-general-sibling .header ~ p { color: orangered; margin-bottom: 0; }</style><p class="read-block header">This is a header</p><p class="read-block">This is a p</p><div class="read-block">This is a div</div><p class="read-block">This is a p</p></div></section><section><h2>New selectors</h2><style>#new-selectors tr:first-child td {
   border-top: none;
 }
-</style><table id="new-selectors" class="table"><tbody><tr><td>[foo~="bar"]</td><td>&lt;div foo="<span style="color: red">bar</span> whatever"&gt;</td></tr><tr><td>[foo^="bar"]</td><td>&lt;div foo="<span style="color: red">bar</span>tender"&gt;</td></tr><tr><td>[foo$="bar"]</td><td>&lt;div foo="tool<span style="color: red">bar</span>"&gt;</td></tr><tr><td>[foo*="bar"]</td><td>&lt;div foo="sylla<span style="color: red">bar</span>y"&gt;</td></tr><tr><td>[foo|="bar"]</td><td>&lt;div foo="<span style="color: red">bar</span>-tender"&gt;</td></tr></tbody></table></section><section><section><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">3.2+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>New pseudo-classes</h2><style>#new-pseudo-classes tr:first-child td {
+</style><table id="new-selectors" class="table"><tbody><tr><td>[foo~="bar"]</td><td class="read-block">&lt;div foo="<span style="color: red">bar</span> whatever"&gt;</td></tr><tr><td>[foo^="bar"]</td><td class="read-block">&lt;div foo="<span style="color: red">bar</span>tender"&gt;</td></tr><tr><td>[foo$="bar"]</td><td class="read-block">&lt;div foo="tool<span style="color: red">bar</span>"&gt;</td></tr><tr><td>[foo*="bar"]</td><td class="read-block">&lt;div foo="sylla<span style="color: red">bar</span>y"&gt;</td></tr><tr><td>[foo|="bar"]</td><td class="read-block">&lt;div foo="<span style="color: red">bar</span>-tender"&gt;</td></tr></tbody></table></section><section><section><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">3.2+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>New pseudo-classes</h2><style>#new-pseudo-classes tr:first-child td {
   border-top: none;
 }</style><table id="new-pseudo-classes" class="table"><tr><td>:root</td><td>Root &lt;html> element</td></tr><tr><td>:only-child</td><td>Applies if the element is the only child</td></tr><tr><td>:empty</td><td>Applies to empty elements</td></tr><tr><td>:not</td><td>Negates a simple element</td></tr></table></section><section><h2>New pseudo-classes</h2><p>:not</p><pre><code>.element:not(p) {
   color: orange;
@@ -58,7 +58,7 @@ p::-webkit-selection {
   background-color: gray;
 }</code></pre><style>#target-selector:target {
   background-color: gray;
-}</style></section><section><a href="#target-selector">Go there!</a></section></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>Border radius</h2><p>{radius} <br>
+}</style></section><section><a href="#target-selector">Go back!</a><p>(and pay attention to the browser hash)</p></section></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>Border radius</h2><p>{radius} <br>
 {topleft, bottomright} {topright, bottomleft } <br>
 {topleft} {topright} {bottomright} {bottomleft}</p><pre><code>.container {
   border: 10px solid orange;
@@ -596,33 +596,12 @@ p {
   ...
 }
 </code></pre></div></section><section><h2>Viewport</h2><p>Space available for the layout</p><p>AKA browser window width</p><div class="viewport-example"><h6 class="ipsum">Lorem ipsum and stuff...</h6><div class="row-fluid"><div class="span8"><p class="ipsum read-block">Cabbage groundnut caulie celery wakame kombu broccoli pea sprouts mustard artichoke asparagus scallion dulse summer purslane. </p><p class="ipsum read-block">Avocado lotus root carrot gumbo yarrow azuki bean lentil beet greens scallion celery fennel pea.</p></div><div class="span3 offset1"><div class="picture red-bg"></div></div></div></div></section><section><h2>Mobile viewports</h2><p><b>Visible viewport</b> vs <b>Layout viewport</b></p><div class="viewport-example"><div class="visible-viewport"></div><h6 class="ipsum">Lorem ipsum and stuff...</h6><div class="row-fluid"><div class="span8"><p class="ipsum read-block">Cabbage groundnut caulie celery wakame kombu broccoli pea sprouts mustard artichoke asparagus scallion dulse summer purslane. </p><p class="ipsum read-block">Avocado lotus root carrot gumbo yarrow azuki bean lentil beet greens scallion celery fennel pea.</p></div><div class="span3 offset1"><div class="picture red-bg"></div></div></div></div></section><section><h2>Initial size</h2><p>Disable default layout viewport (between 800 and 1000px)</p><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
-</code></pre></section><section><h2>Mobile phones lie</h2><div style="margin-top: 40px;" class="row-fluid"><div class="span2 offset2"><div class="viewport-mobile-example"><h6 class="ipsum">Lorem ipsum and stuff...</h6><div class="row-fluid"><div class="span9"><p class="ipsum read-block">Cabbage groundnut caulie celery wakame kombu broccoli pea sprouts mustard artichoke asparagus scallion dulse summer purslane.</p></div><div class="span3"><div class="picture red-bg"></div></div></div></div></div><div class="span7"><ul class="small-text"><li><p>Low-cost smartphone:</p><p>Screen <b>240×320</b>, reports <b>320×427</b></p></li><li><p>High density display:</p><p>Screen <b>640×960</b>, reports <b>320×480</b></p></li><li class="fragment">Don't try pixel perfect!</li></ul></div></div></section><section><h2>Use just min-width and max-width</h2><p>Inconsistent or just not useful:</p><p><b>device-width, orientation, aspect-ratio</b></p></section><section data-state="lab"><h2>Lab: Media Queries</h2><p>Use media queries with CSS</p></section><section><h2>Screen sizes</h2><img src="assets/raster/screen-stats.png"></section><section><h2>Goldilocks approach</h2><p>Keep it <b>simple</b>: Big, Right, Small</p><style>#goldilocks-example > div {
-  background-image: url(assets/raster/responsive-sprite.jpg);
-  font-size: 50px;
-  text-transform: uppercase;
-  color: #ccc;
-  overflow: hidden;
-  height: 400px;
-  margin-right: 20px;
-  display: inline-block;
-}
-.goldilocks-big {
-  width: 385px;
-}
-.goldilocks-right {
-  width: 235px;
-  background-position: -400px 0;
-}
-.goldilocks-small {
-  width: 105px;
-  background-position: -635px 0;
-}
-</style><div id="goldilocks-example" class="row-fluid"><div class="goldilocks-big"> </div><div class="goldilocks-right"> </div><div class="goldilocks-small"> </div></div></section><section><h2>Fluid grids</h2><p>Keep everything relative</p><div class="row-fluid"><div class="span5 row-fluid offset1"><div class="span8"><div style="height: 200px;" class="red-bg"></div></div><div class="span4"><div style="height: 250px;" class="green-bg"></div></div></div><div style="background: url(assets/svg/arrow.svg) no-repeat center center;      background-size: 80%;      height: 200px" class="span2"></div><div class="span3 row-fluid"><div class="span8"><div style="height: 200px;" class="red-bg"></div></div><div class="span4"><div style="height: 250px;" class="green-bg"></div></div></div></div></section><section><h2>Fluid grids</h2><p>Keep everything relative</p><ul><li><b>Percentages for lengths</b> (keep in mind the margin/padding)</li><li>Limit the flexibility using <b>max-width/min-width or overflow</b></li></ul><pre><code>.two-columns {
+</code></pre></section><section><h2>Mobile phones lie</h2><div style="margin-top: 40px;" class="row-fluid"><div class="span2 offset2"><div class="viewport-mobile-example"><h6 class="ipsum">Lorem ipsum and stuff...</h6><div class="row-fluid"><div class="span9"><p class="ipsum read-block">Cabbage groundnut caulie celery wakame kombu broccoli pea sprouts mustard artichoke asparagus scallion dulse summer purslane.</p></div><div class="span3"><div class="picture red-bg"></div></div></div></div></div><div class="span7"><ul class="small-text"><li><p>Low-cost smartphone:</p><p>Screen <b>240×320</b>, reports <b>320×427</b></p></li><li><p>High density display:</p><p>Screen <b>640×960</b>, reports <b>320×480</b></p></li><li class="fragment">Don't try pixel perfect!</li></ul></div></div></section><section><h2>Use just min-width and max-width</h2><p>Inconsistent or just not useful:</p><p><b>device-width, orientation, aspect-ratio</b></p></section><section data-state="lab"><h2>Lab: Media Queries</h2><p>Use media queries with CSS</p></section><section><h2>Responsive web design</h2><ul><li>Media queries</li><li>Fluid layout</li></ul></section><section><h2>Fluid grids</h2><p>Keep everything relative</p><div class="row-fluid"><div class="span5 row-fluid offset1"><div class="span8"><div style="height: 200px;" class="red-bg"></div></div><div class="span4"><div style="height: 250px;" class="green-bg"></div></div></div><div style="background: url(assets/svg/arrow.svg) no-repeat center center;      background-size: 80%;      height: 200px" class="span2"></div><div class="span3 row-fluid"><div class="span8"><div style="height: 200px;" class="red-bg"></div></div><div class="span4"><div style="height: 250px;" class="green-bg"></div></div></div></div></section><section><h2>Fluid grids</h2><p>Keep everything relative</p><ul><li><b>Percentages for lengths</b> (keep in mind the margin/padding)</li><li>Limit the flexibility using <b>max-width/min-width or overflow</b></li></ul><pre><code>.two-columns {
   width: 46%;
   margin-left: 2%;
   min-width: 100px;
 }
-</code></pre></section><section><h2>Media queries</h2><p>When fluid is not enough</p><iframe src="assets/html/rwd.html" width="70%" height="400px"></iframe><iframe src="assets/html/rwd.html" width="30%" height="400px"></iframe></section><section><section><h2>Flexible images</h2><p>Use max-width: 100%</p><style>#flexible-images-example .parent {
+</code></pre></section><section><h2>Flexible images</h2><p>Use max-width: 100%</p><style>#flexible-images-example .parent {
   height: 300px;
   width: 80%;
   margin: auto auto;
@@ -644,26 +623,7 @@ p {
   height: 400px;
   margin-right: 20px;
   display: inline-block;
-}</style><div id="responsive-image-centered"><div style="width: 385px" class="responsive-image"></div><div style="width: 235px" class="responsive-image"></div><div style="width: 105px" class="responsive-image"></div></div><a href="http://commons.wikimedia.org/wiki/File:Lens_Nikkor_50mm.jpg" class="source">Picture from Wikimedia Commons</a></section><section><h2>Responsive images</h2><p>Serving different images for different displays</p></section><section><h2>High density displays</h2><p>Pixel density above 200 PPI</p><ul class="small-text"> <li>iPhone4 (326)</li><li>iPad3 (264)</li><li>Galaxy Nexus (316)</li><li>Galaxy SIII (306)</li></ul></section><section><h2>device-pixel-ratio</h2><pre><code>@media only screen and (min--moz-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2/1),
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (min-device-pixel-ratio: 2) {
-
-   .mybg {
-    background-image: url(imgx2.jpg);
-   }
-   
-}
-</code></pre></section><section><h2>Avoid duplicate downloads</h2><p>Using cookies</p><pre><code>&lt;img src="picture.jpg" data-large="picture-large.jpg">
-&lt;script>
-  document.cookie ="dimensions=" + screen.width + "x" + screen.height;
-&lt;/script></code></pre><p>Using noscript</p><pre><code>&lt;noscript data-img="picture-default.jpg" data-imgsmall="picture-small.jpg">
-  &lt;img src=&quot;picture-default.jpg&quot;&gt;
-&lt;/noscript&gt;
-
-&lt;script>
-  $('noscript[data-img]').replaceWith(getImage(this));
-&lt;/script></code></pre></section><section><h2>SVG</h2><p>XML based vector graphics</p><pre><code>&lt;defs&gt;
+}</style><div id="responsive-image-centered"><div style="width: 385px" class="responsive-image"></div><div style="width: 235px" class="responsive-image"></div><div style="width: 105px" class="responsive-image"></div></div><a href="http://commons.wikimedia.org/wiki/File:Lens_Nikkor_50mm.jpg" class="source">Picture from Wikimedia Commons</a></section><section><h2>SVG</h2><p>XML based vector graphics</p><pre><code>&lt;defs&gt;
   &lt;linearGradient y2=&quot;100%&quot; id=&quot;our-gradient&quot;&gt;
     &lt;stop offset=&quot;30%&quot; stop-color=&quot;#fff&quot;&gt;&lt;/stop&gt;
     &lt;stop offset=&quot;70%&quot; stop-color=&quot;#a34&quot;&gt;&lt;/stop&gt;
@@ -683,7 +643,86 @@ only screen and (min-device-pixel-ratio: 2) {
   &lt;path stroke=#F53F0C ... /&gt;
   &lt;line stroke-width=10 ... /&gt;
 &lt;/svg&gt;
-</code></pre></section></section><section><h2>Responsive Bootstrap</h2><pre><code>&lt;div class="<b>row-fluid</b>">
+</code></pre></section><section><section><h2>Media queries</h2><p>When fluid is not enough</p><div class="row-fluid"><pre class="span6"><code>&nbsp;
+  nav li {
+    display: inline-block;
+  }
+  
+  aside {
+    float: left;
+  }
+  </code></pre><pre class="span6"><code>@media(max-width: 500px) {
+  nav li {
+    display: block;
+  }
+  
+  aside {
+    float: none;
+  }
+}
+</code></pre></div></section><section><h2>Media queries</h2><iframe src="assets/html/rwd.html" width="70%" height="400px"></iframe><iframe src="assets/html/rwd.html" width="30%" height="400px"></iframe></section></section><section><h2>Screen sizes</h2><img src="assets/raster/screen-stats.png"></section><section><h2>Goldilocks approach</h2><p>Keep it <b>simple</b>: Big, Right, Small</p><style>#goldilocks-example > div {
+  background-image: url(assets/raster/responsive-sprite.jpg);
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #ccc;
+  overflow: hidden;
+  height: 400px;
+  margin-right: 20px;
+  display: inline-block;
+}
+.goldilocks-big {
+  width: 385px;
+}
+.goldilocks-right {
+  width: 235px;
+  background-position: -400px 0;
+}
+.goldilocks-small {
+  width: 105px;
+  background-position: -635px 0;
+}
+</style><div id="goldilocks-example" class="row-fluid"><div class="goldilocks-big"> </div><div class="goldilocks-right"> </div><div class="goldilocks-small"> </div></div></section><section><h2>Responsive text</h2><p>No such thing yet!</p><div id="ex-responsive-text"><p>Resize any slide</p></div></section><section><h2>Optimize images</h2><p>Serving different images for different displays</p><pre><code>.block {
+  background: url('funny_bg.jpg');
+}
+
+@media (max-width: 450px) {
+  .block {
+    background: url('funny_bg_low_res.jpg');
+  }
+}
+</code></pre></section><section><section><h2>High density displays</h2><p>Pixel density above 200 PPI</p><ul class="small-text"> <li>iPhone4 (326)</li><li>iPad3 (264)</li><li>Galaxy Nexus (316)</li><li>Galaxy SIII (306)</li></ul></section><section><h2>device-pixel-ratio</h2><pre><code class="css">@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+  .mybg {
+    background-image: url(imgx2.jpg);
+  }
+  
+}
+</code></pre></section></section><section><h2>Duplicate downloads</h2><p>Cascade override fails in Android 3- and mobile Safari 4</p><pre><code>@media (min-width: 500px) {
+  .my-component {
+    background-image: url('large-logo.png')
+  }
+}
+
+@media (max-width: 500px) {
+  .my-component {
+    background-image: url('tiny-logo.png')
+  }
+}
+
+</code></pre><a href="http://timkadlec.com/2012/04/media-query-asset-downloading-results/" class="source">TimKadlec.com</a></section><section><h2>Responsive images</h2><p>Using cookies</p><pre><code>&lt;img src="picture.jpg" data-large="picture-large.jpg">
+&lt;script>
+  document.cookie ="dimensions=" + screen.width + "x" + screen.height;
+&lt;/script></code></pre><p>Using noscript</p><pre><code>&lt;noscript data-img="picture-default.jpg" data-imgsmall="picture-small.jpg">
+  &lt;img src=&quot;picture-default.jpg&quot;&gt;
+&lt;/noscript&gt;
+
+&lt;script>
+  $('noscript[data-img]').replaceWith(getImage(this));
+&lt;/script>
+</code></pre></section><section><h2>Responsive Bootstrap</h2><pre><code>&lt;div class="<b>row-fluid</b>">
     &lt;div class=&quot;span2&quot;&gt;Fee&lt;/div&gt;
     &lt;div class=&quot;span2&quot;&gt;Fi&lt;/div&gt;
     &lt;div class=&quot;span2&quot;&gt;Fo&lt;/div&gt;
@@ -746,18 +785,21 @@ lessc styles.less styles.css
   width: 520px;
   font-size: 50%;
 }
-</code></pre></div></section><section><section><h2>Parametric mixins</h2><pre><code class="no-highlight">.coolShadow(<b>@blur</b>) {
-  -moz-box-shadow: 0 0 <b>@blur</b> rgba(0, 0, 0, .7);
-  -webkit-box-shadow: 0 0 <b>@blur</b> rgba(0, 0, 0, .7);
-  box-shadow: 0 0 <b>@blur</b> rgba(0, 0, 0, .7);
+</code></pre></div></section><section><section><h2>Parametric mixins</h2><pre><code class="no-highlight">.coolGradient(<b>@color1</b>, <b>@color2</b>) {
+  background-color: <b>@color1</b>;
+  background: -moz-linear-gradient(top,  <b>@color1</b> 5%, <b>@color2</b> 90%);
+  background: -webkit-linear-gradient(top,  <b>@color1</b> 5%, <b>@color2</b> 90%);
+  ...
 }
 
 #my-block {
   line-height: 1.5em;
-  <b>.coolShadow(3px)</b>;
+  <b>.coolGradient(#1ac, #6a9)</b>;
 }</code></pre><pre><code>#my-block {
   line-height: 1.5em;
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .7);
+  background-color: #1ac;
+  background: -moz-linear-gradient(top,  #1ac 5%, #6a9 90%);
+  background: -webkit-linear-gradient(top,  #1ac 5%, #6a9 90%);
   ...
 }</code></pre></section><section><h2>Empty mixins</h2><p>Suitable for libraries</p><div class="row-fluid"><pre class="span6"><code class="no-highlight">.stuff() {
   background-color: #d41;
@@ -796,8 +838,8 @@ lessc styles.less styles.css
 
 // My mixins
 .center() {
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 ...</code></pre></div><div class="span6"><p class="small-text">style.less</p><pre><code class="no-highlight"><b>@import "variables";</b>
 
@@ -831,7 +873,7 @@ my-background(color)
   my-background(myBlue)
   div
     width: 100px
-    </code></pre></div></div></section><section data-state="lab"><h2>Lab: LESS</h2><p>Refactor a CSS stylesheet</p></section><section><h2>Keep sharp</h2><ul><li><a href="http://html5please.com">HTML5 Please</a></li><li><a href="http://caniuse.com">When can I use...</a></li><li><a href="https://developer.mozilla.org/">Mozilla Developer Network</a></li><li><a href="http://www.quirksmode.org/">QuirksMode.org</a></li><li><a href="http://csslint.net/">CSS LINT</a></li><li><a href="http://css3clickchart.com/">CSS3 Click Chart</a></li><li><a href="http://www.browsersupport.net">browsersupport.net</a></li></ul></section></div><!-- The navigational controls UI--><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><!-- Presentation progress bar--><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script>// Full list of configuration options available here:
+    </code></pre></div></div></section><section data-state="lab"><h2>Lab: LESS</h2><p>Refactor a CSS stylesheet</p></section><section><h2>Keep sharp</h2><ul><li><a href="http://www.webplatform.org/">WebPlatform.org</a></li><li><a href="http://html5please.com">HTML5 Please</a></li><li><a href="http://caniuse.com">When can I use...</a></li><li><a href="https://developer.mozilla.org/">Mozilla Developer Network</a></li><li><a href="http://www.quirksmode.org/">QuirksMode.org</a></li><li><a href="http://csslint.net/">CSS LINT</a></li><li><a href="http://css3clickchart.com/">CSS3 Click Chart</a></li><li><a href="http://www.browsersupport.net">browsersupport.net</a></li></ul></section></div><!-- The navigational controls UI--><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><!-- Presentation progress bar--><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script>// Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
 controls: true,

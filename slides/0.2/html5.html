@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>HTML 5</title><link rel="stylesheet" href="assets/css/style.css"><!-- For syntax highlighting--><link rel="stylesheet" href="assets/css/zenburn.css"><script>// If the query includes 'print-pdf' we'll use the PDF print sheet
+document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script></head><body><div class="reveal"><!-- Used to fade in a background when a specific slide state is reached--><div class="state-background"></div><!-- Any section element inside of this container is displayed as a slide--><div class="slides"><section><h1>HTML5</h1></section><section><h2>HTML5 browser support</h2><p class="read-block">Smartphones</p><p class="read-block">All modern browsers </p><p class="read-block">Polyfills</p></section><section><h2>doctype</h2><div class="row-fluid"> <div class="span6">BEFORE:<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+</code></pre></div><div class="span6">AFTER:<pre><code>&lt;!DOCTYPE html&gt;
+</code></pre></div></div></section><section><h2>html</h2><div class="row-fluid"> <div class="span6">BEFORE:<pre><code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;</code></pre></div><div class="span6">AFTER:<pre><code>&lt;html&gt;
+</code></pre></div></div></section><section><h2>charset</h2><div class="row-fluid"> <div class="span6">BEFORE:<pre><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;</code></pre></div><div class="span6">AFTER:<pre><code>&lt;meta charset=&quot;utf-8&quot;&gt;
+</code></pre></div></div></section><section><h2>Charset defaults</h2><ul class="read-block"><li>http default: ISO8859-1</li><li>multipart/form data default: US ASCII</li><li><b>W3C official recommendation: UTF-8</b></li></ul></section><section><h2>How to set the Charset</h2><ul class="read-block"><li><p>HTTP header</p><ul><li><b>Content-Type: text/html; charset=iso-8859-1</b></li></ul></li><li><p>META tag</p><ul><li><b>&lt;meta charset=&quot;utf-8&quot;&gt;</b></li></ul></li></ul></section><section><h2>link</h2>BEFORE:<pre><code>&lt;link href=&quot;styles.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</code></pre>AFTER:<pre><code>&lt;link href=&quot;styles.css&quot; rel=&quot;stylesheet&quot;/&gt;
+</code></pre></section><section><h2>Typical &lt;link&gt; rel values</h2><p>stylesheet, favicon, rss, prefetching...</p><pre><code>&lt;link rel=&quot;XXX&quot; href=&quot;file&quot;/&gt;
+</code></pre></section><section><section><h2>favicon and touch icon</h2><ul class="read-block"> <li>New <b>touch icon</b> for mobile devices</li><li>iPhone adds <b>rounded corners, drop shadow and gleam</b></li><li>Android <b>does not</b>.</li></ul><pre><code>&lt;link rel="<b>shortcut icon</b>" href="/favicon.ico">
+&lt;link rel="<b>apple-touch-icon</b>" href="/apple-touch-icon.png">
+</code></pre></section><section><h2>Precomposed icons</h2><p>The only kind supported by Android 2.1</p><p>Not supported by extremely old devices</p><pre><code>&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;apple-touch-icon-precomposed.png&quot;&gt;
+</code></pre></section></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">13+</div><div class="support ff"></div><div class="support-version">3.6+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">No</div><div class="support opera"></div><div class="support-version">No</div></div><h2>prefetch, prerender</h2><p class="read-block"><b>Prefetch</b> the target link</p><p class="read-block">Based on the <b>read-only</b> nature of GET requests</p><p class="read-block">Also <b>allowed for &lt;a&gt; elements</b></p><pre><code>&lt;link rel="<b>prefetch</b>" href="big.jpg">
+&lt;link rel="<b>prerender</b>" href="next.html">
+</code></pre></section><section><h2>GET vs POST</h2><ul><li><b>GET</b>: idempotent request<ul><li>read-only operations, like retrieving data</li></ul></li><li><b>POST</b>: non-idempotent request<ul><li>writeable operations, like storing or deleting data</li></ul></li><li><b>Other</b>: PUT, HEAD, DELETE</li></ul></section><section><h2>rel="alternate"</h2><p>RSS autodiscovery</p><pre><code>&lt;link <b>rel="alternate" type="application/atom+xml"</b> 
+      href="http://www.example.com/xml/index.atom">
+      
+&lt;link <b>rel="alternate" type="application/rss+xml"</b> title="RSS" 
+      href="http://www.example.com/xml/index.rdf">
+      </code></pre></section><section><h2>rel="canonical"</h2><p>In case of multiple URLs, tell Google which one to index</p><pre><code>&lt;link rel=&quot;canonical&quot; href=&quot;http://myhost.com/mypage.html&quot;&gt;
+</code></pre></section><section><h2>Other 'rel' values</h2><p>Used in <b>&lt;link&gt;</b> tags</p><p><b>search, help, prev, next, author</b> – Navigate links</p><pre><code>&lt;link rel=&quot;next&quot; href=&quot;page2.html&quot;&gt;
+</code></pre></section><section><h2>&lt;a&gt; relationships</h2></section><section><h2>rel="license"</h2><p>Specify the license applied to the current page.</p><pre><code>&lt;a href=&quot;http://creativecommons.org/licenses/by/2.0/&quot; rel=&quot;license&quot;&gt;
+  Creative Commons by Attribution 2.0
+&lt;/a&gt;
+</code></pre></section><section><section><h2>rel="nofollow"</h2><p>Do not affect the PageRank of the link target</p><pre><code>Hi, nice post. BTW, you cannot miss our new
+&lt;a rel=&quot;nofollow&quot; href=&quot;http://thespammer.com/recipes.html&quot;&gt;
+  ViaGra d0nuTs recipes!
+&lt;/a&gt;</code></pre><img src="assets/raster/rel-nofollow.png"></section><section><h2>Human computation</h2><p>How modern spammers work</p><img src="assets/raster/human-computation.png"></section><section><h2>Human computation (II)</h2><p>Introducing <i>Porn Guy</i></p><img src="assets/raster/human-computation-2.png"></section><section><h2>Human computation (III)</h2><p>Problem solved!</p><img src="assets/raster/human-computation-3.png"></section></section><section><h2>Removed HTML elements</h2><p>Use CSS instead:</p><p><b>big, center, font, strike</b></p></section><section><h2>Removed elements</h2><p>Use iframe instead:</p><p><b>frame, frameset, noframes</b></p></section><section><h2>Removed elements</h2><p><b>applet</b>: replaced by object</p></section><section><h2>Removed attributes</h2><p class="read-block"><b>align, background, bgcolor, border, cellspacing, cellpadding, height, marginheight, marginwidth, nowrap, scrolling, size, vspace, width...</b></p><a href="http://www.w3.org/TR/html5-diff/#obsolete-attributes" class="source">HTML5 obsolete attributes (W3C)</a></section><section><h2>Importance tags</h2><ul><li><b>Use &lt;b&gt;</b><ul><li>text without specific emphasis or importance typically represented as bold text</li><li>keywords, product names, etc.</li><li>E.g.: Use &lt;b&gt; to indicate <b>bold text</b>.</li></ul></li><li><b>Use &lt;strong&gt;</b><ul><li>Strong semantic importance</li><li>E.g.: It is <strong>important</strong> that you do not mix styles up!</li></ul></li></ul></section><section><h2>Emphasis tags</h2><ul><li><b>Use &lt;i&gt;</b><ul><li>text without emphasis or importance, typically represented as italic text</li><li>technical term, phrase from another language, a ship name, etc.</li><li>E.g.: Intoxicated from eating too much <i>wasabi</i> at once.</li></ul></li><li><b>Use &lt;em&gt;</b><ul><li>Stress emphasis: use different voice or mood</li><li>E.g.: This is not a place for <em>cool</em> people anymore.</li></ul></li></ul></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>Semantic elements</h2><p>New structural elements:</p><p><b>section, nav, aside, header, footer</b></p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>header</h2><div class="row-fluid"><div class="span6"><b>OPTION 1</b><pre><code><b>&lt;header></b>
+  &lt;h1&gt;My Weblog&lt;/h1&gt;
+&lt;/header&gt;
+</code></pre></div><div class="span6"><b>OPTION 2</b><pre><code><b>&lt;header></b>
+  <b>&lt;hgroup></b>
+    &lt;h1&gt;Page title&lt;/h1&gt;
+    &lt;h2&gt;Page subtitle&lt;/h2&gt;
+  &lt;/hgroup&gt;
+&lt;/header&gt;
+</code></pre></div></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>article</h2><p>Intended for content syndication</p><div class="row-fluid"><div class="span6"><b>OLD</b><pre><code>&lt;div class="<b>article</b>">
+  &lt;<b>h2</b>>Title&lt;/h2>
+  &lt;p&gt;
+    Contents
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre></div><div class="span6"><b>NEW</b><pre><code>&lt;<b>article</b>>
+  &lt;<b>header</b>>
+    &lt;<b>h1</b>>Title&lt;/h1>
+  &lt;/header&gt;
+  &lt;p&gt;
+    Contents
+  &lt;/p&gt;
+&lt;/article&gt;
+</code></pre></div></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>time</h2><p>Represent a date/time in both machine (ISO8601) and human-readable format</p><b>OLD</b><pre><code>&lt;span class=&quot;date&quot;&gt;Sept 01 2009&lt;/p&gt;</code></pre><b>NEW</b><pre><code>&lt;<b>time datetime="2009-09-01" pubdate</b>>Sept 01 2009&lt;/time&gt;
+
+&lt;time datetime="2009-09-01"><b>Last Thursday</b>&lt;/time&gt;
+
+&lt;time datetime="<b>2009-09-01T13:59:47-04:00</b>"><b>20 minutes ago</b>&lt;/time&gt;
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>nav</h2><p>Navigation links</p><pre><code>&lt;<b>nav</b>>
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/home&quot;&gt;home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;blog&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#footer&quot;&gt;about&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>aside</h2><p class="read-block">Content aside from the main document</p><ul><li><b>within article:</b> related to the article</li><li><b>outside article:</b> related to the website or page</li></ul><p></p><div class="row-fluid"><pre class="span6"><code>&lt;<b>article</b>>
+  &lt;!-- inside article --&gt;
+  &lt;h1&gt;Header&lt;/h1&gt;
+  &lt;p&gt;Contents.&lt;/p&gt;
+  &lt;<b>aside</b>>
+    &lt;q&gt;God heals, and the doctor takes the fees – Benjamin Franklin&lt;/q&gt;
+  &lt;/aside&gt;
+&lt;/article&gt;</code></pre><pre class="span6"><code>&lt;<b>aside</b>>
+  &lt;!-- outside of the article --&gt;
+  &lt;h1&gt;Blogroll&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;bob&quot;&gt;Bob&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;john&quot;&gt;John&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;sarah&quot;&gt;Sarah&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/aside&gt;
+</code></pre></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>section</h2><ul class="read-block"><li>Generic <b>document or application section</b></li><li>Usually <b>associated to a header</b></li><li>Not intended for <b>styling or scripting</b> (use div instead).</li><li>Don’t use if <b>article</b>, <b>aside</b> or <b>nav</b> is more appropriate</li></ul><pre><code>&lt;<b>section</b>>
+  &lt;h1&gt;Header&lt;/h1&gt;
+  &lt;p&gt;Section contents
+&lt;/section&gt;
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>figure</h2><p><b>diagrams, illustrations, photos, and code examples</b></p><pre><code>&lt;figure&gt;
+  &lt;img src=&quot;css3.svg&quot; alt=&quot;CSS3 logo&quot;&gt;
+  &lt;figcaption&gt;Fig 1. CSS3 logo&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre><figure><img src="assets/svg/css3.svg" width="200"><figcaption class="small-text">Fig 1. CSS3 logo</figcaption></figure></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9+</div></div><h2>footer</h2><pre><code>&lt;footer&gt;
+  &lt;p&gt;My fancy footer&lt;/p&gt;
+&lt;/footer&gt;
+
+</code></pre></section><section><h2>Fat footer example</h2><pre><code style="font-size: 70%;                line-height: 120%;                -webkit-column-count: 2;">&lt;footer&gt;
+  &lt;nav&gt;
+    &lt;h1&gt;Navigation&lt;h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/standards/&quot;&gt;Standards&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/participate/&quot;&gt;Participate&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/membership&quot;&gt;Membership&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/Consortium/&quot;&gt;About W3C&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;nav&gt;
+    &lt;h1&gt;Contact W3C&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/Consortium/contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/Help/&quot;&gt;Help and FAQ&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/Consortium/sup&quot;&gt;Donate&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/Consortium/siteindex&quot;&gt;Site Map&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;section&gt;
+  &lt;h1&gt;W3C Updates&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://twitter.com/W3C&quot;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://identi.ca/w3c&quot;&gt;Identi.ca&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;
+&lt;p class=&quot;copyright&quot;&gt;Copyright © 2009 W3C&lt;/p&gt;
+&lt;/footer&gt;</code></pre><iframe src="assets/html/fat-footer.html" width="900" height="200"></iframe></section><section><h2>Full Example</h2><div class="row-fluid"><pre class="span6"><code>&lt;body&gt;
+  <b>&lt;header></b>
+    <b>&lt;hgroup></b>
+      &lt;h1&gt;Page title&lt;/h1&gt;
+      &lt;h2&gt;Page subtitle&lt;/h2&gt;
+    &lt;/hgroup&gt;
+  &lt;/header&gt;
+  
+  <b>&lt;nav></b>
+    &lt;ul&gt;
+      Navigation...
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  
+<b>&lt;aside></b>
+  Top links...
+&lt;/aside&gt;
+</code></pre><pre class="span6"><code><b>&lt;section></b>
+  <b>&lt;article></b>
+    <b>&lt;header></b>
+      &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;p&gt;
+      Content...
+    &lt;/p&gt;
+  &lt;/article&gt;
+  &lt;article&gt;
+    ...
+  &lt;/article&gt;
+&lt;/section&gt;
+
+<b>&lt;footer></b>
+  Copyright ©2010
+&lt;/footer&gt;
+&lt;/body&gt;
+</code></pre></div></section><section><h2>Unsupported?</h2><p>The browser just needs the CSS styles to apply to unrecognized containers</p><pre><code>article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  <b>display: block;</b>
+}
+</code></pre></section><section><h2>Unrecognized for IE</h2><p>IE < 9 does not create DOM nodes for unrecognized semantic elements</p><pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script&gt;
+  var e = ("abbr,article,aside,audio,canvas,datalist,details," +
+  "figure,footer,header,hgroup,mark,menu,meter,nav,output," +
+  "progress,section,time,video").split(',');
+  for (var i = 0; i < e.length; i++) {
+    document.createElement(e[i]);
+  }
+&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre></section><section><h2>Short version</h2><pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src="<b>http://html5shiv.googlecode.com/svn/trunk/html5.js</b>">
+&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre></section><section data-state="lab"><h2>Lab: Semantics</h2><p>Use semantic tags in the proposed page</p></section><section><h2>New form controls</h2></section><section><h2>Traditional form controls</h2><p><b>text, checkbox, radio, textarea, password, select, file, button</b></p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>email</h2><pre><code>&lt;input name="email" <b>type="email"</b>></code></pre><div id="ex-email-input"><form class="form-inline"><fieldset> <label class="checkbox">E-mail</label> <input type="email"> <input type="submit" value="Submit" class="btn"></fieldset></form></div><iframe src="assets/html/email-keypad.html" width="500" height="300"></iframe></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>url</h2><pre><code>&lt;input name="homepage" <b>type="url"</b>></code></pre><div id="ex-email-input"><form class="form-inline"><fieldset> <label class="checkbox">Url</label> <input type="url"> <button type="submit" class="btn">Submit</button></fieldset></form></div><iframe src="assets/html/url-keypad.html" width="500" height="300"></iframe></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">No</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>number</h2><pre><code>&lt;input name="amount" <b>type="number"</b> value="0"></code></pre><div id="ex-number-input"><form class="form-inline"><fieldset> <label class="checkbox">Number</label> <input type="number" value="0"> <button type="submit" class="btn">Submit</button></fieldset></form></div><iframe src="assets/html/number-keypad.html" width="500" height="300"></iframe></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">10+</div><div class="support ff"></div><div class="support-version">No</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>range</h2><pre><code>&lt;input name="amount" <b>type="range" min="0" max="50"</b> value="10"></code></pre><div id="ex-range-input"><form class="form-inline"><fieldset> <label class="checkbox">Range</label> <input type="range" min="0" max="50" value="10"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">3.6+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>search</h2><pre><code>&lt;input <b>type="search"</b> results="10" /></code></pre><div id="ex-search-input"><form class="form-inline"><fieldset> <label class="checkbox">Search</label> <input type="search" class="search-query"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>tel</h2><pre><code>&lt;input <b>type="tel"</b> placeholder="(555) 555-5555"></code></pre><div id="ex-tel-input"><form class="form-inline"><fieldset> <label class="checkbox">Telephone</label> <input type="tel"> <button type="submit" class="btn">Submit</button></fieldset></form></div><iframe src="assets/html/number-keypad.html" width="500" height="300"></iframe></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">No</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">No</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>date</h2><p>date, time, month, week, datetime</p><pre><code>&lt;input <b>type="date" min="2012-09-05" max="2012-09-21"</b> value="2011-05-20"></code></pre><div id="ex-date-input"><form class="form-inline"><fieldset> <label class="checkbox">Date</label> <input type="date" min="2012-09-05" max="2012-09-21"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">3.6+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>Multiple file upload</h2><pre><code>&lt;input type="file" <b>multiple="multiple"</b> /></code></pre><div id="ex-multiple-file-input"><form class="form-inline"><fieldset> <label class="checkbox">Select files</label> <input type="file" multiple="multiple"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">20+</div><div class="support ff"></div><div class="support-version">No</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">No</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>color</h2><pre><code>&lt;input <b>type="color"</b> placeholder="e.g. #2a2a2a"></code></pre><div id="ex-color-input"><form class="form-inline"><fieldset> <label class="checkbox">Color</label> <input type="color"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">20+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>datalist</h2><pre><code>&lt;input type="text" <b>list="mydata"</b>>
+&lt;datalist id=&quot;mydata&quot;&gt;
+  &lt;option label=&quot;Mr&quot; value=&quot;Mister&quot;&gt;
+  &lt;option label=&quot;Mrs&quot; value=&quot;Mistress&quot;&gt;
+  &lt;option label=&quot;Ms&quot; value=&quot;Miss&quot;&gt;
+&lt;/datalist&gt;</code></pre><div id="ex-datalist-input"><form class="form-inline"><datalist id="mydata"><option label="Mr" value="Mister"></option><option label="Mrs" value="Mistress"></option><option label="Ms" value="Miss"></option></datalist><fieldset><label class="checkbox">Click twice to see options</label> <input type="text" list="mydata"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">8+</div><div class="support ff"></div><div class="support-version">6+</div><div class="support safari"></div><div class="support-version">6+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>progress</h2><pre><code>&lt;progress value=&quot;75&quot; max=&quot;100&quot;&gt;75 of 100&lt;/progress&gt;</code></pre><div id="ex-progress"><progress value="75" max="100">75 of 100</progress></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">8+</div><div class="support ff"></div><div class="support-version">16+</div><div class="support safari"></div><div class="support-version">6+</div><div class="support msie"></div><div class="support-version">No</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>meter</h2><p>Less supported than progress</p><pre><code>&lt;meter min=&quot;0&quot; max=&quot;100&quot; value=&quot;91&quot;&gt;91 of 100&lt;/meter&gt;</code></pre><div id="ex-meter"><meter value="91" max="100" min="0">75 of 100</meter></div></section><section><h2>Browser support</h2><table class="table wufoo-support-table"><caption>Browser Support for New <strong>HTML5 </strong>Input <strong>Types</strong></caption><thead><tr><td></td><th><div style="background-position: -50px;" class="browser"></div><div>Firefox</div></th><th><div style="background-position: -100px;" class="browser"></div><div>Safari</div></th><th><div style="background-position: -300px;" class="browser"></div><div>Safari</div></th><th><div class="browser"></div><div>Chrome</div></th><th><div style="background-position: -200px;" class="browser"></div><div>Opera</div></th><th><div style="background-position: -150px;" class="browser"></div><div>IE</div></th><th><div style="background-position: -250px;" class="browser"></div><div>Android</div></th></tr></thead><tbody><tr><th>Email</th><td class="yup">4+</td><td class="kinda">5+</td><td class="kinda">3.1+</td><td><span class="kinda">6+</span>/<span class="yup">10+</span></td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Tel</th><td class="yup">4+</td><td class="yup">5+</td><td class="yup">3.1+</td><td class="yup">6+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="yup">2.3+</td></tr><tr><th>Url</th><td class="yup">4+</td><td class="kinda">5+</td><td class="yup">3.1+</td><td><span class="kinda">6+</span>/<span class="yup">10+</span></td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Search</th><td><span class="kinda">3.6</span>/<span class="yup">4+</span></td><td class="yup">5+</td><td class="yup">4+</td><td class="yup">6+</td><td class="yup">10.6+</td><td><span class="kinda">9</span>/<span class="yup">10+</span></td><td class="nope">2.3-</td></tr><tr><th>Color</th><td class="nope">11-</td><td class="nope">5.2-</td><td class="nope">5-</td><td class="yup">20+</td><td class="yup">11+</td><td class="nope">10-</td><td class="nope">2.3-</td></tr><tr><th>Number</th><td class="nope">11-</td><td><span class="kinda">4</span>/<span class="yup">5.2+</span></td><td class="yup">4+</td><td><span class="kinda">9-</span>/<span class="yup">10+</span></td><td class="kinda">11+</td><td class="nope">10-</td><td class="yup">2.3+</td></tr><tr><th>Range</th><td class="nope">11-</td><td class="yup">4+</td><td class="yup">5+</td><td class="yup">6+</td><td class="yup">9+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Date</th><td class="nope">11-</td><td class="kinda">5+</td><td class="nope">5-</td><td><span class="kinda">10</span>/<span class="nope">17</span>/<span class="yup">20+</span></td><td class="yup">10.6+</td><td class="nope">10-</td><td class="nope">2.3-</td></tr></tbody></table><a href="http://wufoo.com/html5/" class="source">wufoo.com</a></section><section data-state="lab"><h2>Lab: Forms 1</h2><p>Create a HTML form using new controls</p></section><section><h2>New attributes</h2></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">5.5+</div><div class="support opera"></div><div class="support-version">9.0+</div></div><h2>contenteditable</h2><pre><code>&lt;p contenteditable>Click to edit</code></pre><div id="ex-contenteditable"><h3 contenteditable>This is a &lt;h3>. Click to edit</h3> <p contenteditable>Paste something into this &lt;p> </p></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>required</h2><pre><code>&lt;input name="q" <b>required</b>></code></pre><div id="ex-required-input"><form class="form-inline"><fieldset><label class="checkbox">Required field</label> <input type="text" required> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">10+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11.5+</div></div><h2>placeholder</h2><pre><code>&lt;input name=&quot;q&quot; placeholder=&quot;Search Bookmarks and History&quot;&gt;</code></pre><div id="ex-input-placeholder"><form class="form-inline"><fieldset><label class="checkbox">Search</label> <input type="search" placeholder="Search Bookmarks and History" style="width: 60%;"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>autofocus</h2><pre><code>&lt;input name="q" <b>autofocus</b>></code></pre><div id="ex-input-autofocus"><label>Cannot use autofocus in this presentation, sorry</label></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>pattern</h2><pre><code>&lt;input type="text" <b>pattern="[a-z]{3}[0-9]{3}"</b>></code></pre><div id="ex-input-pattern"><form class="form-inline"><fieldset><label class="checkbox">3 alpha chars followed by 3 digits</label> <input type="text" pattern="[a-z]{3}[0-9]{3}" placeholder="E.g. cye850"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">No</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>min, max, step</h2><pre><code>&lt;input name="amount" type="number" value="0" <b>min="0" max="100" step="2"</b> ></code></pre><div id="ex-input-max-min"><form class="form-inline"><fieldset><label class="checkbox">Select an even number</label> <input required type="number" value="0" min="0" max="100" step="2"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section><h2>data-*</h2><p>Method approved by the W3C to <b>extend the DOM</b></p><div class="row-fluid"><div class="span6"><b>APPROVED:</b><pre><code>&lt;ul id=&quot;friends&quot;&gt;
+  &lt;li <b>data-user="jdoe"</b>>John Doe</li>
+  &lt;li <b>data-user="cnorris"</b>>Chuck Norris</li>
+&lt;/ul&gt;</code></pre></div><div class="span6"><b>DEPRECATED:</b><pre><code>&lt;ul id=&quot;friends&quot;&gt;
+  &lt;li <b>class="user-jdoe"</b>>John Doe</li>
+  &lt;li <b>class="user-cnorris"</b>>Chuck Norris</li>
+&lt;/ul&gt;
+</code></pre></div></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">10+</div><div class="support ff"></div><div class="support-version">3.6+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">No</div><div class="support opera"></div><div class="support-version">No</div></div><h2>form</h2><p>New attribute for <b>input, select, textarea, button, fieldset</b></p><p>Supported in Chrome & FF3.6+</p><pre><code>&lt;form <b>id="customer-details"</b>>
+  &lt;label&gt;
+    Name
+    &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;
+  &lt;/label&gt;
+  &lt;!-- More fields --&gt;
+&lt;/form&gt;
+
+&lt;input type="submit" <b>form="customer-details"</b>>
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">No</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">11.5+</div></div><h2>fieldset[disabled]</h2><p>Supported in IE9, Opera 11.5 & Firefox 4</p><pre><code>&lt;fieldset&gt;
+  &lt;!-- Address --&gt;
+  &lt;input type=&quot;text&quot; name=&quot;address&quot;&gt;
+&lt;/fieldset&gt;
+
+&lt;fieldset <b>disabled</b>>
+  &lt;!-- Alternate address --&gt;
+  &lt;input type=&quot;text&quot; name=&quot;billing-adress&quot;&gt;
+&lt;/fieldset&gt;</code></pre><div id="ex-disabled-fieldset"><form class="form-horizontal"><fieldset><div class="control-group"><label class="control-label">Address</label><div class="controls-bs"><input type="text"></div></div><div class="control-group"><div class="controls-bs"><label class="checkbox">Different billing address? (<b>JS</b>)<input type="checkbox" id="billing-address-checkbox" onchange="ExDisabledFieldset.check(this)"></label></div></div></fieldset><fieldset disabled id="billing-address-fieldset"><div class="control-group"><label class="control-label">Billing address</label><div class="controls-bs"><input type="text" class="billing-address"></div></div></fieldset></form><style>#ex-disabled-fieldset [disabled] .billing-address {
+  background: #ddd;
+}</style><script>var ExDisabledFieldset = {
+  check: function(cb) {
+    var fieldset = document.querySelector('#billing-address-fieldset');
+    if(cb.checked) {
+      fieldset.removeAttribute('disabled');
+    } else {
+      fieldset.setAttribute('disabled', 'disabled');
+    }
+  }
+};
+</script></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">11+</div></div><h2>New textarea attributes</h2><ul class="read-block"><li>maxlength (Chrome and FF4) </li><li>spellcheck="<b>true</b> | false"</li></ul><pre><code>&lt;textarea name=&quot;comments&quot; maxlength=&quot;140&quot; spellcheck=&quot;true&quot;&gt;</code></pre><div id="ex-textarea-attributes"><form class="form"><label>Comments (max = 140 chars):</label><textarea maxlength="140" spellcheck="true" style="width: 80%; min-height: 100px"></textarea></form></div></section><section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">9.6+</div></div><h2>Validation CSS</h2><p><b>:required</b> and <b>:optional</b></p><pre><code><b>:optional</b> {
+  border-color: lightGray;         
+}
+
+<b>:required</b> {
+  border: 2px solid black;         
+}</code></pre><style>.ex-validation-required:optional {
+  border-color: lightGray;
+}
+.ex-validation-required:required {
+  border: 2px solid black;
+}</style><div id="ex-validation-selectors-1"><form class="form-inline"><fieldset><p><label class="checkbox">Required field</label> <input type="text" required class="ex-validation-required"></p><p><label>Optional field</label> <input type="text" class="ex-validation-required"></p><p><button type="submit" class="btn">Submit</button></p></fieldset></form></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">9.6+</div></div><h2>Validation CSS</h2><p><b>:valid</b> and <b>:invalid</b></p><pre><code><b>:invalid</b> {
+  border-color: #E9322D;
+  box-shadow: 0 0 6px #F8B9B7;
+}
+<b>:valid</b> {
+  border-color: #46A546;
+  box-shadow: 0 0 6px #B9F8B7;
+}</code></pre><div id="ex-validation-selectors-2"><style>#ex-validation-selectors-2 [type="email"]:valid {
+  border-color: #46A546;
+  box-shadow: 0 0 6px #B9F8B7;
+}
+#ex-validation-selectors-2 :invalid {
+  border-color: #E9322D;
+  box-shadow: 0 0 6px #F8B9B7;
+}</style><form class="form-inline"><fieldset><label class="checkbox">Email</label> <input type="email"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section><section><h2>Validation CSS selectors</h2><p><b>:in-range</b> and <b>:out-of-range</b></p><pre><code>:in-range {
+  border-color: #46A546;
+}
+:out-of-range {
+  border-color: #E9322D;
+}</code></pre><div id="ex-validation-selectors-3"><style>#ex-validation-selectors-3 :in-range {
+  border-color: #46A546;
+}
+#ex-validation-selectors-3 :out-of-range {
+  border-color: #E9322D;
+}</style><form class="form-inline"><fieldset><label class="checkbox">Tickets (max. 10)</label> <input type="number" min="1" max="10"> <button type="submit" class="btn">Submit</button></fieldset></form></div></section></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">10+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>New submit button attrs</h2><p>formaction, formenctype, formmethod, formnovalidate and formtarget</p><pre><code>&lt;form action="<b>/publish</b>" method="post">
+  &lt;input type=&quot;submit&quot; value=&quot;publish&quot; /&gt;
+  &lt;input type="submit" value="save_draft" <b>formaction="/save"</b> />
+  &lt;input type="submit" value="delete" <b>formaction="/delete"</b> />
+&lt;/form&gt;
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">6+</div><div class="support ff"></div><div class="support-version">4+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>novalidate</h2><pre><code>&lt;form <b>novalidate</b>>
+  &lt;input type=&quot;text&quot; name=&quot;username&quot; required&gt;
+&lt;/form&gt;
+
+&lt;form&gt;
+  &lt;input type=&quot;text&quot; name=&quot;username&quot; required&gt;
+  &lt;button type=&quot;submit&quot;&gt;Publish&lt;/button&gt;
+  &lt;button type="submit" <b>formnovalidate</b> action="/save">Save as draft&lt;/button>
+&lt;/form&gt;</code></pre><div id="ex-novalidate"><form class="form-inline"><fieldset><label class="checkbox">Email</label> <input type="email" required> <button type="submit" class="btn">Publish</button> <button type="submit" formnovalidate class="btn">Save as draft</button></fieldset></form></div></section><section><h2>Browser support</h2><div style="height: 500px; overflow-x: visible; overflow-y: scroll;"><table class="wufoo-support-table table"><caption>Browser Support for New <b>HTML5</b> Input <b>Attributes</b></caption><thead><tr><td></td><th><div style="background-position: -50px;" class="browser"></div><div>Firefox</div></th><th><div style="background-position: -100px;" class="browser"></div><div>Safari</div></th><th><div style="background-position: -300px;" class="browser"></div><div>Safari</div></th><th><div class="browser"></div><div>Chrome</div></th><th><div style="background-position: -200px;" class="browser"></div><div>Opera</div></th><th><div style="background-position: -150px;" class="browser"></div><div>IE</div></th><th><div style="background-position: -250px;" class="browser"></div><div>Android</div></th></tr></thead><tbody><tr><th>Placeholder</th><td class="yup">4+</td><td><span class="kinda">4</span>/<span class="yup">5+</span></td><td class="yup">4+</td><td class="yup">10+</td><td><span class="kinda">11.10</span>/<span class="yup">11.50</span></td><td class="yup">10+</td><td class="yup">2.3+</td></tr><tr><th>Autofocus</th><td class="yup">4+</td><td class="yup">5+</td><td class="nope">5-</td><td class="yup">6+</td><td class="yup">11+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Maxlength</th><td><span class="kinda">3.6</span>/<span class="yup">4+</span></td><td class="yup">5+</td><td class="yup">4+</td><td class="yup">6+</td><td class="yup">11+</td><td><span class="kinda">9</span>/<span class="yup">10</span></td><td class="yup">2.3+</td></tr><tr><th>List (Datalist)</th><td class="yup">4+</td><td class="nope">5-</td><td class="nope">5-</td><td class="yup">20+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Autocomplete</th><td class="yup">4+</td><td class="yup">5.2+</td><td>N/A</td><td class="yup">17+</td><td class="yup">10.6+</td><td class="nope">10-</td><td class="nope">2.3-</td></tr><tr><th>Required</th><td class="yup">6+</td><td class="nope">5-</td><td class="nope">5-</td><td class="yup">6+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Pattern</th><td class="yup">4+</td><td class="nope">5-</td><td class="nope">5-</td><td><span class="kinda">6</span>/<span class="yup">10+</span></td><td class="yup-nope-kinda"><span class="kinda">10.6</span>/<span class="yup">11+</span></td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Spellcheck</th><td class="yup">3.6+</td><td class="yup">4+</td><td class="nope">5-</td><td class="yup">10+</td><td class="yup">11+</td><td class="yup">10+</td><td>N/A</td></tr><tr><th>Novalidate</th><td class="yup">4+</td><td class="nope">5-</td><td class="nope">5-</td><td class="yup">6+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Formnovalidate</th><td class="yup">4+</td><td class="nope">5.2-</td><td class="nope">5-</td><td class="yup">6+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Formaction/method/target</th><td class="yup">4+</td><td class="yup">5.2+</td><td class="yup">5+</td><td class="yup">10+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Formenctype</th><td class="yup-nope-kinda">?</td><td class="yup-nope-kinda">?</td><td class="yup-nope-kinda">?</td><td class="yup-nope-kinda">?</td><td class="yup-nope-kinda">?</td><td class="yup-nope-kinda">?</td><td class="yup-nope-kinda">?</td></tr><tr><th>Multiple</th><td class="yup">3.6+</td><td class="yup">5+</td><td>N/A</td><td class="yup">6+</td><td class="yup">11+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr><tr><th>Min / Max / Step</th><td class="nope">11-</td><td class="yup">5+</td><td class="nope">5-</td><td class="yup">6+</td><td class="yup">10.6+</td><td class="yup">10+</td><td class="nope">2.3-</td></tr></tbody></table></div><a href="http://wufoo.com/html5/" class="source">wufoo.com</a></section><section data-state="lab"><h2>Lab: Forms 2</h2><p>Modify a form using HTML, CSS <br>and client-side validation</p></section><section><h2>Feature detection vs browser sniffing</h2><p><b>USER AGENT SNIFFING</b></p><pre><code>var dateSupport =
+  browser != 'IE' &&
+  !(browser === 'Mozilla' && version < 4) &&
+  !(browser === 'Webkit' && version < 1.5)
+;</code></pre><p><b>FEATURE DETECTION</b></p><pre><code>var dateSupport =
+  (new Element('input', { type: 'date' }).type === 'date');
+  </code></pre></section><section><h2>Modernizr</h2><p><b>Feature detection</b> of HTML5 features</p><pre><code>&lt;html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase no-indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+</code></pre></section><section><h2>Modernizr with CSS</h2><p>Styles depending on <b>supported features</b></p><pre><code>/* fallback */
+.flexible_component {
+  background-image: url('nice.png');
+}
+
+<b>.svg</b> .flexible_component {
+  background-image: url('nice-and-scalable.svg');
+}
+</code></pre></section><section><h2>Modernizr with JavaScript</h2><p>JavaScript code depending on <b>supported features</b></p><pre><code>if (Modernizr.input.placeholder) {
+  ...
+}
+if (Modernizr.video.ogg){
+  ...
+}
+</code></pre></section><section><h2>Graceful downgrade</h2><p class="read-block"><b>Design</b> for JavaScript</p><p class="read-block"><b>Downgrade</b> for JavaScript-less</p></section><section><h2>Example: Date picker</h2><p>If JavaScript is disabled, the button will not work</p><img style="max-height: 70%" src="assets/svg/date-picker.svg"></section><section><h2>Progressive enhancement</h2><p class="read-block"><b>Design</b> for JavaScript-less</p><p class="read-block"><b>Enhance</b> if JavaScript is enabled</p></section><section><h2>Date picker (again)</h2><p>If JavaScript is disabled, there will be no button</p><img style="max-height: 70%" src="assets/svg/date-picker-2.svg"></section><section><h2>Regressive enhancement</h2><p class="read-block"><b>Design</b> for modern browsers</p><p class="read-block"><b>Polyfill</b> if feature is not supported</p></section><section><h2>Date picker (and III)</h2><p>If type=date is supported, we are good</p><img style="max-height: 70%" src="assets/svg/date-picker-3.svg"></section><section><h2>polyfills</h2><p><b>Simulate a feature</b> that is not natively supported by the browser</p><pre><code>yepnope({
+  test: Modernizr.input.placeholder,
+  nope: 'html5placeholder.jquery.js',
+  callback: function() {
+    $('input[placeholder]').placeholder();
+  }
+});
+</code></pre></section><section><h2>Modernizr conclusions</h2><p class="read-block">Prepare a <b>customized modernizr file</b></p><p class="read-block">Detect <b>supported features</b></p><p class="read-block">Apply <b>fallback and enhanced styles</b></p><p class="read-block">Apply <b>polyfills</b></p></section><section data-state="lab"><h2>Lab: Modernizr</h2><p>Review the last lab to give support to as many browsers as possible</p></section><section><h2>Microformats</h2><p class="read-block"><b>microformats.org</b></p><p class="read-block">First initiative to <b>embed metadata with the HTML</b></p><p class="read-block"><b>Billions of pages</b></p><p class="read-block"><b>Different formats:</b> Microformat, Microdata, RDFa</p></section><section><h2>schema.org</h2><p class="read-block"><b>Widespread adoption</b> by search engines including Google, Bing and Yahoo!</p><p class="read-block">Uses <b>microdata</b> with <b>itemscope</b>, <b>itemtype</b> and <b>itemprop</b></p></section><section><h2>Example: Person</h2><p>Contact details</p><pre><code>&lt;div <b>itemscope itemtype="http://schema.org/Person</b>">
+  &lt;span <b>itemprop="name</b>">Jane Doe</span>
+    &lt;a href="mailto:jane-doe@xyz.edu" <b>itemprop="email"</b>>
+    jane-doe@xyz.edu</a>
+&lt;/div&gt;
+</code></pre></section><section><h2>Person</h2><p>Not all elements are required</p><pre><code>&lt;div itemscope itemtype="<b>http://schema.org/Person</b>">
+  &lt;span itemprop="<b>name</b>">Jane Doe</span>
+  &lt;img src="janedoe.jpg" itemprop="<b>image</b>" />
+  &lt;div itemprop="<b>address</b>" itemscope  itemtype="<b>http://schema.org/PostalAddress</b>">
+    &lt;span itemprop="<b>streetAddress</b>">20341 Whitworth Institute</span>
+    &lt;span itemprop="<b>addressLocality</b>">Seattle</span>
+    &lt;span itemprop="<b>addressRegion</b>">WA</span>
+    &lt;span itemprop="<b>postalCode</b>">98052</span>
+  &lt;/div>
+  &lt;a itemprop="<b>telephone</b>" href="tel:+14251234567">(425) 123-4567</a>
+  &lt;a href="mailto:jane-doe@xyz.edu" itemprop="<b>email</b>">
+    jane-doe@xyz.edu</a>
+&lt;/div>
+</code></pre></section><section><h2>Example: Event</h2><p>Event info</p><pre><code>&lt;div itemscope itemtype="<b>http://schema.org/Event</b>">
+  &lt;a href="http://www.example.com/events/spinaltap" itemprop="<b>url name</b>">Spinal Tap</a>
+  &lt;img src="spinal_tap.jpg" itemprop="<b>image</b>" />
+  When:
+  &lt;meta itemprop="<b>startDate</b>" content="<b>2015-10-15T19:00</b>">
+  Oct 15, 7:00PM
+&lt;/div&gt;
+</code></pre></section><section><h2>Example: Nested Schemas</h2><pre><code>&lt;div itemscope itemtype="<b>http://schema.org/Restaurant</b>">
+ &lt;span itemprop="<b>name</b>">L’Amourita Pizza</span>
+ &lt;img src="pizza.jpg" itemprop="<b>image</b>" />
+ &lt;/span&gt;
+ &lt;span itemprop="aggregateRating" itemscope itemtype="<b>http://schema.org/AggregateRating</b>">
+    &lt;span itemprop="<b>ratingValue</b>">7</span> out of
+    &lt;span itemprop="<b>ratingCount</b>">24</span> ratings.
+ &lt;/span&gt;
+&lt;/div&gt;
+</code></pre></section><section><h2>Schemas recognized by Google</h2><p>Person, Event, Product, Place, Review, AggregateRating, VideoObject, Movie, etc.</p></section><section data-state="lab"><h2>Lab: Schema.org</h2><p>Introduce schemas into the proposed page</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">4+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>audio</h2><ul><li><b>Chrome</b>: virtually anything</li><li><b>Firefox</b> 3.5+: ogg and wav</li><li><b>IE</b>: mp3 </li><li><b>Safari</b>: mp3 and mp4</li></ul></section><section><h2>audio</h2><pre><code>&lt;audio id=&quot;audio&quot; src=&quot;Drum_Track.mp3&quot; controls&gt;&lt;/audio&gt;</code></pre><pre><code>document.getElementById("audio").muted = false;</code></pre><audio src="assets/audio/Drum_Track.mp3" controls></audio><a href="http://ccmixter.org/files/BillRayDrums/30968" class="source">Source: Bill Ray Drums</a></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">4+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>video</h2><pre><code>&lt;video id=&quot;video&quot; src=&quot;movie.webm&quot; autoplay controls&gt;&lt;/video&gt;</code></pre><pre><code class="javascript">document.getElementById("video").play();</code></pre><video style="width: 450px" src="http://upload.wikimedia.org/wikipedia/commons/b/b0/Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv" controls></video><a href="http://commons.wikimedia.org/wiki/File:Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv" class="source">Source: Wikimedia Commons</a></section><section><h2>video</h2><ul class="read-block"><li><b>YouTube</b>: H.264 and WebM</li><li><b>Vimeo</b>: H.264</li></ul><style>#video-wikipedia {
+  font-size: 60%;
+  line-height: 110%;
+}</style><table id="video-wikipedia" class="table table-bordered"><thead><tr><th rowspan="2" title="Sort ascending" class="headerSort">Browser</th><th rowspan="2" title="Sort ascending" class="headerSort">Operating system</th><th colspan="3" title="Sort ascending" class="headerSort">Formats supported by different web browsers</th></tr><tr><th style="width: 15%;">Ogg Theora</th><th style="width: 15%;">H.264</th><th style="width: 15%;">VP8 (WebM)</th></tr></thead><tbody><tr><th>Android browser</th><td>Android</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">2.3</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">3.0</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">2.3</td></tr><tr><th>Google Chrome</th><td>All supported</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">3.0</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">3.0</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">6.0</td></tr><tr><th rowspan="2">Internet Explorer</th><td>Windows</td><td style="background: #FED; color: black; vertical-align: middle; text-align: center;" class="depends table-depends">Manual install</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">9.0</td><td style="background: #FED; color: black; vertical-align: middle; text-align: center;" class="depends table-depends">Manual install</td></tr><tr><td>Windows Phone</td><td style="background: #ff9090; color: black; vertical-align: middle; text-align: center;" class="table-no">No</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">9.0</td><td style="background: #ff9090; color: black; vertical-align: middle; text-align: center;" class="table-no">No</td></tr><tr><th>Mozilla Firefox</th><td>All supported</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">3.5</td><td style="background: #ff9090; color: black; vertical-align: middle; text-align: center;" class="table-no">No</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">4.0</td></tr><tr><th>Opera</th><td>All supported</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">10.50</td><td style="background: #ff9090; color: black; vertical-align: middle; text-align: center;" class="table-no">No</td><td style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">10.60</td></tr><tr><th rowspan="3">Safari</th><td>iOS</td><td style="background: #ff9090; color: black; vertical-align: middle; text-align: center;" class="table-no">No</td><td rowspan="2" style="background: #90ff90; color: black; vertical-align: middle; text-align: center;" class="table-yes">3.1</td><td style="background: #ff9090; color: black; vertical-align: middle; text-align: center;" class="table-no">No</td></tr><tr><td>MacOS X</td><td rowspan="2" style="background: #FED; color: black; vertical-align: middle; text-align: center;" class="depends table-depends">Manual install</td><td rowspan="2" style="background: #FED; color: black; vertical-align: middle; text-align: center;" class="depends table-depends">Manual install</td></tr><tr><td>Windows</td><td style="background: #FED; color: black; vertical-align: middle; text-align: center;" class="depends table-depends">Manual install</td></tr></tbody></table><a href="http://en.wikipedia.org/wiki/HTML5_video" class="source">Source: Wikipedia</a></section><section><h2>Browser support</h2><p>Over 50% total browser support</p><table class="table"><thead><tr><th>Ogg/Theora</th><th>H.264</th><th>WebM/VP8</th></tr></thead><tbody><tr><td>51%</td><td>54.5%</td><td>52%</td></tr></tbody></table><a href="http://caniuse.com/#search=video" class="source">Source: caniuse.com (09-2012)</a></section><section><h2>video frameworks</h2><p>Projekktor, FlareVideo, Video JS, JW Player, Kaltura / Adobe, html5media, jMediaelement, OIPlayer, Hvideo, jQuery Video, Video for Everybody, Open Video Player, HTML5 Video Player, mediaelement.js, SublimeVideo, Uppod.HTML5, LeanBack, Mooplay, jPlayer, OSM Player</p></section><section><h2>video without JavaScript</h2><pre><code>&lt;video controls=&quot;controls&quot; poster=&quot;./poster.jpg&quot; width=&quot;640&quot; height=&quot;360&quot;&gt;
+
+  &lt;source <b>src="big_buck_bunny.mp4"</b> type="video/mp4" />
+  &lt;source <b>src="big_buck_bunny.webm"</b> type="video/webm" />
+  &lt;source <b>src="big_buck_bunny.ogv"</b> type="video/ogg" />
+  
+  &lt;object type=&quot;application/x-shockwave-flash&quot; data=&quot;flowplayer-3.2.1.swf&quot; width=&quot;640&quot; height=&quot;360&quot;&gt;
+    &lt;param name=&quot;movie&quot; value=&quot;flowplayer-3.2.1.swf&quot; /&gt;
+    &lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot; /&gt;
+    &lt;param name=&quot;wmode&quot; value=&quot;transparent&quot; /&gt;
+    &lt;param name="flashVars" value="config={'playlist':['./poster.jpg',{'url':'big_buck_bunny.mp4','autoPlay':false}]}" />
+    &lt;img alt=&quot;Big Buck Bunny&quot; src=&quot;./poster.jpg&quot; width=&quot;640&quot; height=&quot;360&quot; title=&quot;No video playback capabilities, please download the video below&quot; /&gt;
+  &lt;/object&gt;'
+&lt;/video&gt;'
+</code></pre></section><section data-state="lab"><h2>Lab: embed video</h2><p>Embed a video into a web page</p></section><section><h2>HTML5 Boilerplate</h2><p class="read-block"><b>HTML5 ready</b>, including the new tags</p><p class="read-block"><b>Progressive enhancement</b></p><p class="read-block"><b>Mobile optimizations</b></p><p class="read-block"><b>Modernizr</b> already built-in </p><p class="read-block">Tons of <b>best practices</b> out-of-the-box</p></section><section><h2>Custom Build</h2><ul class="read-block"><li>With/without responsive</li><li>With/without Bootstrap </li><li>With/without jQuery</li><li>Includes almost everything in this course</li></ul></section><section data-state="lab"><h2>Lab: HTML5 Boilerplate</h2><p>Build your first page using HTML5 boilerplate</p></section><section><h2>Keep sharp</h2><ul><li><a href="http://www.webplatform.org/">WebPlatform.org</a></li><li><a href="http://html5please.com">HTML5 Please</a></li><li><a href="http://caniuse.com">When can I use...</a></li><li><a href="https://developer.mozilla.org/">Mozilla Developer Network</a></li><li><a href="http://html5doctor.com/">HTML5 Doctor</a></li></ul></section></div><!-- The navigational controls UI--><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><!-- Presentation progress bar--><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script>// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+rollingLinks: false,
+transition: 'linear',
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'assets/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+{ src: 'assets/js/classList.js', condition: function() { return !document.body.classList; } },
+//{ src: 'assets/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//{ src: 'assets/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+]
+});</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2309405-10']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body><script src="assets/js/html5shiv.js"></script></html>
