@@ -1,5 +1,7 @@
 @import "bootstrap/bootstrap";
 
+@contentWidth: 940px;
+
 body {
   background: #F0F2F2 url(../img/background.png) no-repeat;
   background-attachment: fixed;
@@ -9,18 +11,18 @@ h1,h2,h3, h4, h5, h6 {
   color: #7DA6C6;
 }
 
-@hTopMargin: 50px;
-@hTextHeight: 150px;
-@hBgHeight: 350px;
-@hBottomMargin: 50px;
+@hTopMargin: 10px;
+@hTextHeight: 135px;
+@hBgHeight: 280px;
+@hBottomMargin: 40px;
 
 
 @headerFullHeight: @hTopMargin + @hTextHeight + @hBgHeight + @hBottomMargin;
 
 header {
   position: fixed;
-  margin-left: -470px;
-  width: 940px;
+  margin-left: -@contentWidth/2;
+  width: @contentWidth;
 
   top: @hTopMargin;
   left: 50%;
@@ -39,7 +41,7 @@ header {
 }
 
 .wrapper {
-  max-width: 940px;
+  max-width: @contentWidth;
   margin: auto;
 }
 
