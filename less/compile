@@ -1,3 +1,0 @@
-#!/bin/bash
-
-lessc style.less --yui-compress ../public/css/style.css

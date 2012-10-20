@@ -2,15 +2,7 @@
 	"folders":
 	[
 		{
-			"path": ".",
-      "folder_exclude_patterns" : ["slides/generated", "labs", "node_modules"]
+			"path": "."
 		}
-	],
-  "build_systems" : [
-    {
-      "name": "compile_LESS",
-      "working_dir": "$project_path/less",
-      "cmd": ["./compile"],
-      "selector": "source.css.less"
-    }]
+	]
 }

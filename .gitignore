@@ -1,5 +1,3 @@
-slides/node_modules
-slides/generated
+node_modules
 *.sublime-workspace
 *.orig
-labs/
