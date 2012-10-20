@@ -1,0 +1,47 @@
+#!/bin/bash
+# Generate the slides tree on the gh-pages branch.
+# To use this script, checkout both html5css3 (master branch) 
+# and html5css3-ghpages (gh-pages branch) and execute 
+# build <version_number>, e.g.:
+
+
+if [[ "$1" == "" || "$1" == "help" || "$1" == "-help" || "$1" == "--help" ]]; then
+  echo
+  echo "Please specify the release name that you want to generate:"
+  echo 
+  echo --
+  echo 'git clone git@github.com:instructormatters/html5css3.git'
+  echo 'git clone -b gh-pages git@github.com:instructormatters/html5css3.git html5css3-ghpages'
+  echo 'cd html5css3-ghpages'
+  echo 'bin/build 0.3'
+  echo --
+  echo
+  echo "This will checkout a working master and gh-pages tree, and will use "
+  echo "the master contents to generate a release tree into gh-pages. After "
+  echo "that, you should inspect the result before pushing into GitHub."
+  echo
+  exit 1
+fi
+
+WORKING_DIR=`pwd`
+ROOT=`cd $(dirname $(dirname $0))/..; pwd`
+MASTER_DIR=$ROOT/html5css3
+GH_DIR=$ROOT/html5css3-ghpages
+
+if [[ ! ( -d $MASTER_DIR && -d $GH_DIR ) ]]; then
+  echo "Could not find $MASTER_DIR and $GH_DIR"
+  echo "Please check that required folders are in place"
+  exit 1;
+fi
+
+echo "Generating slides"
+$MASTER_DIR/slides/bin/build
+
+echo "Copying slides to $GH_DIR/$1"
+mkdir -p $GH_DIR/$1
+cp -R $MASTER_DIR/slides/generated/* $GH_DIR/$1/
+
+echo "Making index.html redirect to $1/index.html"
+sed -e "s/{{version}}/$1/g" $GH_DIR/bin/index.tmpl > $GH_DIR/index.html
+
+echo "Done. Check everything before pushing your changes to Git"
