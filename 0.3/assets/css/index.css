@@ -1,0 +1,80 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+section {
+  padding: 20px;
+}
+.bg-acqua {
+  -webkit-box-shadow: 0 0 5px #000000 inset;
+  -moz-box-shadow: 0 0 5px #000000 inset;
+  box-shadow: 0 0 5px #000000 inset;
+  color: white;
+  background-color: #033649;
+  background-position: 90% 50%;
+}
+section {
+  background-repeat: no-repeat;
+}
+.bg-html5 {
+  background-image: url(../raster/html5css3.png);
+  background-position: 90% 50%;
+}
+.bg-instmatters {
+  background-image: url(../raster/logo-white.png);
+}
+.bg-chrome {
+  background-image: url(../raster/chrome-white.png);
+}
+@media (min-width: 551px) {
+  .ribbon {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 150px;
+    height: 150px;
+  }
+  .ribbon  > .forkme {
+    display: block;
+    width: 150px;
+    height: 150px;
+    text-indent: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png) no-repeat 0 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+@media (max-width: 550px) {
+  .bg-html5 {
+    background-image: none;
+  }
+  .ribbon {
+    text-align: center;
+    margin: 10px auto;
+  }
+}
