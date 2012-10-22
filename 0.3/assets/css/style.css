@@ -2684,24 +2684,6 @@ body {
  * Default theme, based on the default
  * theme of reveal.js, with (C) by Hakim El Hattab, http://hakim.se
  */
-@font-face {
-  font-family: 'CartoGothic';
-  src: url('../font/CartoGothicStd-Book-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PTSans';
-  src: url('../font/PTS55F-webfont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'PTSans';
-  src: url('../font/PTS75F-webfont.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-}
 body {
   font-family: "PTSans", Helvetica, Arial, sans-serif;
   font-size: 36px;
@@ -2792,6 +2774,24 @@ body {
 .reveal pre:first-child,
 .reveal pre + pre {
   margin-top: 0;
+}
+@font-face {
+  font-family: 'CartoGothic';
+  src: url('../font/CartoGothicStd-Book-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PTSans';
+  src: url('../font/PTS55F-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PTSans';
+  src: url('../font/PTS75F-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
 }
 .read-block {
   text-align: left;
