@@ -1,9 +1,22 @@
+.how-to-li {
+  list-style-type: circle;
+}
 h1 {
   margin-top: 50px;
 }
-h2 {
+article > header:first-child {
   margin-top: 30px;
   border-bottom: 1px solid black;
+}
+header + p {
+  margin-top: 30px;
+}
+header > h2 {
+  display: inline-block;
+}
+.back {
+  display: inline-block;
+  margin-left: 20px;
 }
 h3 {
   margin-top: 20px;
@@ -17,12 +30,61 @@ li {
 pre {
   word-wrap: break-word;
 }
+li > table {
+  margin-top: 20px;
+}
+img {
+  display: block;
+  margin: 20px auto;
+}
 @media print {
-  h1 {
+  .navbar-fixed-top,
+  nav,
+  footer,
+  .back {
+    display: none;
+  }
+  body,
+  p,
+  h1,
+  h2,
+  h3 {
+    color: black;
+  }
+  header {
     margin-top: 0;
   }
-  article {
-    page-break-before: always;
+  section {
+    page-break-after: always;
+  }
+  section:last-child {
+    page-break-after: avoid;
+  }
+  img {
+    max-width: 80%;
+  }
+  a {
+    color: #333;
+  }
+  a:after {
+    content: " (" attr(href) ")";
+  }
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre > code {
+    box-sizing: border-box;
+    border: 1px solid #333;
+    color: #222 !important;
+    background: none !important;
+    background-color: #ddd !important;
+    opacity: 1;
+    -webkit-print-color-adjust: exact;
+    page-break-inside: avoid;
+  }
+  pre > code span {
+    color: #222 !important;
+    opacity: 1 !important;
   }
 }
 @media (min-width: 551px) {

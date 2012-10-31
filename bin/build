@@ -37,6 +37,11 @@ fi
 echo "Generating slides"
 $MASTER_DIR/slides/bin/build
 
+if [[ $? -ne 0 ]]; then
+  echo 'Error: something went wrong building the slides'
+  exit 1
+fi
+
 echo "Copying slides to $GH_DIR/$1"
 mkdir -p $GH_DIR/$1
 cp -R $MASTER_DIR/slides/generated/* $GH_DIR/$1/

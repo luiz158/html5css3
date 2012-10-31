@@ -75,6 +75,11 @@ section {
     margin-right: -20px;
   }
 }
+@media (min-width: 980px) {
+  .ribbon {
+    top: 55px;
+  }
+}
 @media (max-width: 550px) {
   .bg-html5 {
     background-image: none;
