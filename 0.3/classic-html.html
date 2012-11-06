@@ -142,8 +142,8 @@ h2 + p {
   &lt;ul&gt;
     &lt;li&gt;Bob&lt;/li&gt; &lt;!-- not match --&gt;
     &lt;li&gt;Kate&lt;/li&gt; &lt;!-- not match --&gt;
-  &lt;ul&gt;
-  &lt;li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;Title&lt;/h2&gt;
@@ -311,7 +311,7 @@ a, span, strong, em {
 </code></pre></section><section><h2>Shortcuts: border</h2><p>border: <b>{border-width} {border-style} {border-color}</b></p><pre><code>p {
   border: 1px solid #0f0f0f;
 }
-</code></pre></section><section><h2>Color notation examples</h2><ul class="read-block"> <li>#f02</li><li>#ff0022</li><li>rgb(255, 0, 34)</li></ul></section><section><h2>Shortcuts: margin and padding</h2><p><b>{all}</b></p><p><b>{top / bottom} {left / right}</b></p><p><b>{top} {right} {bottom} {left}</b></p><pre><code>.foo {
+</code></pre></section><section><h2>Color notation examples</h2><ul class="read-block"> <li>#f02</li><li>#ff0022</li><li>rgb(255, 0, 34)</li><li>rgb(100%, 0, 13.3%)</li></ul></section><section><h2>Shortcuts: margin and padding</h2><p><b>{all}</b></p><p><b>{top / bottom} {left / right}</b></p><p><b>{top} {right} {bottom} {left}</b></p><pre><code>.foo {
   margin: 4px 2px;
   padding: 5px 3px 0 0;
 }
@@ -453,14 +453,14 @@ ul.data li:nth-child(3n + 1) {
   height: 200px;
   width: 200px;
   text-indent: 120%;
-  whitespace: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   background-image: url(assets/svg/html5.svg);
 }</style><a href="#img-replacement-2">HTML5</a></div></div><div class="span8"><pre><code>#pageheader h1 {
   height: 200px;
   width: 200px;
   text-indent: 100%;
-  whitespace: nowrap;
+  white-space: nowrap;
   overflow: hidden;
   background-image: url('html5.svg');
 }
