@@ -4,9 +4,9 @@ HTML5 and CSS3 course
 These are the contents of the **HTML5 and CSS3** course available at http://html5.instructormatters.com.
 
 To generate the lab dependencies (node.js is required):
-	
-  cd labs
-  npm install
+
+    cd labs
+    npm install
 
 Labs
 ----
