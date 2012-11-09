@@ -142,10 +142,6 @@ section
           .bar.baz {
             color: #000;
           }
-
-          li:not(.wide) {
-            width: 300px;
-          }
     .span6
       pre
         code.
@@ -232,12 +228,8 @@ section
         td input<b>[type="text"]</b> { background: #fff; }
 
       tr 
-        td Pseudo-classes
-        td table<b>:not(.datatable)</b> { border: 0; }
-
-      tr 
-        td Pseudo-elements
-        td .clearfix<b>:after</b> { clear: both; }
+        td ...
+        td
 
 section
   h2 Selector priority
@@ -485,7 +477,7 @@ section
 
 section
   h2 position: absolute
-  p Absolute position from the <b>first parent element that has a position other than static</b>
+  p Absolute position from the <b>first ancestor element</b> that has a <b>position other than static</b>
 
   .row-fluid
     pre.span4
@@ -526,17 +518,7 @@ section#position-fixed
           left: 0
         }
     .span4.offset2#position-fixed-example
-      style
-        #position-fixed-example .displaced {
-          position: fixed;
-          bottom: 100px;
-          left: 0;
-          background-color: rgba(200,200,200,0.5);
-          width: 100px;
-        }
-      .display-example A
-      .display-example.displaced B
-      .display-example C
+      iframe(src="assets/html/position-fixed.html")
 
 section
   h2 float

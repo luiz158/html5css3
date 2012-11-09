@@ -90,19 +90,19 @@ section
 
   p Combine <b>all background images</b>
   p Arrange images <b>vertically or horizontally</b>, allocating space for the content to grow
-  #ex-sprites
+  #sprites-diagram
     style
-      #ex-sprites {
+      #sprites-diagram {
         background: none;
       }
-      #ex-sprites .mask {
+      #sprites-diagram .mask {
         height: 50px;
         background: -webkit-linear-gradient(bottom, rgba(102,102,102,0.5) 0%, rgba(102,102,102,0.5) 6%) no-repeat 0 0,
                     -webkit-linear-gradient(bottom, rgba(102,102,102,0.5) 0%, rgba(102,102,102,0.5) 6%) no-repeat 250px 0;
         background-size: 200px 50px, auto 50px;
         position: relative;
       }
-      #ex-sprites .window {
+      #sprites-diagram .window {
         position: absolute;
         left: 200px;
         height: 50px;
@@ -110,7 +110,7 @@ section
         box-sizing: border-box;
         border: 2px solid black;
       }
-      #ex-sprites .sprites {
+      #sprites-diagram .sprites {
         position: absolute;
         left: 0px;
         width: 100%;
@@ -122,6 +122,16 @@ section
     .mask
       .sprites
       .window
+  #ex-sprites
+    style
+      #ex-sprites .window {
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        border: 2px solid black;
+        background: url(assets/raster/browsers.png) no-repeat -100px 0;
+      }
+    .window
 
 section
   h2 Rounded borders (before)

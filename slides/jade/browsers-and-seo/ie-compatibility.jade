@@ -45,20 +45,31 @@ section
         .ie6 .content { display: inline; zoom:1; }
         .ie7 .content { display: inline; zoom:1; }
       #{'</style>'}
-  a.source(href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/") Source: Paul Irish
-
 
 section
-  h2 Conditional stylesheets vs class names
-  ul
-    li PROS:
-      ul
-        li Valid HTML and CSS.
-        li No additional HTTP requests.
-    li CONS:
-      ul
-        li Add conditional comments to every single HTML page.
-        li Increases the length of your selector chain.
+  section
+    h2 Pros
+    .row-fluid
+      .span6
+        p <b>Conditional comments</b>
+        ul
+          li Valid HTML and CSS
+      .span6
+        p <b>IE selectors</b>
+        ul
+          li No need for conditional comments in each page
+  section
+    h2 Pros (conditional comments)
+    .row-fluid
+      .span6
+        p <b>External stylesheets</b>
+        ul
+          li Simpler selector chain
+      .span6
+        p <b><code>html</code> classes</b>
+        ul
+          li No additional HTTP requests
+    a.source(href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/") Read more: Paul Irish
 
 section
   h2 IE7.js, IE8.js, IE9.js

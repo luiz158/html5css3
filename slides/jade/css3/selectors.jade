@@ -157,19 +157,18 @@ section
   p :nth-last-child(n)
   p :nth-last-of-type
 
-section
+section.browser-support-container
+  mixin browserSupport('4+', '3+', '4+', '9+', '10.1+')
   h2 Style selected text
   pre
     code.
       p::selection,
-      p::-moz-selection,
-      p::-webkit-selection {
+      p::-moz-selection {
         background-color: pink;
       }
   style.
     #ex-selected-text > p::selection,
-    #ex-selected-text > p::-moz-selection,
-    #ex-selected-text > p::-webkit-selection {
+    #ex-selected-text > p::-moz-selection {
       background-color: pink;
     }
   #ex-selected-text
