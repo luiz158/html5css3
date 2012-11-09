@@ -26,7 +26,7 @@ section.browser-support-container
           });
         };
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(callback, errorCallback);
+          navigator.geolocation.getCurrentPosition(getLocation, errorCallback);
         } else {
           errorCallback();
         }
