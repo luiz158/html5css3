@@ -47,7 +47,8 @@ ul {
 		-webkit-text-size-adjust: 100%; /* required to use portrait in iphone */
 		width: auto;
 	}
-	#info, 
+	#info,
+	#footer,
 	h1 {
 		display: none;
 	}

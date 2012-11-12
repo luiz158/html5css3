@@ -1,0 +1,40 @@
+sup, span.required {
+	color: #f00;
+	font-weight: bold;
+}
+form {
+	width: 418px;
+	overflow: hidden;
+}
+form#searcher {
+	margin-bottom: 60px;
+	text-align: right;
+}
+form#searcher input[type=text] {
+	width: 255px;
+}
+label {
+    display: block;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+form#data input {
+    margin-bottom: 15px;
+    width: 172px;
+}
+form#data input[type=submit] {
+	display: block;
+	width: auto;
+	margin-top: 5px;
+}
+:invalid { 
+	border-color: #e88;
+	-webkit-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+	-moz-box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+	box-shadow: 0 0 5px rgba(255, 0, 0, .8);
+}
+::-webkit-validation-bubble-message {
+  font-size: 13px;
+  line-height: 1.5em;
+}
+

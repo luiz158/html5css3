@@ -11,8 +11,8 @@ article
     li Input Attributes
     li hmtl5shiv v3.6
     li Modernizr.load (yepnope.js)
-  img(src="assets/raster/modernizr-builder.png")
-  p Once downloaded, it should be included using a script tag at the end of the &lt;body> tag. After this tag you can start using yepnope to load the required polyfills.
+  img(src="assets/raster/modernizr-builder.png", width="600")
+  p Once downloaded, it should be included using a script tag at the end of the <code>#{'<body>'}</code> tag. After this tag you can start using yepnope to load the required polyfills.
   pre
     code.html.
       &lt;script src="modernizr.custom.11198.js">&lt;/script> 
@@ -21,9 +21,8 @@ article
       &lt;/script>
 
   h3 Description
-  p Make the previous lab work in Firefox 3.6 or IE8 using polyfills:
-  p <a href="http://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">Cross browser polyfills</a>
-  p <b>All the polyfills needed are in the after folder of this lab</b>
+  p Make the previous lab work in Firefox 3.6 or IE8 using polyfills: <b>all the polyfills needed are in the polyfills folder</b>. You can find more in <a href="http://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills">Cross browser polyfills</a>.
+  p Some of the polyfills require the javascript library <a href="http://jquery.com">jQuery</a> to work. It must be loaded <b>before</b> any polyfills. You can download it from its website, or link it from a 3rd party repository, such as <a ="https://developers.google.com/speed/libraries/devguide#jquery">Google Hosted Libraries</a>.
   p The following features should be implemented:
   ul
     li <b>autofocus:</b> use <b>autofocus.js</b>, which does not need initialization.
@@ -37,7 +36,7 @@ article
               $('input').placeholder();
             }
           }
-    li <b>required and input types:</b> If the browser does not include a native support for required inputs and several input types, as range type, we will use the jQuery plugin created by Andrew Dodson, loading the javascript and its css styles:
+    li <b>required and input types:</b> If the browser does not include a native support for required inputs and several input types, as range type, we will use the jQuery plugin (by Andrew Dodson), loading the javascript and its css styles:
       pre
         code.javascript.
           { 
