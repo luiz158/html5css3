@@ -138,37 +138,49 @@ section
 
   style
     @font-face {
-      font-family: 'IconicFill';
-      src: url('assets/font/iconic_fill.ttf') format('truetype');
+      font-family: 'fontello';
+      src: url("assets/font/fontello.ttf") format('truetype');
       font-weight: normal;
       font-style: normal;
     }
 
-    .iconic {
-      font-family: 'IconicFill';
+    .fontello {
+      font-family: fontello;
     }
-  p.iconic &#xe06a; &#xe033; &#x00b6; &#x2717; &#xe02e; &#xe01b; &#xe04d;
+
+    .icon-heart:before { content: '\2665'; } /* '♥' */
+    .icon-flag:before { content: '\2691'; } /* '⚑' */
+    .icon-info-circled:before { content: '\e705'; } /* '' */
+    .icon-share:before { content: '\e73c'; } /* '' */
+    .icon-basket:before { content: '\e73d'; } /* '' */
+    .icon-lifebuoy:before { content: '\e788'; } /* '' */
+    .icon-paper-plane:before { content: '\e79b'; } /* '' */
+    .icon-magnet:before { content: '\e7a1'; } /* '' */
+
+  p.fontello &#xe7a1; &#xe705; &#xe73c; &#xe73d; &#xe788; &#xe79b;
+
+  span.source Icons by <a href="http://www.entypo.com/">Entypo</a>
 
 section
   h2 Font-face icons
   pre
     code.
       @font-face {
-        font-family: 'iconic';
+        font-family: 'fontello';
         ...
       }
 
-      [class*="icon-"]  {  font-family: iconic;  }
+      [class*="icon-"]  {  font-family: fontello;  }
 
-      .icon-mail:before { content: '✉'; }
+      .icon-heart:before { content: '♥'; }
       ...
 
   pre
     code.
-      #{'<span class="icon icon-mail"></span>'}
-      #{'<span class="icon icon-star"></span>'}
+      #{'<span class="icon icon-flag"></span>'}
+      #{'<span class="icon icon-heart"></span>'}
   #ex-font-icons
-    p.iconic(style="font-size: 40px;") &#x2709; &#x2605;
+    p.fontello(style="font-size: 40px;") &#x2691; &#x2665;
 
 section
   h2 Fonts available

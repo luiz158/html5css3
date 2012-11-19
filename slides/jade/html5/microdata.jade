@@ -1,0 +1,76 @@
+section
+  h2 Microformats
+  p.read-block <b>microformats.org</b>
+  p.read-block First initiative to <b>embed metadata with the HTML</b>
+  p.read-block <b>Billions of pages</b>
+  p.read-block <b>Different formats:</b> Microformat, RDFa, <b>Microdata</b>
+
+section
+  h2 schema.org
+  p.read-block <b>Widespread adoption</b> by search engines including Google, Bing and Yahoo!
+  p.read-block Uses <b>microdata</b> with <b>itemscope</b>, <b>itemtype</b> and <b>itemprop</b>
+
+section
+  h2 Example: Person
+  p Contact details
+  pre
+    code.
+      &lt;div <b>itemscope itemtype="http://schema.org/Person</b>">
+        &lt;span <b>itemprop="name</b>">Jane Doe&lt;/span>
+          &lt;a href="mailto:jane-doe@xyz.edu" <b>itemprop="email"</b>>
+          jane-doe@xyz.edu&lt;/a>
+      #{'</div>'}
+
+section
+  h2 Embedded objects
+  pre
+    code.
+      &lt;div itemscope itemtype="<b>http://schema.org/Person</b>">
+        &lt;span itemprop="name">Jane Doe&lt;/span>
+        &lt;img src="janedoe.jpg" itemprop="image">
+        &lt;div itemprop="address" itemscope  itemtype="<b>http://schema.org/PostalAddress</b>">
+          &lt;span itemprop="streetAddress">20341 Whitworth Institute&lt;/span>
+          &lt;span itemprop="addressLocality">Seattle&lt;/span>
+          &lt;span itemprop="addressRegion">WA&lt;/span>
+          &lt;span itemprop="postalCode">98052&lt;/span>
+        &lt;/div>
+        &lt;a itemprop="telephone" href="tel:+14251234567">(425) 123-4567&lt;/a>
+        &lt;a href="mailto:jane-doe@xyz.edu" itemprop="email">
+          jane-doe@xyz.edu&lt;/a>
+      &lt;/div>
+
+section
+  h2 Implicit information
+  p Event info
+  pre
+    code.
+      &lt;div itemscope itemtype="<b>http://schema.org/Event</b>">
+        &lt;<b>meta</b> itemprop="name" content="Spinal Tap In Your Back">
+        &lt;h1 itemprop="performer">Spinal Tap&lt;/h1>
+        &lt;<b>link</b> itemprop="url" href="http://www.example.com/events/spinaltap">
+        &lt;img src="spinal_tap.jpg" itemprop="image">
+        When:
+        &lt;time <b>itemprop="startDate" datetime="2015-10-15T19:00"</b>>Oct 15, 7:00PM&lt;/time>
+      #{'</div>'}
+
+//- section
+//-   h2 Example: Nested Schemas
+//-   pre
+//-     code.
+//-       &lt;div itemscope itemtype="<b>http://schema.org/Restaurant</b>">
+//-        &lt;span itemprop="<b>name</b>">L’Amourita Pizza&lt;/span>
+//-        &lt;img src="pizza.jpg" itemprop="<b>image</b>">
+//-        #{'</span>'}
+//-        &lt;span itemprop="aggregateRating" itemscope itemtype="<b>http://schema.org/AggregateRating</b>">
+//-           &lt;span itemprop="<b>ratingValue</b>">7&lt;/span> out of
+//-           &lt;span itemprop="<b>ratingCount</b>">24&lt;/span> ratings.
+//-        #{'</span>'}
+//-       #{'</div>'}
+
+section
+  h2 Schemas recognized by Google
+  p Person, Event, Product, Place, Review, AggregateRating, VideoObject, Movie, etc.
+
+section(data-state="lab")
+  h2 Lab: Schema.org
+  p Introduce schemas into the proposed page
