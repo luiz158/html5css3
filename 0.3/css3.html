@@ -43,13 +43,11 @@ JägerMonkey (4+)</td></tr><tr><th>Internet Explorer</th><td>Trident</td><td>Cha
 #ex-ui-states input[type=radio] + label {
   display: inline-block;
   margin-right: 5px;
-}</style><form class="form-horizontal"><div class="control-group"><label>Disabled input</label><input type="text" disabled></div><div class="control-group"><label>Enabled input</label><input type="text"></div><div class="control-group"><input type="radio" value="1" name="radio"><label>do it today</label><br><input type="radio" value="2" name="radio"><label>do it tomorrow</label></div></form></div></section><section><h2>Element-preserving</h2><p>:first-of-type</p><p>:last-of-type</p><p>:nth-of-type(n)</p><p>:only-of-type</p></section><section><h2>Reverse counting</h2><p>:nth-last-child(n)</p><p>:nth-last-of-type</p></section><section><h2>Style selected text</h2><pre><code>p::selection,
-p::-moz-selection,
-p::-webkit-selection {
+}</style><form class="form-horizontal"><div class="control-group"><label>Disabled input</label><input type="text" disabled></div><div class="control-group"><label>Enabled input</label><input type="text"></div><div class="control-group"><input type="radio" value="1" name="radio"><label>do it today</label><br><input type="radio" value="2" name="radio"><label>do it tomorrow</label></div></form></div></section><section><h2>Element-preserving</h2><p>:first-of-type</p><p>:last-of-type</p><p>:nth-of-type(n)</p><p>:only-of-type</p></section><section><h2>Reverse counting</h2><p>:nth-last-child(n)</p><p>:nth-last-of-type</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">4+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.1+</div></div><h2>Style selected text</h2><pre><code>p::selection,
+p::-moz-selection {
   background-color: pink;
 }</code></pre><style>#ex-selected-text > p::selection,
-#ex-selected-text > p::-moz-selection,
-#ex-selected-text > p::-webkit-selection {
+#ex-selected-text > p::-moz-selection {
   background-color: pink;
 }</style><div id="ex-selected-text"><p>Select this entire slide with your mouse and compare the selected text colors.</p></div></section><section><section id="target-selector" class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">3.2+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>:target</h2><pre><code>&lt;div id=&quot;my_stuff&quot;&gt;
   &lt;p&gt;Ey, look at me!&lt;/p&gt;
@@ -141,7 +139,6 @@ p::-webkit-selection {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f89406), color-stop(100%,#ffc40d));
   background: -webkit-linear-gradient(top,  #f89406 0%,#ffc40d 100%);
   background: -o-linear-gradient(top,  #f89406 0%,#ffc40d 100%);
-  background: -ms-linear-gradient(top,  #f89406 0%,#ffc40d 100%);
   background: linear-gradient(to bottom,  #f89406 0%,#ffc40d 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f89406', endColorstr='#ffc40d',GradientType=0 );
 }</code></pre><div id="ex-linear-gradient"><style>#ex-linear-gradient {
@@ -159,7 +156,7 @@ background: radial-gradient(30% 50%, 40px 40px, #f89406, #ffc40d 60%)
   height: 100px;
   background: -moz-radial-gradient(30% 50%, 40px 40px, #f89406, #ffc40d 60%);
   background: -webkit-radial-gradient(30% 50%, 100px 100px, #f89406, #ffc40d 60%);
-}</style><div id="ex-radial-gradient"></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>rgba</h2><p>rgba<b>(red, blue, green, alpha)</b></p><pre><code>.using-opacity {
+}</style><div id="ex-radial-gradient"></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>rgba</h2><p>rgba<b>(red, green, blue, alpha)</b></p><pre><code>.using-opacity {
   opacity: .5;
 }
 .using-rgba {
@@ -237,26 +234,36 @@ h1 {
 }
 </style><style>#font-features tr:first-child td {
   border-top: none;
-}</style><table id="font-features" class="table"><thead></thead><tbody><tr><td>Kerning off</td><td><p class="trocchi">YAWAVA</p></td></tr><tr><td>Kerning on</td><td><p style="text-rendering: optimizeLegibility;" class="trocchi">YAWAVA</p></td></tr><tr><td>Glyphs off</td><td><p class="libertine">affidavit Quiet style detection</p></td></tr><tr><td>Glyphs on</td><td><p class="libertine ligs-on">affidavit Quiet style detection</p></td></tr></tbody></table></section><section><h2>Flash of unstyled text</h2><p class="read-block"><b>Firefox and Opera</b> show the next font until it is downloaded</p><p class="read-block"><b>IE and Webkit (also: Android, iPhone)</b> do not show anything</p></section><section><h2>Font repositories</h2><ul class="read-block"><li><a href="http://fontsquirrel.com"><b>Font Squirrel</b></a></li><li><a href="http://google.com/webfonts"><b>Google Web Fonts</b></a></li></ul></section><section><h2>Font-face icons</h2><p>Place icons inside a custom font</p><p>Vector icons, multiple colors</p><style>@font-face {
-  font-family: 'IconicFill';
-  src: url('assets/font/iconic_fill.ttf') format('truetype');
+}</style><table id="font-features" class="table"><thead></thead><tbody><tr><td>Kerning off</td><td><p class="trocchi">YAWAVA</p></td></tr><tr><td>Kerning on</td><td><p style="text-rendering: optimizeLegibility;" class="trocchi">YAWAVA</p></td></tr><tr><td>Glyphs off</td><td><p class="libertine">affidavit Quiet style detection</p></td></tr><tr><td>Glyphs on</td><td><p class="libertine ligs-on">affidavit Quiet style detection</p></td></tr></tbody></table><a href="http://www.typotheque.com/articles/opentype_features_in_web_browsers" class="annotation">More about font features</a></section><section><h2>Flash of unstyled text</h2><p class="read-block"><b>Firefox and Opera</b> show the next font until it is downloaded</p><p class="read-block"><b>IE and Webkit (also: Android, iPhone)</b> do not show anything</p></section><section><h2>Font repositories</h2><ul class="read-block"><li><a href="http://fontsquirrel.com"><b>Font Squirrel</b></a></li><li><a href="http://google.com/webfonts"><b>Google Web Fonts</b></a></li></ul></section><section><h2>Font-face icons</h2><p>Place icons inside a custom font</p><p>Vector icons, multiple colors</p><style>@font-face {
+  font-family: 'fontello';
+  src: url("assets/font/fontello.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-.iconic {
-  font-family: 'IconicFill';
-}</style><p class="iconic">&#xe06a; &#xe033; &#x00b6; &#x2717; &#xe02e; &#xe01b; &#xe04d;</p></section><section><h2>Font-face icons</h2><pre><code>@font-face {
-  font-family: 'iconic';
+.fontello {
+  font-family: fontello;
+}
+
+.icon-heart:before { content: '\2665'; } /* '♥' */
+.icon-flag:before { content: '\2691'; } /* '⚑' */
+.icon-info-circled:before { content: '\e705'; } /* '' */
+.icon-share:before { content: '\e73c'; } /* '' */
+.icon-basket:before { content: '\e73d'; } /* '' */
+.icon-lifebuoy:before { content: '\e788'; } /* '' */
+.icon-paper-plane:before { content: '\e79b'; } /* '' */
+.icon-magnet:before { content: '\e7a1'; } /* '' */
+</style><p class="fontello">&#xe7a1; &#xe705; &#xe73c; &#xe73d; &#xe788; &#xe79b;</p><span class="source">Icons by <a href="http://www.entypo.com/">Entypo</a></span></section><section><h2>Font-face icons</h2><pre><code>@font-face {
+  font-family: 'fontello';
   ...
 }
 
-[class*="icon-"]  {  font-family: iconic;  }
+[class*="icon-"]  {  font-family: fontello;  }
 
-.icon-mail:before { content: '✉'; }
+.icon-heart:before { content: '♥'; }
 ...
-</code></pre><pre><code>&lt;span class=&quot;icon icon-mail&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;icon icon-star&quot;&gt;&lt;/span&gt;</code></pre><div id="ex-font-icons"><p style="font-size: 40px;" class="iconic">&#x2709; &#x2605;</p></div></section><section><h2>Fonts available</h2><ul><li><a href="http://somerandomdude.com/work/iconic/">Iconic</a></li><li><a href="http://fico.lensco.be/">Fico</a></li><li><a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a></li><li><a href="http://glyphicons.com/">Glyphicons</a></li><li><a href="http://fontello.com/">Fontello (font packer)</a></li></ul></section><section><h2>Beware</h2><p class="read-block"><b>Font files sizes:</b> You don't need everything! Subset your fonts.</p><p class="read-block"><b>Arbitrary character bindings</b></p><p class="read-block"><b>Non-semantic content</b> (Use aria-hidden)</p></section><section data-state="lab"><h2>Lab: Fonts</h2><p>Change the fonts in the previous lab</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">2+</div><div class="support safari"></div><div class="support-version">3.1+</div><div class="support msie"></div><div class="support-version">8+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>box-sizing</h2><p>content-box | border-box | inherit</p><pre><code>* {
+</code></pre><pre><code>&lt;span class=&quot;icon icon-flag&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;icon icon-heart&quot;&gt;&lt;/span&gt;</code></pre><div id="ex-font-icons"><p style="font-size: 40px;" class="fontello">&#x2691; &#x2665;</p></div></section><section><h2>Fonts available</h2><ul><li><a href="http://somerandomdude.com/work/iconic/">Iconic</a></li><li><a href="http://fico.lensco.be/">Fico</a></li><li><a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a></li><li><a href="http://glyphicons.com/">Glyphicons</a></li><li><a href="http://fontello.com/">Fontello (font packer)</a></li></ul></section><section><h2>Beware</h2><p class="read-block"><b>Font files sizes:</b> You don't need everything! Subset your fonts.</p><p class="read-block"><b>Arbitrary character bindings</b></p><p class="read-block"><b>Non-semantic content</b> (Use aria-hidden)</p></section><section data-state="lab"><h2>Lab: Fonts</h2><p>Change the fonts in the previous lab</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">2+</div><div class="support safari"></div><div class="support-version">3.1+</div><div class="support msie"></div><div class="support-version">8+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>box-sizing</h2><p>content-box | border-box | inherit</p><pre><code>* {
   box-sizing: border-box;
 }
 </code></pre></section><section><h2>box-sizing</h2><p>content-box | border-box | inherit</p><pre><code>.box-model {
@@ -680,8 +687,7 @@ only screen and (min-device-pixel-ratio: 2) {
     background-image: url(imgx2.jpg);
   }
   
-}
-</code></pre></section></section><section><h2>Duplicate downloads</h2><p>Cascade override fails in Android 3- and mobile Safari 4</p><pre><code>@media (min-width: 500px) {
+}</code></pre><p>But be careful with <a target="_blank" href="performance.html#high-compression">image sizes</a>!</p></section></section><section><h2>Duplicate downloads</h2><p>Cascade override fails in Android 3- and mobile Safari 4</p><pre><code>@media (min-width: 501px) {
   .my-component {
     background-image: url('large-logo.png')
   }
