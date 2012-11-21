@@ -309,17 +309,15 @@ section
 section
   h2 !important
   p Overrides not <b>!important</b> rules
-  .fragment
-    .row-fluid
-      .span5
-          p(style="margin-top: 70px") Normal styles
-      .span7
-          mixin priorities('&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;')
-    .row-fluid
-      .span5
-          p(style="margin-top: 70px") Important styles
-      .span7
-          mixin priorities('&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;')
+  pre
+    code.
+      #header ul.nav > li > a:hover {
+        color: #4a1;
+      }
+
+      a.some-class {
+        color: black <b>!important</b>; /*  Wins  */
+      }
 
 section
   h2 Box model
