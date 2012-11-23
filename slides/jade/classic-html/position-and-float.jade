@@ -1,0 +1,245 @@
+section
+  h2 Position
+  p position: <b>static | relative | absolute | fixed</b>
+
+section
+  h2 position: static
+  p The default
+  .row-fluid
+    pre.span4
+      code.
+        #{'<div>A</div>'}
+        #{'<div>B</div>'}
+        #{'<div>C</div>'}
+    .span4.offset2
+      .display-example A
+      .display-example B
+      .display-example C
+
+section
+  h2 position: relative
+  p Relative coords to its default position
+
+  .row-fluid
+    pre.span4
+      code.
+        .B {
+          position: relative;
+          left: 15px;
+          top: 10px
+        }
+    .span4.offset2#position-relative-example
+      style
+        #position-relative-example .displaced {
+          position: relative;
+          top: 15px;
+          left: 40px;
+        }
+      .display-example A
+      .display-example.displaced B
+      .display-example C
+
+section
+  h2 position: absolute
+  p Absolute position from the <b>first ancestor element</b> that has a <b>position other than static</b>
+
+  .row-fluid
+    pre.span4
+      code.
+        .container {
+          position: relative;
+        }
+        .B {
+          position: absolute;
+          left: 15px;
+          top: 10px
+        }
+    .span4.offset2#position-absolute-example
+      style
+        #position-absolute-example {
+          position: relative;
+        }
+        #position-absolute-example .displaced {
+          position: absolute;
+          top: 20px;
+          left: 30px;
+          background-color: rgba(200,200,200,0.5);
+        }
+      .display-example A
+      .display-example.displaced B
+      .display-example C
+
+section#position-fixed
+  h2 position: fixed
+  p Fixed position relative to window, unaware of scrolling canvas
+
+  .row-fluid
+    pre.span4
+      code.
+        .B {
+          position: fixed;
+          bottom: 100px;
+          left: 0
+        }
+    .span4.offset2#position-fixed-example
+      iframe(src="assets/html/position-fixed.html")
+
+section
+  h2 float
+  p <b>float: left | right | none</b>
+  p <b>clear: left | right | both</b>
+  p Takes the element out of the box model
+
+section
+  section
+    h2 float: none
+    p No float
+    pre
+      code.
+        #{'<div>A</div>'}
+        #{'<div>B</div>'}
+        #{'<div>C</div>'}
+    #float-left-example-1
+      .row-fluid
+        .span4.offset4
+          .display-example A
+      .row-fluid
+        .span4.offset4
+          .display-example B
+      .row-fluid
+        .span4.offset4
+          .display-example C
+  section
+    h2 float: left
+    p Float left
+    pre
+      code.
+        #{'<div style="float: left">A</div>'}
+        #{'<div>B</div>'}
+        #{'<div>C</div>'}
+    style
+      #float-left-example-2 .floated {
+        float: left;
+        width: 100px;
+        background-color: rgba(200,200,200,0.5);
+      }
+    #float-left-example-2.row-fluid
+      .span6
+        .display-example.floated A
+        .display-example B
+        .display-example C
+      .span6
+        .display-example.floated(style="height: 200px;") A
+        .display-example B
+        .display-example C
+  section
+    h2 float: left
+    p Float and clear
+    pre
+      code.
+        #{'<div style="float: left">A</div>'}
+        #{'<div>B</div>'}
+        #{'<div style="clear: left">C</div>'}
+    style
+      #float-left-example-3 .floated {
+        float: left;
+        width: 100px;
+        background-color: rgba(200,200,200,0.5);
+      }
+    #float-left-example-3.row-fluid
+      .span6
+        .display-example.floated A
+        .display-example B
+        .display-example(style="clear:left") C
+      .span6
+        .display-example.floated(style="height: 200px;") A
+        .display-example B
+        .display-example(style="clear:left") C
+
+section
+  h2 Float and clear
+  #float-clear-example
+    style
+      #float-clear-example div {
+        font-size: 70%;
+        border-width: 4px;
+        border-style: solid;
+        width: 150px;
+        height: 100px;
+        margin: 7px 0;
+      }
+      #float-clear-example .fl, #float-clear-example .fl-cl {
+        float: left;
+      }
+      #float-clear-example .fl-cl {
+        clear: left;
+      }
+      #float-clear-example .no-float {
+        border: 4px solid black;
+        margin: 0 0 0 15px;
+        padding: 20px 20px 20px 180px;
+      }
+      #float-clear-example .fr {
+        float: right;
+      }
+      #float-clear-example .clear {
+        border: 4px solid black;
+        clear: both;
+        width: auto;
+      }
+    .fl.red-bg.red-border float: left
+    .fl-cl.red-bg.red-border float: left <br> clear: left
+    p.small-text.read-block.no-float.
+      Stingfish, tapetail New Zealand sand diver pelican eel electric ray roanoke bass. Redhorse sucker; angler catfish kanyu, tiger barb butterfly ray. Silver driftfish snoek flagtail tenuis sweeper flashlight fish South American darter pelican eel dwarf gourami, zebrafish, "flat loach European minnow."
+    .fr.blue-bg.blue-border float: right
+    .clear clear: both
+section
+  h2 Overflow
+  p overflow: <b>visible | hidden | auto</b>
+  style
+    #ex-overflow .row-fluid:nth-child(2) .span4 {
+      font-size: 50%;
+      line-height: 120%;
+      height: 120px;
+    }
+
+  #ex-overflow
+    .row-fluid.small-text
+      .span4 <b>overflow: visible</b>
+      .span4 <b>overflow: hidden</b>
+      .span4 <b>overflow: auto</b>
+    .row-fluid
+      .span4.
+        anaerobic top-fermenting yeast rims! conditioning bright beer sparge terminal gravity ale noble hops pitching aroma hops anaerobic. yeast malt extract scotch ale hop back krug final gravity; sour/acidic saccharification. trappist krausen, hoppy adjunct: primary fermentation cold filter reinheitsgebot noble hops alpha acid. dry stout, " dunkle, ipa copper mouthfeel pitch hydrometer malt.
+      .span4(style="overflow: hidden;").
+          anaerobic top-fermenting yeast rims! conditioning bright beer sparge terminal gravity ale noble hops pitching aroma hops anaerobic. yeast malt extract scotch ale hop back krug final gravity; sour/acidic saccharification. trappist krausen, hoppy adjunct: primary fermentation cold filter reinheitsgebot noble hops alpha acid. dry stout, " dunkle, ipa copper mouthfeel pitch hydrometer malt.
+      .span4(style="overflow: auto;").
+        anaerobic top-fermenting yeast rims! conditioning bright beer sparge terminal gravity ale noble hops pitching aroma hops anaerobic. yeast malt extract scotch ale hop back krug final gravity; sour/acidic saccharification. trappist krausen, hoppy adjunct: primary fermentation cold filter reinheitsgebot noble hops alpha acid. dry stout, " dunkle, ipa copper mouthfeel pitch hydrometer malt.
+
+section
+  h2 Overflow with floats
+
+  #overflow-float-example.row-fluid
+    style
+      #overflow-float-example .column {
+        padding: 20px;
+        border: 2px dashed black;
+      }
+    .span5
+      p overflow: visible
+      .column
+        div(style="width: 28%;\
+                    height: 300px;\
+                    float: left;").red-bg
+        div(style="height: 200px;\
+                    width: 68%;\
+                    float: right;").blue-bg
+    .span5
+      p overflow: hidden
+      .column(style="overflow:hidden")
+        div(style="width: 28%;\
+                    height: 300px;\
+                    float: left;").red-bg
+        div(style="height: 200px;\
+                    width: 68%;\
+                    float: right;").blue-bg

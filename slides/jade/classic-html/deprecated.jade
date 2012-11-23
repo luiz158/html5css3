@@ -15,3 +15,46 @@ section
   h2 Browser zoom
   p Ctrl +, Ctrl -, Ctrl 0
   p Not everyone has 20/20 vision
+
+section
+  h2 Rounded borders (before)
+
+  p Option 1: CSS Images
+  pre
+    code.
+      #{'<div class="dialog">'}
+        #{'<div class="contents">'}
+          #{'<div class="t">'}
+          #{'</div>'}
+          #{'<!-- Your content goes here -->'}
+        #{'</div>'}
+        #{'<div class="b">'}
+        #{'<div>'}
+      #{'</div>'}
+  #ex-rounded-borders
+    div(style="background: url(assets/svg/top-border.svg); height: 20px; width: 300px;\
+                margin: 0 auto;")
+    div(style="width: 300px; height: 100px;\
+                margin: 0 auto;").yellow-bg
+    div(style="background: url(assets/svg/bottom-border.svg); height: 20px; width: 300px;\
+                margin: 0 auto;")
+
+section
+  h2 Rounded borders (before)
+  p Option 2: JavaScript
+  pre
+    code.
+      #{'<script type="text/javascript" src="niftycube.js"></script>'}
+      #{'<script>'}
+        Nifty("div#box", "big");
+      #{'</script>'}
+
+section
+  h2 Shortcuts: lists
+  p list-style: {list-style-type} {list-style-position} {list-style-image}
+
+  pre
+    code.
+      li {
+        list-style: disc outside;
+      }

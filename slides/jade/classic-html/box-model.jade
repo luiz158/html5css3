@@ -1,0 +1,159 @@
+section
+  h2 Box model
+  ul(style="float: left;")
+    li width, height
+    li padding
+    li border
+    li margin
+  #box-model-example
+    style
+      #box-model-example {
+        float: right;
+      }
+      #box-model-example .box {
+        margin: 0;
+        padding: 0 20px 20px 20px;
+        line-height: 20px;
+        font-size: 14px;
+        text-align: left;
+      }
+      #box-model-example .margin {
+        border: 1px dashed black;
+      }
+      #box-model-example .inner {
+        padding-top: 20px;
+      }
+    .box.margin margin
+      .box.blue-bg border
+        .box.bluedark-bg padding
+          .box.purple-bg.inner width * height
+
+section
+  h2 Min and max
+
+  p min-width <= width <= max-width
+  p min-height <= height <= max-height
+
+section
+  h2 Shortcuts: margin and padding
+  p <b>{all}</b>
+  p <b>{top / bottom} {left / right}</b>
+  p <b>{top} {right} {bottom} {left}</b>
+  pre
+    code.
+      .foo {
+        margin: 4px 2px;
+        padding: 5px 3px 0 0;
+      }
+
+      .bar {
+        margin: 0 auto;
+        padding: 5px;
+      }
+
+section
+  h2 display
+
+  p display: <b>block | inline | inline-block | none</b>
+
+  .row-fluid
+    pre.span5
+      code.
+        p, div, h1 {
+          <b>display: block;</b>
+        }
+
+        a, span, strong, em {
+          <b>display: inline;</b>
+        }
+
+        .hide {
+          <b>display: none;</b>
+        }
+    .span7#display-example
+      style
+        .display-example.small a {
+          text-decoration: underline !important;
+        }
+        .display-example.small {
+          font-size: 70%;
+          padding: 20px;          
+        }
+      p.read-block.display-example.small.
+        Cupcake ipsum dolor sit <b title="This is inline">amet</b> dessert jelly-o. Dragée icing croissant <a title="This is inline">jelly</a> powder. <em title="This is inline">Muffin</em> croissant macaroon pie marzipan lemon drops.
+      p.read-block.display-example.small.
+        Sugar plum jelly-o gingerbread <b title="This is inline">tiramisu</b> chocolate bar gummi <i title="This is inline">bears</i>. Jelly beans soufflé <a title="This is inline">cotton</a> candy chocolate cake danish icing.
+      p.hide.display-example.small.
+        You should not be seeing this.
+section
+  h2 display: inline
+  p.read-block Text is displayed inline
+  p.read-block Horizontal padding works, vertical does not.
+  p.read-block Vertical margin is ignored.
+  p.read-block.display-example.small.
+    Cupcake ipsum dolor sit <b title="This is inline">amet</b> dessert jelly-o. Dragée icing croissant <a title="This is inline">jelly</a> powder. <em title="This is inline">Muffin</em> croissant macaroon pie marzipan lemon drops.
+section
+  h2 display: block
+  .row-fluid
+    pre.span4
+      code.
+        #{'<div>A</div>'}
+        #{'<div>B</div>'}
+        #{'<div>C</div>'}
+    .span4.offset2
+      p.small-text 100% width
+      .display-example A
+      .display-example B
+      .display-example C
+
+
+section
+  h2 display: inline-block
+  pre
+    code.
+      div {
+        <b>display: inline-block;</b>
+      }
+  #display-inline-block-example
+    style
+      #display-inline-block-example div {
+        margin: 1%;
+        border: 2px black dashed;
+        font-size: 200%;
+        line-height: 150%;
+        width: 25%;
+        display: inline-block;
+      }
+    div A
+    div B
+    div C
+
+section
+  h2 Display and Visibility
+  .row-fluid
+    .span8
+      pre
+        code(style="-webkit-column-count: 2;").
+          .B {
+            visibility: hidden;
+          }
+          .B {
+            opacity: 0;
+          }
+    .span4
+      pre
+        code.
+          .B {
+            display: none;
+          }
+  .row-fluid#display-visibility-example
+    .span8
+      .display-example A
+      .display-example(style="visibility: hidden;") B
+      .display-example C
+    .span4
+      .display-example A
+      .display-example(style="display: none;") B
+      .display-example C
+
+  a.annotation(href="http://stackoverflow.com/questions/272360/does-opacity0-have-exactly-the-same-effect-as-visibilityhidden") Subtle differences

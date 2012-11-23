@@ -1,0 +1,47 @@
+section
+  h2 Shorcuts: font
+  p font: <b>{font-style} {font-variant} {font-weight} {font-size/line-height} {font-family}</b>
+
+  pre
+    code.
+      p {
+        font: italic bold 0.9em/1.5em verdana, serif;
+      }
+
+section
+  h2 Font degradation
+  p List of fonts to be used if available, from best to worst 
+
+  pre
+    code.
+      body {
+        font: 13px/1.5 'Helvetica Neue', Arial, FreeSans, sans-serif;
+      }
+
+section
+  h2 Serif vs Sans Serif
+
+  p Best readable results
+  table.table
+    thead
+      tr
+        th screen
+        th print
+        th code
+    tbody
+      tr
+        td sans serif
+        td serif
+        td monospace
+      tr(style="font-size: 130%;")
+        td Lorem ipsum
+        td(style="font-family: serif") Lorem ipsum
+        td(style="font-family: monospace") Lorem ipsum
+
+section
+  h2 Typical web-safe fonts
+  ul.read-block
+    li <b>Serif</b>: Georgia, Times New Roman
+    li <b>Sans serif</b>: Helvetica, Arial, Tahoma, Verdana
+    li <b>Monospace</b>: Monaco, Menlo, Consolas, Courier
+    li Availability depends on the OS

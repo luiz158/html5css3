@@ -1,0 +1,338 @@
+section
+  h2 Cascading Style Sheets
+
+  ul
+    li <b>CSS1</b>
+      ul
+        li Recommendation: 1996
+    li <b>CSS2</b>
+      ul
+        li First draft: 1997
+        li Recommendation: 2000
+    li <b>CSS3</b>
+      ul
+        li Started in 1998 as a list of CSS extensions, and still under development.
+
+section#css-insertion
+  h2 CSS insertion
+
+  .valign-table
+    .valign-row
+      .valign
+        p External CSS
+      .valign
+        pre
+          code.
+            #{'<head>'}
+              <b>#{'<link rel="stylesheet" href="style.css">'}</b>
+            #{'</head>'}
+    .valign-row
+      .valign
+        p Internal CSS
+      .valign
+        pre
+          code.
+            #{'<head>'}
+              <b>
+              #{'<style>'}
+                .tab {
+                  display: block !important;
+                }
+              #{'</style>'}
+              </b>
+            #{'</head>'}
+    .valign-row
+      .valign
+        p Inline CSS
+      .valign
+        pre
+          code.
+            #{'<body>'}
+              &lt;div <b>style="width: 20px; height: 10px"</b>>
+                Hello world!
+              #{'</div>'}
+            #{'</body>'}
+
+section
+  h2 @import
+  p Import calls to other stylesheets
+  p Before <b>any</b> other content in the file
+  pre
+    code.
+      @import url('template-stylesheet.css');
+
+      /* The rest of your styles */
+
+section
+  h2 Indenting
+  .row-fluid
+    .span6
+      p <b>Classic</b>
+      pre
+        code.
+          a {
+            color: #ccc;
+            /* Your comment here */
+          }
+
+          p, div, .foo .bar {
+            width: 10px;
+            height: 5px;
+          }
+    .span6
+      p <b>Compact</b>
+      pre
+        code.
+          a { color: #ccc; } /* Foo */
+
+          p,
+          div,
+          .foo .bar {  width: 10px; height: 5px; }
+
+section
+  h2 CSS Selector
+  img(src="assets/svg/css-selector.svg", width="600")
+
+section
+  h2 Most common selectors
+  .row-fluid
+    .span6
+      p CSS
+      pre
+        code.
+          div {
+            width: 10px;
+          }
+          #foo {
+            color: #fff;
+          }
+          .baz {
+            width: 15px;
+          }
+          .bar .baz {
+            width: 30px;
+          }
+    .span6
+      p HTML
+      pre
+        code.no-highlight.
+          &lt;p <b style="color: #CC9393;">id="foo"</b>>
+            White text
+          #{'</p>'}
+
+          &lt;div <b style="color: #CC9393;">class="bar"</b>>
+            &lt;div <b style="color: #CC9393;">class="baz"</b>>
+              Hello world!
+            #{'</div>'}
+          #{'</div>'}
+
+section
+  h2 Not so common selectors
+
+  p Supported by <b>IE 7+</b>
+
+  .row-fluid
+    .span6
+      pre
+        code.
+          input[type="text"] {
+            background: #eee;
+          }
+
+          .bar.baz {
+            color: #000;
+          }
+    .span6
+      pre
+        code.
+          ul.data > li {
+            border: 1px solid #ccc;
+          }
+
+          h2 + p {
+            font-size: 18px;
+          }
+
+section
+  h2 Child and sibling selector
+
+  .row-fluid
+    .span6 CSS
+      pre
+        code.
+          ul.data > li {
+            border: 1px solid #ccc;
+          }
+
+          h2 + p {
+            font-size: 18px;
+          }
+    .span6 HTML
+      pre
+        code.
+          #{'<ul class="data">'}
+            #{'<li> <!-- match -->'}
+            My friends:
+            #{'<ul>'}
+              #{'<li>Bob</li> <!-- not match -->'}
+              #{'<li>Kate</li> <!-- not match -->'}
+            #{'</ul>'}
+            #{'</li>'}
+          #{'</ul>'}
+
+          #{'<h2>Title</h2>'}
+          #{'<p> <!-- match -->'}
+            Lorem ipsum goes here
+          #{'</p>'}
+          #{'<p> <!-- not match -->'}
+            Another Lorem ipsum
+          #{'</p>'}
+
+section
+  h2 Selectors
+  style
+    #selector-types td {
+      text-align: left;
+    }
+  //- Order took from http://www.w3.org/TR/CSS2/selector.html
+  table.table#selector-types
+    tbody
+      tr 
+        td(style="border-top: 0") Universal
+        td(style="border-top: 0") <b>*</b> { line-height: 1.5 em; }
+
+      tr
+        td By Id
+        td <b>#id</b> { display: block; }
+      tr
+        td By class
+        td <b>.myclass</b> { font-weight: bold; }
+      tr
+        td By tag
+        td <b>div</b> { border: 1px solid #fff; }
+
+      tr
+        td Descendant
+        td <b>.datatable td</b> { width: 100px; }
+
+      tr
+        td Child
+        td #toc <b>&gt;</b> li { border-top: 1px dotted #ccc; }
+
+      tr
+        td Adjacent sibling
+        td h1 <b>+</b> p { margin-top: 50px; }
+
+      tr
+        td By attribute
+        td input<b>[type="text"]</b> { background: #fff; }
+
+      tr 
+        td ...
+        td
+
+section
+  h2 Selector priority
+  style
+    #selector-priority {
+      width: 70%;
+    }
+    #selector-priority td {
+      border: none;
+      text-align: left;
+      vertical-align: middle;
+    }
+    #selector-priority .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      color: white;
+      text-align: center;
+      line-height: 58px;
+      font-size: 40px;
+    }
+    #selector-priority .arrow {
+      height: 0;
+      width: 0;
+      border: 15px solid transparent;
+      margin: auto 10px;
+      border-top: 20px solid black;
+      border-bottom: none;
+    }
+  div
+    table.table#selector-priority
+      tbody
+        tr
+          td <div class="circle green-bg">+</div>
+          td inline
+          td &lt;div <b>style="display: block;"</b>>#{'</div>'}
+        tr
+          td <div class="arrow"></div>
+          td ID
+          td <b>#menu</b> { display: block; }
+        tr
+          td <div class="arrow"></div>
+          td class
+          td <b>.myclass</b> { display: block; }
+        tr
+          td <div class="circle red-bg">&minus;</div>
+          td element
+          td <b>div</b> { display: block; }
+
+section
+  h2 Priorities
+
+  pre
+    code #sidebar ul li a.myclass:hover { ... }
+
+  mixin priorities(0, 1, 2, 3)
+
+  a.annotation(href="http://specificity.keegan.st/") Try the calculator!
+
+section
+  section
+    h2 Priorities
+
+    code .item { ... }
+    mixin priorities('&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;')
+    code ul li li li li li li li li { ... }
+    mixin priorities('&nbsp;', '&nbsp;', '&nbsp;', '&nbsp;')
+
+  section
+    h2 Priorities
+
+    code .item { ... }
+    mixin priorities(0, 0, 1, 0)
+    code ul li li li li li li li li { ... }
+    mixin priorities(0, 0, 0, 9)
+
+section
+  h2 !important
+  p Overrides not <b>!important</b> rules
+  pre
+    code.
+      #header ul.nav > li > a:hover {
+        color: #4a1;
+      }
+
+      a.some-class {
+        color: black <b>!important</b>; /*  Wins  */
+      }
+
+section
+  h2 Shortcuts
+  p property: {prop-feature-1} {prop-feature-2} {prop-feature-3} ...
+
+  .row-fluid
+    pre.span6
+      code.
+        .element {
+          font-size: 20px;
+          font-weight: bold;
+          font-family: Arial;
+        }
+    pre.span6
+      code.
+        .element {
+          font: bold 20px Arial;
+        }

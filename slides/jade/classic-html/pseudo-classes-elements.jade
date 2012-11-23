@@ -1,0 +1,121 @@
+section
+  h2 Link pseudo-classes
+  p <b>:link</b>, <b>:hover</b>, <b>:active</b>, <b>:visited</b>, <b>:focus</b>
+
+  pre
+    code.
+      a {
+        text-decoration: none;
+      }
+
+      a, a<b>:hover</b>, a<b>:active</b>, a<b>:visited</b>, a<b>:focus</b> {
+         color: #f00;
+      }
+
+      a<b>:hover</b> {
+        text-decoration: underline;
+      }
+
+section
+  h2 first-child, last-child
+  p <b>:first-child</b>   IE7+
+  p <b>:last-child</b>    IE8+
+
+  pre
+    code.
+      ul.data li {
+        border-top: 1px dotted #ccc;
+      }
+
+      ul.data li<b>:first-child</b> {
+         border-top: none;
+      }
+  #ex-first-child
+    style
+      #ex-first-child li {
+        border-top: 2px dotted #06336F;
+      }
+      #ex-first-child li:first-child {
+        border-top: none;
+      }
+    ul.read-block
+      li item 1
+      li item 2
+      li item 3
+
+section
+  h2 nth-child
+  p nth-child<b>(even | odd | {formula})</b>
+
+  pre
+    code.
+      ul.data li {
+        background: #aaa;
+      }
+
+      ul.data li<b>:nth-child(even)</b> {
+         background: #ccc;
+      }
+  #ex-nth-child
+    style
+      #ex-nth-child li:nth-child(even) {
+        background-color: #ccc;
+      }
+    ul.read-block
+      li item 1
+      li item 2
+      li item 3
+
+section
+  h2 nth-child formula
+
+  pre
+    code.
+      ul.data li {
+        float: left;
+        height: 100px;
+      }
+
+      ul.data li:nth-child(3n + 1) {
+         clear: left;
+      }
+  #ex-nth-child-formula
+    style
+      #ex-nth-child-formula ul {
+        list-style: none;
+      }
+      #ex-nth-child-formula li {
+        float: left;
+        padding: 10px;
+        margin: 8px;
+        border-radius: 5px;
+        border: 2px solid black;
+      }
+      #ex-nth-child-formula li:nth-child(3n+1) {
+        clear: left;
+        border-color: red;
+      }
+    ul
+      li item 1
+      li item 2
+      li item 3
+      li item 4
+      li item 5
+      li item 6
+section
+  h2 Pseudo-elements
+  p <b>:after, :before, :first-letter, :first-line</b>
+
+  pre
+    code.
+      a<b>:after</b> {
+        content: " (mydomain.com" attr(href) ")";
+      }
+
+      .clearfix<b>:after</b> {
+              content: ".";
+              display: block;
+              clear: both;
+              height: 0;
+              visibility: hidden;
+      }

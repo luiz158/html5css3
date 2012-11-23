@@ -1,0 +1,55 @@
+section
+  h2 Center Horizontally
+  .row-fluid
+    .span6
+      p <b>Block element</b>
+      pre
+        code.
+          .centered_block {
+            width: <b>(anything but auto)</b>
+            margin: 0 auto;
+          }
+    .span6
+      p <b>Inline element</b>
+      pre
+        code.
+          .parent {
+            text-align: center;
+          }
+
+          .children {
+            display: <b>(inline|inline-block)</b>
+          }
+
+section
+  h2 Center Vertically
+  .row-fluid
+    .span6
+      p <b>Inline elements</b>
+      pre
+        code.
+          .inline_element {
+            line-height: <b>(parent height)</b>;
+          }
+    .span6
+      p <b>Inline elements inside inline elements</b>
+      pre
+        code.
+          .inline_inside_inline {
+            vertical-align: <b>middle</b>;
+          }
+
+section
+  h2 Dead center
+
+  pre
+    code.
+      .parent {
+        position: relative;
+      }
+
+      .child {
+        position: absolute;
+        top: 50%;
+        margin-top: <b>-(element height)/2</b>;
+      }
