@@ -805,29 +805,32 @@ section
 section
   h2 Display and Visibility
   .row-fluid
-    .span6
+    .span8
+      pre
+        code(style="-webkit-column-count: 2;").
+          .B {
+            visibility: hidden;
+          }
+          .B {
+            opacity: 0;
+          }
+    .span4
       pre
         code.
           .B {
             display: none;
           }
-    .span6
-      pre
-        code.
-          .B {
-            visiblity: hidden;
-          }
   .row-fluid#display-visibility-example
-    .span6
+    .span8
+      .display-example A
+      .display-example(style="visibility: hidden;") B
+      .display-example C
+    .span4
       .display-example A
       .display-example(style="display: none;") B
       .display-example C
 
-    .span6
-      .display-example A
-      .display-example(style="visibility: hidden;") B
-      .display-example C
-    
+  a.annotation(href="http://stackoverflow.com/questions/272360/does-opacity0-have-exactly-the-same-effect-as-visibilityhidden") Subtle differences
 
 section
   h2 Link pseudo-classes
@@ -988,8 +991,3 @@ section
     li <b>Sans serif</b>: Helvetica, Arial, Tahoma, Verdana
     li <b>Monospace</b>: Monaco, Menlo, Consolas, Courier
     li Availability depends on the OS
-
-section
-  h2 Browser zoom
-  p Ctrl +, Ctrl -, Ctrl 0
-  p Not everyone has 20/20 vision

@@ -65,12 +65,16 @@ section
 
 section
   h2 Page breaks
-  p page-break-before, page-break-after
+  p page-break-before, page-break-after, page-break-inside
 
   pre
     code.
       #comments {
         page-break-before: always;
+      }
+      
+      table {
+        page-break-inside: avoid;
       }
 
 section

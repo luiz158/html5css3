@@ -10,22 +10,31 @@
   body {
     font-size: @fontSize * @multiplier;
   }
-
 }
 
-.resize(1);
+.marginTop(@multiplier) {
+  .reveal .slides {
+    margin-top: @multiplier * @slidesMarginTop;
+  }
+}
 
 //Overrides media queries for thumbnails mode
 html[thumbnails="on"] {
 
   .resize(1);
-
+  .marginTop(1);
 }
 
-@media (max-width: 979px) {
-  
-  .resize(.7);
+@media (max-height: 900px) {
+  .resize(.9);
+}
 
+@media (max-width: 979px), (max-height: 700px) {
+  .resize(.7);
+}
+
+@media (max-height: 700px) {
+  .marginTop(.8);
 }
 
 @media (max-width: 767px) {
