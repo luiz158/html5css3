@@ -1,0 +1,70 @@
+.navbar {
+  background-color: #e3e3e3;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+
+  position: relative;
+
+  width: 100px;
+  height: 50px;
+  margin: auto 10px;
+
+  text-align: center;
+  line-height: 50px;
+
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+
+  border: 1px solid black;
+  background-image: url(sprite.png);
+}
+
+.navbar .share {
+  float: right;
+  width: 50px;
+  border: none;
+
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.inbox          { background-position:    0   0;}
+.inbox:hover    { background-position: -300px 0;}
+.inbox:active   { background-position: -600px 0;}
+
+.outbox         { background-position: -100px 0;}
+.outbox:hover   { background-position: -400px 0;}
+.outbox:active  { background-position: -700px 0;}
+
+.trash          { background-position: -200px 0;}
+.trash:hover    { background-position: -500px 0;}
+.trash:active   { background-position: -800px 0;}
+
+.share          { background-position: -900px 0;}
+.share:hover    { background-position: -950px 0;}
+
+.button-bar > a:hover:after {
+  content: attr(data-badge);
+
+  position: absolute;
+  top: -10px;
+  right: 5px;
+
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 15px;
+
+  background-color: #ddd;
+  color: black;
+
+  border: 2px solid #333;
+  border-radius: 50%; /* CSS3 stuff, do not worry about it now */
+}

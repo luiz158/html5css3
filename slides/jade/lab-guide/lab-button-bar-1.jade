@@ -1,0 +1,15 @@
+article
+  mixin labHeader('Button bar 1')
+
+  h3 Duration
+  p 20 minutes
+
+  h3 Description
+  p Style the given <code>a</code> links to look like a button bar.
+  ul
+    li Add a <b><code>border</code></b> and a <b><code>background-color</code></b> to the links, so they look like buttons.
+    li Set some dimensions for the links, such as 80 × 40 pixels. It won't work, because <b><code>a</code></b> links are <i>inline</i>, so their dimensions cannot be arbitrarily specified. Fix it by setting them to behave as blocks with <b><code>display</code></b>.
+    li <b><code>Float</code></b> them to the left and add some <b><code>margin</code></b> between them.
+    li Center the text inside the buttons. <b><code>text-align</code></b> works for horizontal centering. For vertical centering you can use the <b><code>line-height</code></b>: <b>(element <code>height</code>)</b> trick.
+    li Set a darker color for the text with the <b><code>color</code></b> property.
+    li Set a <code>background-color</code> for the <b><code>.navbar</code></b>. It won't work, since all the children of the container are floating. Fix it by using the <b><code>overflow</code></b> trick.

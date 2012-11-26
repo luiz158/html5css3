@@ -1,0 +1,23 @@
+article
+  mixin labHeader('Button bar 2')
+
+  h3 Duration
+  p 40 minutes
+
+  h3 Description
+  p A button bar similar to the one built in the previous lab is provided. In addition to this, an <b>sprite.png</b> image is given, designed to be used as the buttons background.
+  ul
+    li Add the <b>sprite.png</b> image as the <b><code>background-image</code></b> of all <b><code>.navbar</code></b> links.
+    li Use <b><code>background-position</code></b> to use a different image for each button. The last icon is meant to be used with the <b><code>.share</code></b> link. The default values for the x coordinate would be: <b>0</b>, <b>-100px</b>, <b>-200px</b> and <b>-900px</b>.
+    li There are two additional versions for each one background of the first three backgrounds. Use them for <b><code>:hover</code></b> and <b><code>:active</code></b> effect.
+    img(src="assets/raster/sprite-button-bar.png")
+    li The <b><code>.share</code></b> link only has one additional version. Use it as a <b><code>:hover</code></b> effect.
+    li The <b><code>.share</code></b> link is meant to be displayed as an icon. Use some <b>image replacement</b> technique to hide the text.
+  p The markup of some of the buttons (those in <b><code>.button-bar</code></b>) contains a <b><code>data-badge</code></b> attribute with the number of mails. We can display this information with an <b><code>:after</code></b> pseudo-element.
+  ul
+    li In order to display this number when hovering, write a <b><code>:hover:after</code></b> selector for the appropiate links.
+    li Display the content of <b><code>data-badge</code></b> with <code>content: attr(data-badge);</code>
+    li Use <b><code>position: absolute</code></b> to position the number in the top right corner. Remember that <code>position: absolute</code> requires a non-<code>static</code> value in some ancestor of the element.
+    li Add a <b><code>border</code></b> and a <b><code>background-color</code></b> to resemble a badge. Specify the dimensions of the badge to be an small square. You will need to adjust the <b><code>font-size</code></b> and <b><code>line-height</code></b> to display it properly.
+
+    li Now you could add <b><code>border-radius: 50%</code></b> to convert it into a circle (a CSS3 trick).

@@ -1,0 +1,135 @@
+section
+  section#img-replacement-1
+    h2 Image replacement
+    .row-fluid
+      .span4
+        #IR-example-1
+          style
+            #IR-example-1 a {
+              display: block;
+              width: 200px;
+              height: 200px;
+              text-indent: -10000px;
+              background-image: url(assets/svg/html5.svg);
+            }
+          a(href="#img-replacement-1") HTML5
+      .span8
+        pre
+          code.
+            #pageheader h1 {
+              width: 200px;
+              height: 200px;
+              text-indent: -10000px;
+              background-image: url('html5.svg');
+            }
+        pre
+          code.
+            #{'<div id="pageheader">'}
+              #{'<a>HTML5</a>'}
+            #{'</div>'}
+
+  section#img-replacement-2
+    h2 IR using padding
+
+    .row-fluid
+      .span4
+        #IR-example-2
+          style
+            #IR-example-2 a {
+              display: block;
+              width: 0px;
+              height: 0px;
+              padding-right: 200px;
+              padding-top: 200px;
+              overflow: hidden;
+              background-image: url(assets/svg/html5.svg);
+            }
+          a(href="#img-replacement-2") HTML5
+      .span8
+        pre
+          code.
+            #pageheader h1 {
+              width: 0px;
+              height: 0px;
+              padding-right: 200px;
+              padding-top: 200px;
+              overflow: hidden;
+              background-image: url('html5.svg');
+            }
+
+  section#img-replacement-3
+    h2 IR using text-indent
+
+    .row-fluid
+      .span4
+        #IR-example-3
+          style
+            #IR-example-3 a {
+              display: block;
+              height: 200px;
+              width: 200px;
+              text-indent: 120%;
+              white-space: nowrap;
+              overflow: hidden;
+              background-image: url(assets/svg/html5.svg);
+            }
+          a(href="#img-replacement-3") HTML5
+      .span8
+        pre
+          code.
+            #pageheader h1 {
+              height: 200px;
+              width: 200px;
+              text-indent: 100%;
+              white-space: nowrap;
+              overflow: hidden;
+              background-image: url('html5.svg');
+            }
+
+section
+  h2 CSS sprites
+
+  p Combine <b>all background images</b>
+  p Arrange images <b>vertically or horizontally</b>, allocating space for the content to grow
+  #sprites-diagram
+    style
+      #sprites-diagram {
+        background: none;
+      }
+      #sprites-diagram .mask {
+        height: 50px;
+        background: -webkit-linear-gradient(bottom, rgba(102,102,102,0.5) 0%, rgba(102,102,102,0.5) 6%) no-repeat 0 0,
+                    -webkit-linear-gradient(bottom, rgba(102,102,102,0.5) 0%, rgba(102,102,102,0.5) 6%) no-repeat 250px 0;
+        background-size: 200px 50px, auto 50px;
+        position: relative;
+      }
+      #sprites-diagram .window {
+        position: absolute;
+        left: 200px;
+        height: 50px;
+        width: 50px;
+        box-sizing: border-box;
+        border: 2px solid black;
+      }
+      #sprites-diagram .sprites {
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        height: 50px;
+        background: url(assets/raster/browsers.png) no-repeat 100px 0;
+        z-index: -10;
+      }
+
+    .mask
+      .sprites
+      .window
+  #ex-sprites
+    style
+      #ex-sprites .window {
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        border: 2px solid black;
+        background: url(assets/raster/browsers.png) no-repeat -100px 0;
+      }
+    .window
