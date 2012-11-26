@@ -178,21 +178,18 @@ section
   section#target-selector.browser-support-container
     mixin browserSupport('All', '3.5+', '3.2+', '9+', '9.5+')
     h2 :target
-    pre
-      code.
-        #{'<div id="my_stuff">'}
-        #{'  <p>Ey, look at me!</p>'}
-        #{'</div>'}
-        #{'<a href="#my_stuff">Go there</a>'}
-    pre
-      code.
-        div:target {
-          background-color: gray;
-        }
-    style
-      #target-selector:target {
-        background-color: gray;
-      }
-  section
-    a(href="#target-selector") Go back!
-    p (and pay attention to the browser hash)
+    .row-fluid
+      pre.span7
+        code.
+          #{'<a href="#ref1">Go to source [1]</a>'}
+          ...
+          #{'<div id="ref1"> Ref 1 </div>'}
+          ...
+      pre.span5
+        code.
+          :target {
+            background-color: #def;
+          }
+    iframe(src="assets/html/target-selector.html", width="80%")#ex-target-example
+
+    a.annotation(href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#cite_note-1") As seen in Wikipedia

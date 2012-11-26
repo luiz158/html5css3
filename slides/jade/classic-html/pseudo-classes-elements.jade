@@ -106,16 +106,30 @@ section
   h2 Pseudo-elements
   p <b>:after, :before, :first-letter, :first-line</b>
 
+section
+  h2 :after, :before
   pre
     code.
-      a<b>:after</b> {
-        content: " (mydomain.com" attr(href) ")";
+      .my-link<b>:before</b> {
+        content: "» ";
+      }
+  #ex-pseudo-elements
+    style
+      #ex-pseudo-elements .my-link:before {
+        content: "» ";
+      }
+    a.my-link(href="") Cool link
+
+section
+  h2 clearfix
+  pre
+    code.
+      .clearfix<b>:after</b> {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
       }
 
-      .clearfix<b>:after</b> {
-              content: ".";
-              display: block;
-              clear: both;
-              height: 0;
-              visibility: hidden;
-      }
+  a.source(href="http://stackoverflow.com/a/1633170/1525398") Modern clearfixes
