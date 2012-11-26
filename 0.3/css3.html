@@ -1,6 +1,6 @@
-<!-- Write the Google Analytics code--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSS3</title><link rel="stylesheet" href="assets/css/style.css"><!-- For syntax highlighting--><link rel="stylesheet" href="assets/css/zenburn.css"><script>// If the query includes 'print-pdf' we'll use the PDF print sheet
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSS3</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/zenburn.css"><script>//- If the query includes 'print-pdf' we'll use the PDF print sheet
 document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-</script></head><body><div class="reveal"><!-- Used to fade in a background when a specific slide state is reached--><div class="state-background"></div><!-- Any section element inside of this container is displayed as a slide--><div class="slides"><section><h1>CSS3</h1></section><section><h2>Current status</h2><ul><li><b>Chrome, Safari:</b> -webkit-*</li><li><b>Firefox:</b> -moz-*</li><li><b>Explorer (9+):</b> -ms-*</li><li><b>Opera (10+):</b> -o-*</li></ul></section><section><h2>A tale of browser parts</h2><table class="table"><thead><tr><th></th><th>Layout engine</th><th>JavaScript engine</th></tr></thead><tbody><tr><th>Chrome</th><td>Webkit</td><td>V8</td></tr><tr><th>Safari</th><td>Webkit</td><td>Nitro</td></tr><tr><th>Firefox</th><td>Gecko</td><td>TraceMonkey (3.5),
+</script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>CSS3</h1></section><section><h2>Current status</h2><ul><li><b>Chrome, Safari:</b> -webkit-*</li><li><b>Firefox:</b> -moz-*</li><li><b>Explorer (9+):</b> -ms-*</li><li><b>Opera (10+):</b> -o-*</li></ul></section><section><h2>A tale of browser parts</h2><table class="table"><thead><tr><th></th><th>Layout engine</th><th>JavaScript engine</th></tr></thead><tbody><tr><th>Chrome</th><td>Webkit</td><td>V8</td></tr><tr><th>Safari</th><td>Webkit</td><td>Nitro</td></tr><tr><th>Firefox</th><td>Gecko</td><td>TraceMonkey (3.5),
 <br>
 JägerMonkey (4+)</td></tr><tr><th>Internet Explorer</th><td>Trident</td><td>Chakra</td></tr><tr><th>Android Browser</th><td>Webkit</td><td>V8</td></tr></tbody></table></section><section><h2>CSS3 browser support</h2><p class="read-block">Modern browsers support most of it</p><p class="read-block">CSS and JS tricks for legacy browsers</p></section><section><h2>Pixel perfect isn't necessary!</h2><p>Shadows, gradients, transitions, rounded corners...</p><style>#ex-pixelperfect .pixelperfect {
   border: 1px solid #ccc;
@@ -49,14 +49,12 @@ p::-moz-selection {
 }</code></pre><style>#ex-selected-text > p::selection,
 #ex-selected-text > p::-moz-selection {
   background-color: pink;
-}</style><div id="ex-selected-text"><p>Select this entire slide with your mouse and compare the selected text colors.</p></div></section><section><section id="target-selector" class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">3.2+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>:target</h2><pre><code>&lt;div id=&quot;my_stuff&quot;&gt;
-  &lt;p&gt;Ey, look at me!&lt;/p&gt;
-&lt;/div&gt;
-&lt;a href=&quot;#my_stuff&quot;&gt;Go there&lt;/a&gt;</code></pre><pre><code>div:target {
-  background-color: gray;
-}</code></pre><style>#target-selector:target {
-  background-color: gray;
-}</style></section><section><a href="#target-selector">Go back!</a><p>(and pay attention to the browser hash)</p></section></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>Border radius</h2><p>{radius} <br>
+}</style><div id="ex-selected-text"><p>Select this entire slide with your mouse and compare the selected text colors.</p></div></section><section><section id="target-selector" class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">3.2+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">9.5+</div></div><h2>:target</h2><div class="row-fluid"><pre class="span7"><code>&lt;a href=&quot;#ref1&quot;&gt;Go to source [1]&lt;/a&gt;
+...
+&lt;div id=&quot;ref1&quot;&gt; Ref 1 &lt;/div&gt;
+...</code></pre><pre class="span5"><code>:target {
+  background-color: #def;
+}</code></pre></div><iframe src="assets/html/target-selector.html" width="80%" id="ex-target-example"></iframe><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#cite_note-1" class="annotation">As seen in Wikipedia</a></section></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>Border radius</h2><p>{radius} <br>
 {topleft, bottomright} {topright, bottomleft } <br>
 {topleft} {topright} {bottomright} {bottomleft}</p><pre><code>.container {
   border: 10px solid orange;
@@ -77,7 +75,7 @@ p::-moz-selection {
   border-radius: 50%;
   margin: 0 auto;
   line-height: 100px;
-}</style><div id="ex-circle"><div class="circle yellow-bg">&lt;div></div></div></section><section data-state="lab"><h2>Lab: Badges</h2><p>Add badges to a button bar that display data</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>box-shadow</h2><p>{x offset} {y offset} {blur-radius} {color} <br>
+}</style><div id="ex-circle"><div class="circle yellow-bg">&lt;div></div></div></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>box-shadow</h2><p>{x offset} {y offset} {blur-radius} {color} <br>
 {x offset} {y offset} {blur} {spread} {color} <br>
 {shadow1}, {shadow2}, {shadow3}...</p><pre><code>.container {
   -moz-box-shadow: 10px 10px 5px #000;
@@ -860,20 +858,20 @@ my-background(color)
   my-background(myBlue)
   div
     width: 100px
-    </code></pre></div></div></section><section data-state="lab"><h2>Lab: LESS</h2><p>Refactor a CSS stylesheet</p></section><section><h2>Keep sharp</h2><ul><li><a href="http://www.webplatform.org/">WebPlatform.org</a></li><li><a href="http://html5please.com">HTML5 Please</a></li><li><a href="http://caniuse.com">When can I use...</a></li><li><a href="https://developer.mozilla.org/">Mozilla Developer Network</a></li><li><a href="http://www.quirksmode.org/">QuirksMode.org</a></li><li><a href="http://csslint.net/">CSS LINT</a></li><li><a href="http://css3clickchart.com/">CSS3 Click Chart</a></li><li><a href="http://www.browsersupport.net">browsersupport.net</a></li></ul></section></div><!-- The navigational controls UI--><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><!-- Presentation progress bar--><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script src="assets/js/html5shiv.js"></script><script>// Full list of configuration options available here:
-// https://github.com/hakimel/reveal.js#configuration
+    </code></pre></div></div></section><section data-state="lab"><h2>Lab: LESS</h2><p>Refactor a CSS stylesheet</p></section><section><h2>Keep sharp</h2><ul><li><a href="http://www.webplatform.org/">WebPlatform.org</a></li><li><a href="http://html5please.com">HTML5 Please</a></li><li><a href="http://caniuse.com">When can I use...</a></li><li><a href="https://developer.mozilla.org/">Mozilla Developer Network</a></li><li><a href="http://www.quirksmode.org/">QuirksMode.org</a></li><li><a href="http://csslint.net/">CSS LINT</a></li><li><a href="http://css3clickchart.com/">CSS3 Click Chart</a></li><li><a href="http://www.browsersupport.net">browsersupport.net</a></li></ul></section></div><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script src="assets/js/html5shiv.js"></script><script>//- Full list of configuration options available here:
+//- https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
 controls: true,
 progress: true,
 history: true,
 rollingLinks: false,
 transition: 'linear',
-// Optional libraries used to extend on reveal.js
+//- Optional libraries used to extend on reveal.js
 dependencies: [
 { src: 'assets/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
 { src: 'assets/js/classList.js', condition: function() { return !document.body.classList; } },
-//{ src: 'assets/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-//{ src: 'assets/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//-{ src: 'assets/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//-{ src: 'assets/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 { src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
 { src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
 ]
