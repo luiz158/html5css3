@@ -8,17 +8,11 @@ article
   p 30 minutes
 
   h3 Description
-  p Refactor the provided stylesheet using Less and the 3L library. To compile the .less file:
-  pre
-    code.bash.
-      ../../node_modules/less/bin/lessc style.less style.css
+  p Refactor the provided stylesheet using LESS. The <code>style.less</code> file is already linked in the page, and is compiled on the fly using a client-side version of LESS. To avoid cross-site scripting probles, the page should be accessed from a <a href="#lab-app-local-web server">local server</a>.
   p The CSS stylesheet requires the following changes to remove duplicity:
   ul
     li <b>Repeated values can be stored in variables.</b> Extract and use variables for colors (backgrounds, shadows, text color) and the width of links.
     li <b>Replace then the values in the stylesheet with variables.</b> This allows also to show relations between magnitudes, such as the line height of a link and its width. These can also be used when calculating the size of the <b><code>.links</code></b> container.
     li Use <b>nested syntax</b> to group the rules of <b><code>.links</code></b>, <b><code>.right</code></b> and <b><code>.left</code></b> in three blocks.
-    li Include 3L in the stylesheet using <b><code>@import "../3L"</code></b> 
-    li Use the <b><code>.ir()</code></b> mixin to hide the text from <b><code>a</code></b> elements. 
-    li Use the <b><code>.border-radius()</code></b> and <b><code>.box-shadow()</code></b> mixins to avoid writing the vendor prefixes.
 
   p If in time, use the color functions <b><code>.lighten()</code></b> or <b><code>darken()</code></b> to transform the color of the links on the left into the right. LESS does not have a built-in 'complement' function, but it is possible to obtain an approximation using <b><code>#fff - @color</code></b>.

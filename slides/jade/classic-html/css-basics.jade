@@ -307,6 +307,28 @@ section
     mixin priorities(0, 0, 0, 9)
 
 section
+  h2 Cascading
+  p The last rule breaks the tie
+  .span5
+    pre
+      code.
+        #{'<div class="nav-block">'}
+          #{'<ul class="nav-list">'}
+            ...
+          #{'</ul>'}
+        #{'</div>'}
+  .span7
+    pre
+      code.
+        ul.nav-list {
+          list-style: none;
+        }
+
+        .nav-block > ul {
+          list-style: bullets; /* Wins */
+        }
+
+section
   h2 !important
   p Overrides not <b>!important</b> rules
   pre

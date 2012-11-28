@@ -205,7 +205,7 @@ section
           <b>@import "variables";</b>
 
           .component {
-            color: myGreen;
+            color: @myGreen;
             .center();
           }
 
@@ -221,29 +221,6 @@ section
 
 //-       .heading(@bgColor) when (lightness(@bgColor) >= 50%) {
 //-         color: black;
-//-       }
-
-//- section
-//-   h2 3L ?
-//-   p LESS framework
-
-//-   pre
-//-     code.
-//-       @import "compass";
-
-//-       // CSS3 mixins
-//-       .container {
-//-         @include background-image(linear-gradient(#FFF, #000));
-
-//-         @include transition-property(color);
-//-         @include transition-duration(.5s)
-//-         ...
-//-       }
-
-//-       // Sprite generation
-//-       $icons: sprite-map("icons/*.png");
-//-       .links{
-//-         background: $icons;
 //-       }
 
 section
@@ -272,8 +249,6 @@ section
       p Stylus
       pre
         code.
-          @import "layout.styl";
-
           @import "layout.styl";
 
           myBlue = #12F

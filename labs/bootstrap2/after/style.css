@@ -1,7 +1,5 @@
-/* Ignore these rules */
-
 .container > div {
-	margin-top: 100px;
+  margin-top: 100px;
 }
 
 body {
@@ -12,15 +10,7 @@ li {
   margin-left: auto;
 }
 
-/*              */
-
-.button-bar {
-	width: 320px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 i[class^="icon-"] {
-	font-size: 18px;
-	margin-right: 10px;
+  font-size: 18px;
+  margin-right: 10px;
 }
