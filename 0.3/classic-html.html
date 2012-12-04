@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Classic HTML and CSS</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/zenburn.css"><script>//- If the query includes 'print-pdf' we'll use the PDF print sheet
-document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-</script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>Classic HTML and CSS</h1></section><section><h2>HTML</h2><p class="read-block"><b>Hypertext Mark-up Language</b></p><p class="read-block">Developed by <b>Tim Berners-Lee</b> in 1989</p><p class="read-block">Maintained by the <b>World Wide Web Consortium</b> (W3C) since 1996</p></section><section><h2>History of HTML</h2><ul class="read-block"><li><b>HTML 2.0</b>: 1995</li><li><b>HTML 3.2</b>: January 1997</li><li><b>HTML 4.0</b>: December 1997</li><li><b>HTML 5</b>: 2004 (first draft in 2008)</li></ul></section><section><h2>Tags</h2><div class="row-fluid"><div class="span6"><ul class="read-block"><li>With / without content</li><li>Attributes enclosed by double quotes</li><li>Semantic CSS</li><li>Lowercase</li></ul></div><div class="span6"><pre><code>&lt;div&gt;
+document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script src="assets/js/jquery-1.8.1.min.js"></script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>Classic HTML and CSS</h1></section><section><h2>HTML</h2><p class="read-block"><b>Hypertext Mark-up Language</b></p><p class="read-block">Developed by <b>Tim Berners-Lee</b> in 1989</p><p class="read-block">Maintained by the <b>World Wide Web Consortium</b> (W3C) since 1996</p></section><section><h2>History of HTML</h2><ul class="read-block"><li><b>HTML 2.0</b>: 1995</li><li><b>HTML 3.2</b>: January 1997</li><li><b>HTML 4.0</b>: December 1997</li><li><b>HTML 5</b>: 2004 (first draft in 2008)</li></ul></section><section><h2>Tags</h2><div class="row-fluid"><div class="span6"><ul class="read-block"><li>With / without content</li><li>Attributes enclosed by double quotes</li><li>Semantic CSS</li><li>Lowercase</li></ul></div><div class="span6"><pre><code>&lt;div&gt;
   &lt;p class=&quot;header&quot;&gt;
     Text content
   &lt;/p&gt;
@@ -175,7 +174,18 @@ h2 + p {
   margin: auto 10px;
   border-top: 20px solid black;
   border-bottom: none;
-}</style><div><table id="selector-priority" class="table"><tbody><tr><td><div class="circle green-bg">+</div></td><td>inline</td><td>&lt;div <b>style="display: block;"</b>>&lt;/div&gt;</td></tr><tr><td><div class="arrow"></div></td><td>ID</td><td><b>#menu</b> { display: block; }</td></tr><tr><td><div class="arrow"></div></td><td>class</td><td><b>.myclass</b> { display: block; }</td></tr><tr><td><div class="circle red-bg">&minus;</div></td><td>element</td><td><b>div</b> { display: block; }</td></tr></tbody></table></div></section><section><h2>Priorities</h2><pre><code>#sidebar ul li a.myclass:hover { ... }</code></pre><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">1</div><div class="priority-level">2</div><div class="priority-level">3</div></div></div><a href="http://specificity.keegan.st/" class="annotation">Try the calculator!</a></section><section><section><h2>Priorities</h2><code>.item { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div></div></div><code>ul li li li li li li li li { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div></div></div></section><section><h2>Priorities</h2><code>.item { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">1</div><div class="priority-level">0</div></div></div><code>ul li li li li li li li li { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">9</div></div></div></section></section><section><h2>!important</h2><p>Overrides not <b>!important</b> rules</p><pre><code>#header ul.nav > li > a:hover {
+}</style><div><table id="selector-priority" class="table"><tbody><tr><td><div class="circle green-bg">+</div></td><td>inline</td><td>&lt;div <b>style="display: block;"</b>>&lt;/div&gt;</td></tr><tr><td><div class="arrow"></div></td><td>ID</td><td><b>#menu</b> { display: block; }</td></tr><tr><td><div class="arrow"></div></td><td>class</td><td><b>.myclass</b> { display: block; }</td></tr><tr><td><div class="circle red-bg">&minus;</div></td><td>element</td><td><b>div</b> { display: block; }</td></tr></tbody></table></div></section><section><h2>Priorities</h2><pre><code>#sidebar ul li a.myclass:hover { ... }</code></pre><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">1</div><div class="priority-level">2</div><div class="priority-level">3</div></div></div><a href="http://specificity.keegan.st/" class="annotation">Try the calculator!</a></section><section><section><h2>Priorities</h2><code>.item { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div></div></div><code>ul li li li li li li li li { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div></div></div></section><section><h2>Priorities</h2><code>.item { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">1</div><div class="priority-level">0</div></div></div><code>ul li li li li li li li li { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">9</div></div></div></section></section><section><h2>Cascading</h2><p>The last rule breaks the tie</p><div class="span5"><pre><code>&lt;div class=&quot;nav-block&quot;&gt;
+  &lt;ul class=&quot;nav-list&quot;&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></div><div class="span7"><pre><code>ul.nav-list {
+  list-style: none;
+}
+
+.nav-block > ul {
+  list-style: bullets; /* Wins */
+}
+</code></pre></div></section><section><h2>!important</h2><p>Overrides not <b>!important</b> rules</p><pre><code>#header ul.nav > li > a:hover {
   color: #4a1;
 }
 
@@ -448,9 +458,12 @@ a, span, strong, em {
   height: 200px;
   text-indent: -10000px;
   background-image: url(assets/svg/html5.svg);
-}</style><a href="#img-replacement-1">HTML5</a></div></div><div class="span8"><pre><code>#pageheader h1 {
+}</style><a href="#img-replacement-1">HTML5</a></div></div><div class="span8"><pre><code>#pageheader a {
+  display: block;
+  
   width: 200px;
   height: 200px;
+  
   text-indent: -10000px;
   background-image: url('html5.svg');
 }</code></pre><pre><code>&lt;div id=&quot;pageheader&quot;&gt;
@@ -464,11 +477,14 @@ a, span, strong, em {
   padding-top: 200px;
   overflow: hidden;
   background-image: url(assets/svg/html5.svg);
-}</style><a href="#img-replacement-2">HTML5</a></div></div><div class="span8"><pre><code>#pageheader h1 {
+}</style><a href="#img-replacement-2">HTML5</a></div></div><div class="span8"><pre><code>#pageheader a {
+  display: block;
+  
   width: 0px;
   height: 0px;
   padding-right: 200px;
   padding-top: 200px;
+  
   overflow: hidden;
   background-image: url('html5.svg');
 }
@@ -480,9 +496,12 @@ a, span, strong, em {
   white-space: nowrap;
   overflow: hidden;
   background-image: url(assets/svg/html5.svg);
-}</style><a href="#img-replacement-3">HTML5</a></div></div><div class="span8"><pre><code>#pageheader h1 {
+}</style><a href="#img-replacement-3">HTML5</a></div></div><div class="span8"><pre><code>#pageheader a {
+  display: block;
+  
   height: 200px;
   width: 200px;
+  
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;

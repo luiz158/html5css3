@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSS3</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/zenburn.css"><script>//- If the query includes 'print-pdf' we'll use the PDF print sheet
-document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-</script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>CSS3</h1></section><section><h2>Current status</h2><ul><li><b>Chrome, Safari:</b> -webkit-*</li><li><b>Firefox:</b> -moz-*</li><li><b>Explorer (9+):</b> -ms-*</li><li><b>Opera (10+):</b> -o-*</li></ul></section><section><h2>A tale of browser parts</h2><table class="table"><thead><tr><th></th><th>Layout engine</th><th>JavaScript engine</th></tr></thead><tbody><tr><th>Chrome</th><td>Webkit</td><td>V8</td></tr><tr><th>Safari</th><td>Webkit</td><td>Nitro</td></tr><tr><th>Firefox</th><td>Gecko</td><td>TraceMonkey (3.5),
+document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script src="assets/js/jquery-1.8.1.min.js"></script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>CSS3</h1></section><section><h2>Current status</h2><ul><li><b>Chrome, Safari:</b> -webkit-*</li><li><b>Firefox:</b> -moz-*</li><li><b>Explorer (9+):</b> -ms-*</li><li><b>Opera (10+):</b> -o-*</li></ul></section><section><h2>A tale of browser parts</h2><table class="table"><thead><tr><th></th><th>Layout engine</th><th>JavaScript engine</th></tr></thead><tbody><tr><th>Chrome</th><td>Webkit</td><td>V8</td></tr><tr><th>Safari</th><td>Webkit</td><td>Nitro</td></tr><tr><th>Firefox</th><td>Gecko</td><td>TraceMonkey (3.5),
 <br>
 JägerMonkey (4+)</td></tr><tr><th>Internet Explorer</th><td>Trident</td><td>Chakra</td></tr><tr><th>Android Browser</th><td>Webkit</td><td>V8</td></tr></tbody></table></section><section><h2>CSS3 browser support</h2><p class="read-block">Modern browsers support most of it</p><p class="read-block">CSS and JS tricks for legacy browsers</p></section><section><h2>Pixel perfect isn't necessary!</h2><p>Shadows, gradients, transitions, rounded corners...</p><style>#ex-pixelperfect .pixelperfect {
   border: 1px solid #ccc;
@@ -232,7 +231,7 @@ h1 {
 }
 </style><style>#font-features tr:first-child td {
   border-top: none;
-}</style><table id="font-features" class="table"><thead></thead><tbody><tr><td>Kerning off</td><td><p class="trocchi">YAWAVA</p></td></tr><tr><td>Kerning on</td><td><p style="text-rendering: optimizeLegibility;" class="trocchi">YAWAVA</p></td></tr><tr><td>Glyphs off</td><td><p class="libertine">affidavit Quiet style detection</p></td></tr><tr><td>Glyphs on</td><td><p class="libertine ligs-on">affidavit Quiet style detection</p></td></tr></tbody></table><a href="http://www.typotheque.com/articles/opentype_features_in_web_browsers" class="annotation">More about font features</a></section><section><h2>Flash of unstyled text</h2><p class="read-block"><b>Firefox and Opera</b> show the next font until it is downloaded</p><p class="read-block"><b>IE and Webkit (also: Android, iPhone)</b> do not show anything</p></section><section><h2>Font repositories</h2><ul class="read-block"><li><a href="http://fontsquirrel.com"><b>Font Squirrel</b></a></li><li><a href="http://google.com/webfonts"><b>Google Web Fonts</b></a></li></ul></section><section><h2>Font-face icons</h2><p>Place icons inside a custom font</p><p>Vector icons, multiple colors</p><style>@font-face {
+}</style><table id="font-features" class="table"><thead></thead><tbody><tr><td>Kerning off</td><td><p class="trocchi">YAWAVA</p></td></tr><tr><td>Kerning on</td><td><p style="text-rendering: optimizeLegibility;" class="trocchi">YAWAVA</p></td></tr><tr><td>Glyphs off</td><td><p class="libertine">affidavit Quiet style detection</p></td></tr><tr><td>Glyphs on</td><td><p class="libertine ligs-on">affidavit Quiet style detection</p></td></tr></tbody></table><a href="http://www.typotheque.com/articles/opentype_features_in_web_browsers" class="annotation">More about font features</a></section><section><h2>Flash of unstyled text</h2><p class="read-block"><b>Firefox and Opera</b> show the next font until it is downloaded</p><p class="read-block"><b>IE and Webkit (also: Android, iPhone)</b> do not show anything</p></section><section><h2>Font repositories</h2><ul class="read-block"><li><a href="http://fontsquirrel.com"><b>Font Squirrel</b></a></li><li><a href="http://google.com/webfonts"><b>Google Web Fonts</b></a></li><li><a href="http://html.adobe.com/edge/webfonts/"><b>Adobe Edge Web Fonts</b></a></li></ul></section><section><h2>Font-face icons</h2><p>Place icons inside a custom font</p><p>Vector icons, multiple colors</p><style>@font-face {
   font-family: 'fontello';
   src: url("assets/font/fontello.ttf") format('truetype');
   font-weight: normal;
@@ -510,7 +509,7 @@ matrix3d(m)
   -webkit-animation-duration: 4s;
   -webkit-animation-iteration-count: 10;
   color: black;
-}</style><p class="pulsing">This paragraph should pulse. Pulsing is the new blink. <br>You heard it here first.</p></div></section><section data-state="lab"><h2>Lab: Animations</h2><p>Imitate the Mac button behavior using CSS3 animations</p></section><section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">8+</div><div class="support opera"></div><div class="support-version">All</div></div><h2>display: table</h2><pre><code>#main {
+}</style><p class="pulsing">This paragraph should pulse. Pulsing is the new blink. <br>You heard it here first.</p></div></section><section><h2>Shortcut</h2><p>animation: <b>{name}</b> <b>{duration}</b> <b>{timing-function}</b> <b>{delay}</b> <b>{iteration-count}</b> <b>{direction}</b> <b>{fill-mode}</b></p><br><p>Also <b>animation-play-state</b></p></section><section data-state="lab"><h2>Lab: Animations</h2><p>Imitate the Mac button behavior using CSS3 animations</p></section><section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">All</div><div class="support ff"></div><div class="support-version">All</div><div class="support safari"></div><div class="support-version">All</div><div class="support msie"></div><div class="support-version">8+</div><div class="support opera"></div><div class="support-version">All</div></div><h2>display: table</h2><pre><code>#main {
   display: table;
 }
 #nav, #content {
@@ -720,14 +719,14 @@ only screen and (min-device-pixel-ratio: 2) {
     width: 100%;
     margin-left: 0;
   }
-} </style><div id="ex-bootstrap-rwd"><div class="row-fluid"><div class="span2 grid-block">Fee</div><div class="span2 grid-block">Fi</div><div class="span1 grid-block offset2">Fo</div><div class="span4 grid-block">Fum!</div></div></div></section></section><section data-state="lab"><h2>Lab: Responsive design</h2><p>Make a web page responsive</p></section><section id="less"><h2>CSS preprocessors</h2><p><b>LESS</b> extends CSS</p><div class="row-fluid"><div class="span6 fragment"><pre><code class="no-highlight">@redBlood: #dde0514;
+} </style><div id="ex-bootstrap-rwd"><div class="row-fluid"><div class="span2 grid-block">Fee</div><div class="span2 grid-block">Fi</div><div class="span1 grid-block offset2">Fo</div><div class="span4 grid-block">Fum!</div></div></div></section></section><section data-state="lab"><h2>Lab: Responsive design</h2><p>Make a web page responsive</p></section><section id="less"><h2>CSS preprocessors</h2><p><b>LESS</b> extends CSS</p><div class="row-fluid"><div class="span6 fragment"><pre><code class="no-highlight">@redBlood: #dde051;
 @size: 300px;
 
 .class {
   background-color: @redBlood;
   width: @size;
 }</code></pre></div><div class="span6 fragment"><pre><code>.class {
-  background-color: #dde0514;
+  background-color: #dde051;
   width: 300px;
 }
 </code></pre></div></div></section><section><h2>Using LESS</h2><pre><code>// Installing
@@ -829,7 +828,7 @@ lessc styles.less styles.css
 ...</code></pre></div><div class="span6"><p class="small-text">style.less</p><pre><code class="no-highlight"><b>@import "variables";</b>
 
 .component {
-  color: myGreen;
+  color: @myGreen;
   .center();
 }
 </code></pre></div></div></section><section><h2>More syntactic sugar</h2><div class="row-fluid"><div class="span6"><p>Sass</p><pre><code>@import "compass";
@@ -846,8 +845,6 @@ $myBlue = #12F;
     width: 100px;
   }
 }</code></pre></div><div class="span6"><p>Stylus</p><pre><code>@import "layout.styl";
-
-@import "layout.styl";
 
 myBlue = #12F
 
