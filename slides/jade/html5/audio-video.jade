@@ -15,7 +15,9 @@ section
   pre
     code.
       document.getElementById("audio").muted = false;
-  audio(src="assets/audio/Drum_Track.mp3", controls)
+  audio(controls)
+  .control-group
+    button.btn.load-audio Load
   a.source(href="http://ccmixter.org/files/BillRayDrums/30968") Source: Bill Ray Drums
 
 section.browser-support-container
@@ -27,7 +29,9 @@ section.browser-support-container
   pre
     code.javascript.
       document.getElementById("video").play();
-  video(style="width: 450px", src="http://upload.wikimedia.org/wikipedia/commons/b/b0/Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv", controls)
+  video(style="width: 450px", controls)
+  .control-group
+    button.btn.load-video Load
   a.source(href="http://commons.wikimedia.org/wiki/File:Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv") Source: Wikimedia Commons
 
 include video-support
@@ -76,3 +80,16 @@ section
 section(data-state="lab")
   h2 Lab: embed video
   p Embed a video into a web page
+
+script
+  $('.load-audio').on('click', function () {
+    if(!$('audio').attr('src')) {
+      $('audio').attr('src', 'assets/audio/Drum_Track.mp3')
+    }
+  });
+
+  $('.load-video').on('click', function () {
+    if(!$('video').attr('src')) {
+      $('video').attr('src', 'http://upload.wikimedia.org/wikipedia/commons/b/b0/Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv')
+    }
+  });

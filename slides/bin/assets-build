@@ -3,3 +3,5 @@
 if [[  "$1" =~ "slides/assets" ]]; then
   cp -r assets generated
 fi
+
+echo Copied assets!

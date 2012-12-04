@@ -40,10 +40,7 @@ section
   h2 IDBWrapper.js
   pre
     code.
-      var myDB = new IDBStore({
-        dbName: 'myDB',
-        storeName: 'friend'
-      });
+      var friends = new IDBStore();
 
       friends.put({ 
           name: 'James' 
@@ -88,18 +85,19 @@ section.browser-support-container
 
   pre
     code.
-      function handleFileSelect(evt) {
+      var listener = function (evt) {
         var file = evt.target.files[0];
         $('#list').append('&lt;li>' + file.name + ' - ' + file.size + ' bytes.');
-      }
-      $('#yourFile').on('change', handleFileSelect);
+      };
+
+      $('#yourFile').on('change', listener);
 
 section
   h2 FileReader
   p Read file contents
   pre
     code.
-        function handleFileSelect(evt) {
+        var listener = function (evt) {
           var file = evt.target.files[0],
             reader = new FileReader();
 
@@ -108,7 +106,7 @@ section
               src: e.target.result,
               title: file.name
             });
-            $('#list').append($img);
+            //Insert $img
           }
 
           reader.readAsDataURL(file); // Read in the image file as a data URL.

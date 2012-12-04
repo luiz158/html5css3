@@ -57,7 +57,17 @@ section
 section
   h2 Example: Date picker
   p If JavaScript is disabled, the button will not work
-  img(style="max-height: 70%", src="assets/svg/date-picker.svg")
+  .row-fluid#date-picker-ex-1
+    .span4
+      form.date-picker
+        .control-group
+          button Toggle ✔
+        label Date
+        input(type="text")
+        span.calendar-icon
+          mixin datePicker
+    .span8
+      img(style="max-height: 70%", src="assets/svg/date-picker.svg")
 
 section
   h2 Progressive enhancement
@@ -67,17 +77,38 @@ section
 section
   h2 Date picker (again)
   p If JavaScript is disabled, there will be no button
-  img(style="max-height: 70%", src="assets/svg/date-picker-2.svg")
+  .row-fluid#date-picker-ex-2
+    .span4
+      form.date-picker
+        .control-group
+          button Toggle ✔
+        label Date
+        input(type="text")
+        span.calendar-icon
+          mixin datePicker
+    .span8
+        img(style="max-height: 70%", src="assets/svg/date-picker-2.svg")
 
 section
   h2 Regressive enhancement
   p.read-block <b>Design</b> for modern browsers
   p.read-block <b>Polyfill</b> if feature is not supported
 
+
 section
   h2 Date picker (and III)
   p If type=date is supported, we are good
-  img(style="max-height: 70%", src="assets/svg/date-picker-3.svg")
+  .row-fluid#date-picker-ex-3
+    .span4
+      form.date-picker
+        .control-group
+          button.btn Toggle ✔
+        label Date
+        input(type="date")
+        span.calendar-icon(style="display: none")
+          mixin datePicker
+    .span8
+        img(style="max-height: 70%", src="assets/svg/date-picker-3.svg")
 
 section
   h2 polyfills
@@ -102,3 +133,50 @@ section
 section(data-state="lab")
   h2 Lab: Modernizr
   p Review the last lab to give support to as many browsers as possible
+
+script
+  (function () {
+    var features = true;
+
+    function showDatePicker (e) {
+      var datePicker = e.target.children[0];
+      if(datePicker.style.display) {
+        datePicker.style.display = null;
+      } else {
+        datePicker.style.display = 'none';
+      }
+    };
+
+    $('.calendar-icon').each(function () {
+      $(this).on('click', showDatePicker);
+    });
+
+    function toggleFunctionality (e) {
+      if(features) {
+        $('#date-picker-ex-1 .calendar-icon').unbind('click', showDatePicker);
+
+        $('#date-picker-ex-2 .calendar-icon').css('display', 'none');
+
+        $('#date-picker-ex-3 .calendar-icon').css('display', 'inline-block');
+        $('#date-picker-ex-3 [type="date"]').replaceWith($('<input type="text">'));
+
+        $('.date-picker button').text('Toggle ✘');
+        features = false;
+      } else {
+        $('#date-picker-ex-1 .calendar-icon').on('click', showDatePicker);
+
+        $('#date-picker-ex-2 .calendar-icon').css('display', 'inline-block');
+
+        $('#date-picker-ex-3 .calendar-icon').css('display', 'none');
+        $('#date-picker-ex-3 [type="text"]').replaceWith($('<input type="date">'));
+
+        $('.date-picker button').text('Toggle ✔');
+        features = true;
+      }
+    }
+    
+    $('.date-picker button').each(function () {
+      $(this).on('click', toggleFunctionality);
+    });
+
+  })();

@@ -12,3 +12,6 @@ else
   node_modules/less/bin/lessc less/index.less --yui-compress generated/assets/css/index.css
   node_modules/less/bin/lessc less/style.less --yui-compress generated/assets/css/style.css
 fi
+
+
+echo Compiled LESS source

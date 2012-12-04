@@ -15,6 +15,7 @@ html(lang='en')
     script
       //- If the query includes 'print-pdf' we'll use the PDF print sheet
       document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    script(src="assets/js/jquery-1.8.1.min.js")
 
   body
     .reveal

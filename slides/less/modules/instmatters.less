@@ -294,3 +294,34 @@ video {
   line-height: 150%;
   width: 100%;
 }
+
+.date-picker {
+  position: relative;
+  text-align: left;
+  input {
+    margin: 0;
+    margin-right: 6px;
+  }
+  .calendar-icon {
+    display: inline-block;
+    height: 26px;
+    width: 24px;
+    background: url(../raster/calendar-icon.png) no-repeat;
+  }
+}
+
+.reveal .date-picker-block {
+  position: absolute;
+  border: 1px solid #888;
+  background-color: rgba(150,150,150,0.5);
+  font-size: 50%;
+  width: 250px;
+  text-align: center;
+  top: 100%;
+  right: 0;
+
+  & td {
+    height: 35px;
+    vertical-align: middle;
+  }
+}
