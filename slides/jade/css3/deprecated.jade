@@ -1,5 +1,44 @@
 //- Miscellaneous stuff removed from the CSS3 module
 
+section.browser-support-container
+  mixin browserSupport('All', '3.5+', '3.2+', '7+', '9.5+')
+  h2 New selectors
+  p Later general sibling
+  pre
+    code.
+      h2 ~ p {
+        color: orangered;
+      }
+  #ex-general-sibling
+    style
+      #ex-general-sibling .header { font-weight: bold; margin-bottom: 0; }
+      #ex-general-sibling .header ~ p { color: orangered; margin-bottom: 0; }
+    p.read-block.header This is a header
+    p.read-block This is a p
+    div.read-block This is a div
+    p.read-block This is a p
+
+section
+  h2 New pseudo-classes
+  p :only-child
+  pre
+    code.
+      li:only-child {
+        color: orange;
+      }
+  #ex-only-child
+    style
+      #ex-only-child li:only-child {
+        color: orange;
+      }
+    ul
+      li I have no siblings
+    br
+    br
+    ol
+      li I have a brother
+      li I have a sister
+
 section
   h2 What is a pixel?
   ul(style="float: left;")

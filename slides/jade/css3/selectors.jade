@@ -1,23 +1,9 @@
-section.browser-support-container
-  mixin browserSupport('All', '3.5+', '3.2+', '7+', '9.5+')
-  h2 New selectors
-  p Later general sibling
-  pre
-    code.
-      h2 ~ p {
-        color: orangered;
-      }
-  #ex-general-sibling
-    style
-      #ex-general-sibling .header { font-weight: bold; margin-bottom: 0; }
-      #ex-general-sibling .header ~ p { color: orangered; margin-bottom: 0; }
-    p.read-block.header This is a header
-    p.read-block This is a p
-    div.read-block This is a div
-    p.read-block This is a p
-
 section
   h2 New selectors
+
+section.browser-support-container
+  mixin browserSupport('All', '3.5+', '3.2+', '7+', '9.5+')
+  h2 Advanced attribute selectors
   style
     #new-selectors tr:first-child td {
       border-top: none;
@@ -27,135 +13,112 @@ section
     tbody
       tr
         td [foo~="bar"]
-        td.read-block &lt;div foo="<span style="color: red">bar</span> whatever"&gt;
+        td.read-block &lt;div foo="<span class="red-text">bar</span> whatever"&gt;<small class="red-text">CSS2</small>
       tr
         td [foo^="bar"]
-        td.read-block &lt;div foo="<span style="color: red">bar</span>tender"&gt;
+        td.read-block &lt;div foo="<span class="red-text">bar</span>tender"&gt;
       tr
         td [foo$="bar"]
-        td.read-block &lt;div foo="tool<span style="color: red">bar</span>"&gt;
+        td.read-block &lt;div foo="tool<span class="red-text">bar</span>"&gt;
       tr
         td [foo*="bar"]
-        td.read-block &lt;div foo="sylla<span style="color: red">bar</span>y"&gt;
-      tr
-        td [foo|="bar"]
-        td.read-block &lt;div foo="<span style="color: red">bar</span>-tender"&gt;
+        td.read-block &lt;div foo="sylla<span class="red-text">bar</span>y"&gt;
+      //- tr
+      //-   td [foo|="bar"]
+      //-   td.read-block &lt;div foo="<span style="color: red">bar</span>-tender"&gt;
 
-section
-  section
-    mixin browserSupport('All', '3.5+', '3.2+', '9+', '9.5+')
-    h2 New pseudo-classes
-    
-    style
-      #new-pseudo-classes tr:first-child td {
-        border-top: none;
+section.browser-support-container
+  mixin browserSupport('All', '3.5+', '3.2+', '9+', '9.5+')
+  h2 Negation pseudo-class
+  p Negative version of a simple selector
+  pre
+    code.
+      .element:not(p) {
+        color: orange;
       }
-    table.table#new-pseudo-classes
-      tr
-        td :root
-        td Root &lt;html> element
-      tr
-        td :only-child
-        td Applies if the element is the only child
-      tr
-        td :empty
-        td Applies to empty elements
-      tr
-        td :not
-        td Negates a simple element
-  section
-    h2 New pseudo-classes
-    p :not
-    pre
-      code.
-        .element:not(p) {
-          color: orange;
-        }
-    #ex-not
-      style
-        #ex-not .ex-not:not(p) {
-          color: orange;
-        }
-      span.ex-not I am a &lt;span>
-      p.ex-not I'm a &lt;p>
-      ul.ex-not
-        li I'm a &lt;li>
-  section
-    h2 New pseudo-classes
-    p :only-child
-    pre
-      code.
-        li:only-child {
-          color: orange;
-        }
-    #ex-only-child
-      style
-        #ex-only-child li:only-child {
-          color: orange;
-        }
-      ul
-        li I have no siblings
-      br
-      br
-      ol
-        li I have a brother
-        li I have a sister
+  #ex-not
+    style
+      #ex-not .ex-not:not(p) {
+        color: orange;
+      }
+    span.ex-not I am a &lt;span>
+    p.ex-not I'm a &lt;p>
+    ul.ex-not
+      li I'm a &lt;li>
 
 section
   h2 UI elements' states
-  pre
-    code.
-      :enabled {
-        background-color: #csdc;
-      }
-      :disabled {
-        background-color: #dcc;
-      }
-      :checked + label {
-        font-weight: bold;
-      }
-  #ex-ui-states
-    style
-      #ex-ui-states :checked + label {
-        font-weight: bold;
-      }
-      #ex-ui-states input:enabled {
-        background-color: #cdc;
-      }
-      #ex-ui-states input:disabled {
-        background-color: #dcc;
-      }
-      #ex-ui-states input[type=radio],
-      #ex-ui-states input[type=radio] + label {
-        display: inline-block;
-        margin-right: 5px;
-      }
-    form.form-horizontal
-      .control-group
-        label Disabled input
-        input(type="text", disabled)
-      .control-group
-        label Enabled input
-        input(type="text")
-      .control-group
-        input(type="radio", value=1, name="radio")
-        label do it today
-        br
-        input(type="radio", value=2, name="radio")
-        label do it tomorrow
+  p More to come in HTML5
+  .row-fluid(style="margin-top: 20px;")
+    .span6
+      pre
+        code.
+          :enabled {
+            background-color: #csdc;
+          }
 
+          :disabled {
+            background-color: #dcc;
+          }
+    .span6
+      pre
+        code.
+          :checked + label {
+            font-weight: bold;
+          }
+  style
+    #ex-ui-states :checked + label {
+      font-weight: bold;
+    }
+    #ex-ui-states input:enabled {
+      background-color: #cdc;
+    }
+    #ex-ui-states input:disabled {
+      background-color: #dcc;
+    }
+    #ex-ui-states input[type=radio],
+    #ex-ui-states input[type=radio] + label {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  #ex-ui-states.row-fluid
+    .span6
+      form.form-horizontal
+        .control-group
+          label Disabled input
+          input(type="text", disabled)
+        .control-group
+          label Enabled input
+          input(type="text")
+    .span6
+      form.form-horizontal
+        .control-group
+          label Check one:
+        .control-group
+          input(type="radio", value=1, name="radio")
+          label do it today
+          br
+          input(type="radio", value=2, name="radio")
+          label do it tomorrow
 
-section
-  h2 Element-preserving
-  p :first-of-type
-  p :last-of-type
-  p :nth-of-type(n)
-  p :only-of-type
+section#target-selector.browser-support-container
+  mixin browserSupport('All', '3.5+', '3.2+', '9+', '9.5+')
+  h2 :target
+  .row-fluid
+    pre.span7
+      code.
+        #{'<a href="#ref1">Go to source [1]</a>'}
+        ...
+        #{'<div id="ref1"> Ref 1 </div>'}
+        ...
+    pre.span5
+      code.
+        :target {
+          background-color: #def;
+        }
+  iframe(src="assets/html/target-selector.html", width="80%")#ex-target-example
 
-section
-  h2 Reverse counting
-  p :nth-last-child(n)
-  p :nth-last-of-type
+  a.annotation(href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#cite_note-1") As seen in Wikipedia
 
 section.browser-support-container
   mixin browserSupport('4+', '3+', '4+', '9+', '10.1+')
@@ -175,21 +138,30 @@ section.browser-support-container
     p Select this entire slide with your mouse and compare the selected text colors.
 
 section
-  section#target-selector.browser-support-container
-    mixin browserSupport('All', '3.5+', '3.2+', '9+', '9.5+')
-    h2 :target
-    .row-fluid
-      pre.span7
-        code.
-          #{'<a href="#ref1">Go to source [1]</a>'}
-          ...
-          #{'<div id="ref1"> Ref 1 </div>'}
-          ...
-      pre.span5
-        code.
-          :target {
-            background-color: #def;
-          }
-    iframe(src="assets/html/target-selector.html", width="80%")#ex-target-example
+  section
+    h2 More stuff
+    table.table
+      tbody
+        tr
+          th h2 ~ p
+          td Later general sibling
+        tr
+          th :root
+          td Root &lt;html> element
+        tr
+          th :only-child
+          td Applies if the element is the only child
+        tr
+          th :empty
+          td Applies to empty elements
 
-    a.annotation(href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#cite_note-1") As seen in Wikipedia
+  section
+    h2 More stuff
+    p Advanced enumerations
+    ul.read-block
+      li :first-of-type
+      li :last-of-type
+      li :nth-of-type(n)
+      li :only-of-type
+      li :nth-last-child(n)
+      li :nth-last-of-type
