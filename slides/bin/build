@@ -11,7 +11,7 @@ mkdir -p generated && cp -r assets generated/ || SUCCESS=0
 
 echo 'Jade to HTML...'
 for f in jade/*.jade; do
-  node_modules/jade/bin/jade $f -O generated || SUCCESS=0
+  node_modules/jade/bin/jade $f -o generated || SUCCESS=0
 done
 
 echo 'LESS to CSS...'
