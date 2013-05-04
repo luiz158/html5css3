@@ -1,10 +1,13 @@
 {
-
   "name": "html5css3-labs",
   "version": "0.0.1",
 
   "dependencies": {
     "express": "*",
-    "less": "*"
+    "less": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-livereload": "~0.1.2",
+    "grunt-regarde": "~0.1.1",
+    "grunt-contrib-connect": "~0.3.0"
   }
 }
