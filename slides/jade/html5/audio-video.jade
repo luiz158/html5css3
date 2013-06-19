@@ -29,7 +29,7 @@ section.browser-support-container
   pre
     code.javascript.
       document.getElementById("video").play();
-  video(style="width: 450px", src="http://upload.wikimedia.org/wikipedia/commons/b/b0/Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv", controls)
+  video(style="width: 450px", controls)
   .control-group
     button.btn.load-video Load
   a.source(href="http://commons.wikimedia.org/wiki/File:Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv") Source: Wikimedia Commons
@@ -84,12 +84,15 @@ section(data-state="lab")
 script
   $('.load-audio').on('click', function () {
     if(!$('audio').attr('src')) {
-      $('audio').attr('src', 'assets/audio/Drum_Track.mp3')
+      $('audio').attr('src', 'assets/audio/Drum_Track.mp3');
+      $(this).remove();
     }
   });
 
   $('.load-video').on('click', function () {
     if(!$('video').attr('src')) {
-      $('video').attr('src', 'http://upload.wikimedia.org/wikipedia/commons/b/b0/Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv')
+      $('video').attr('src',
+        'http://upload.wikimedia.org/wikipedia/commons/b/b0/Simulation_of_gas_cloud_approaching_the_black_hole_at_the_centre_of_the_Milky_Way.ogv')
+      $(this).remove();
     }
   });

@@ -36,7 +36,9 @@ section
         code.
           #{'<meta charset="utf-8">'}
 
-  p.read-block.fragment <a href="http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7">Charset should be in the first 512 bytes of the document!!!</a>
+  p Beware of security problems in IE!
+
+  a.source(href="http://code.google.com/p/doctype-mirror/wiki/ArticleUtf7") Charset should be in the first 512 bytes of the document!
 
 section
   h2 Charset defaults
@@ -99,7 +101,7 @@ section
       code.
         #{'<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">'}
 
-    p.fragment All you want to now about touch icons: <a href="http://mathiasbynens.be/notes/touch-icons">http://mathiasbynens.be/notes/touch-icons</a>
+    a.annotation(href="http://mathiasbynens.be/notes/touch-icons") All you want to now about touch icons.
 
 section.browser-support-container
   mixin browserSupport('13+', '3.6+', 'No', 'No', 'No')
