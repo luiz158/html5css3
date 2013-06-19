@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Browsers and SEO</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/zenburn.css"><script>//- If the query includes 'print-pdf' we'll use the PDF print sheet
+document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script src="assets/js/jquery-1.8.1.min.js"></script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>Browsers and SEO</h1></section><section><h2>Browser market share</h2><img src="assets/raster/browser-market-share.png"></section><section><h2>Chrome</h2><img src="assets/raster/chrome-market-share.png"></section><section><h2>Internet Explorer</h2><img src="assets/raster/ie-market-share.png"></section><section><h2>Firefox</h2><img src="assets/raster/ff-market-share.png"></section><section><h2>Your audience matters</h2><p>Stats for jquery.com on 29/3/2009, when IE had <b>60% of the market</b></p><img src="assets/raster/jquery.png"><a href="http://ejohn.org/blog/determining-browser-market-share/" class="source">Source: John Resig</a></section><section><h2>IE6 on the way out</h2><p>Twitter, Digg, 37signals, YouTube, Google Apps, Apple, Facebook</p></section><section><h2>Countdown</h2><img src="assets/raster/ie6-out.png"></section><section><h2>IE7 soon on the way out</h2><p>Google Apps, Facebook</p><p>Below 1% of global market share (same as IE6 one year before)</p></section><section><h2>Hacks for IE</h2></section><section><h2>IE-specific stylesheets</h2><pre><code>&lt;!--[if IE 7]&gt;
+&lt;link type=&quot;text/css&quot; href=&quot;/ie_hacks7.css&quot;  rel=&quot;stylesheet&quot;&gt;
+&lt;![endif]--&gt;
+
+&lt;!--[if lte IE 6]&gt;
+&lt;link type=&quot;text/css&quot; href=&quot;/ie_hacks6.css&quot;  rel=&quot;stylesheet&quot;&gt;
+&lt;![endif]--&gt;
+</code></pre></section><section><h2>IE-specific selectors</h2><p>Property prefix hacks</p><pre><code>/* IE 6: _ - £ ¬ ¦ */
+.mydiv { _color: blue; }        
+/* IE 6/7: ! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > |  */
+.mydiv { #color: blue; }</code></pre><p>@media hacks</p><pre><code>@media screen\9 { }             /* IE 6/7   */
+@media \0screen\,screen\9 {}    /* IE 6/7/8 */
+@media \0screen { }             /* IE 8     */
+@media screen\0 { }             /* IE 8/9   */
+</code></pre></section><section><h2>Conditional classnames</h2><pre><code>&lt;!--[if lt IE 7 ]&gt; &lt;html class=&quot;ie6&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7 ]&gt; &lt;html class=&quot;ie7&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if (gt IE 9)|!(IE)]&gt;&lt;!--&gt; &lt;html&gt; &lt;!--&lt;![endif]--&gt;
+
+&lt;style&gt;
+  .content { display: inline-block; }
+  .ie6 .content { display: inline; zoom:1; }
+  .ie7 .content { display: inline; zoom:1; }
+&lt;/style&gt;
+</code></pre></section><section><section><h2>Pros</h2><div class="row-fluid"><div class="span6"><p><b>Conditional comments</b></p><ul><li>Valid HTML and CSS</li></ul></div><div class="span6"><p><b>IE selectors</b></p><ul><li>No need for conditional comments in each page</li></ul></div></div></section><section><h2>Pros (conditional comments)</h2><div class="row-fluid"><div class="span6"><p><b>External stylesheets</b></p><ul><li>Simpler selector chain</li></ul></div><div class="span6"><p><b><code>html</code> classes</b></p><ul><li>No additional HTTP requests</li></ul></div></div><a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/" class="source">Read more: Paul Irish</a></section></section><section><h2>IE7.js, IE8.js, IE9.js</h2><p>Add <b>CSS 2 and 3 selectors</b> to IE < 9</p><p>adjacent + sibling, [attr~="value"], :not(), :first-of-type()...</p><a href="http://code.google.com/p/ie7-js/" class="source">Source: ie7.js</a></section><section><h2>IE render modes</h2><p class="read-block"><b>Quirks mode</b>: render as IE5</p><p class="read-block"><b>Standards mode</b> (Intranet): IE7</p><p class="read-block"><b>Standards mode</b> (Extranet): IE8 or 9</p></section><section><h2>X-UA-Compatible</h2><pre><code>&lt;!-- render as ie9 --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=9&quot;&gt;
+
+&lt;!-- render as ie7 (quirks/standard mode, according to doctype) --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=EmulateIE7&quot;&gt;
+
+&lt;!-- render as ie9 or ie7 (avoid ie8) --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=7, IE=9&quot;&gt;
+</code></pre></section><section><h2>X-UA-Compatible values</h2><ul><li><b>EmulateIE7, EmulateIE8, EmulateIE9:</b> use standards or quirks mode, according to doctype</li><li><b>IE7, IE8, IE9:</b> Always use standards mode.</li><li><b>IE5:</b> Always use quirks mode</li><li><b>edge:</b> Use the best engine available</li><li>You should <b>avoid using X-UA-Compatible</b> if possible (rely on standards instead)</li></ul></section><section><h2>Chrome Frame</h2><p>If installed, <b>render using Chrome Frame</b> instead of IE.</p>META:<pre><code>&lt;!-- Use Chrome Frame --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;chrome=1&quot;&gt;
+
+&lt;!-- Use IE9 (if installed) or Chrome Frame --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=9,chrome=1&quot;&gt;
+</code></pre>HTTP header:<pre><code>X-UA-Compatible: chrome=1
+</code></pre></section><section><h2>Multiple values</h2><p>Use IE 9 if available, Chrome Frame otherwise:</p><pre><code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=9,chrome=1&quot;&gt;
+</code></pre></section><section><h2>Install from the server side</h2><p>Detect if the user has Chrome Frame installed by inspecting the <b>User-Agent</b>:</p><pre><code>Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; <b>chromeframe</b>/11.0.660.0)
+</code></pre><div>Server side:</div><pre><code>if (userAgent.contains("MSIE") && !userAgent.contains("chromeframe")) {
+  return redirect("/chromeFrameRequired.html");
+}
+</code></pre></section><section><h2>Install using JavaScript</h2><pre><code>&lt;html&gt;
+  &lt;body&gt;
+    &lt;script type=&quot;text/javascript&quot; 
+     src=&quot;http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+     CFInstall.check({ mode: "overlay", destination: "http://www.waikiki.com" });
+    &lt;/script&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+  </code></pre></section><section><h2>Multiple IE versions</h2><ul><li>IE compatibility view</li><li><a href="https://browserlab.adobe.com">Adobe BrowserLab</a></li><li><a href="http://www.browserstack.com/">BrowserStack</a></li></ul></section><section><h2>Virtual machines</h2><p>Microsoft provides with <a href="http://www.microsoft.com/en-us/download/details.aspx?id=11575">Virtual HDs</a> to test IE that can be used with <b>Windows 7 virtual XP mode</b> and <b>VirtualBox</b></p></section><section data-state="lab"><h2>Lab: IE compatibility</h2><p>Test pages using Internet Explorer 6, 7, 8 and 9</p></section><section><h2>CSS3 Pie</h2><ul><li>border-radius</li><li>box-shadow</li><li>border-image</li><li>Multiple background images</li><li>linear-gradient as background image</li></ul><a href="http://css3pie.com/" class="source">Source: css3pie.com</a></section><section><h2>Pie as HTC file</h2><p>(Location must be relative to the <b>source HTML file</b>)</p><pre><code>.content {
+    border-radius: 5px;
+    behavior: url(PIE.htc);
+}
+
+</code></pre></section><section><h2>Pie as JavaScript</h2><ul class="read-block"><li>Blocks the page while loading.</li><li>Not automatically attached to new elements added dinamically.</li></ul><pre><code>&lt;!--[if lt IE 10]&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;PIE.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+&lt;script>
+  if (window.PIE) {
+      $('.rounded').each(function() {  PIE.attach(this);  });
+  }
+&lt;/script>
+
+</code></pre></section><section><h2>JavaScript vs behavior</h2><ul class="read-block"><li><b>PROS:</b></li><ul><li>You can load PIE.js from a different domain.</li><li>It is easily integrated within JavaScript libraries.</li></ul><li><b>CONS:</b></li><ul><li>JavaScript file blocks the page while loading.</li><li>It is not automatically attached to new elements added dinamically.</li></ul></ul></section><section data-state="lab"><h2>Lab: CSS3 Pie</h2><p>Use CSS3 Pie to make the proposed page work in Internet Explorer 6+</p></section><section><h2>Search engines</h2><p>Search websites according to:</p><ul><li>Robots.txt</li><li>Sitemap.xml</li></ul></section><section><h2>Robots.txt</h2><p>First landing page for a web crawler</p><pre><code>Sitemap: http://myhost.com/sitemap.xml
+User-agent: *
+Disallow: /secure/
+Disallow: /tmp/
+</code></pre></section><section><h2>Security considerations</h2><p class="read-block">robots <b>can ignore your /robots.txt</b>, especially malware robots.</p><p class="read-block"><b>Anyone can see</b> which sections of your server are secured.</p></section><section><h2>Sitemap.xml</h2><p>Inform search engines <b>about pages available for crawling</b></p><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+   &lt;url&gt;
+      &lt;loc&gt;http://www.example.com/index.html&lt;/loc&gt;
+      &lt;lastmod&gt;2005-01-01&lt;/lastmod&gt;
+      &lt;changefreq&gt;daily&lt;/changefreq&gt;
+      &lt;priority&gt;0.8&lt;/priority&gt;
+   &lt;/url&gt;
+&lt;/urlset&gt;
+</code></pre></section><section><h2>Contents missing in the sitemap</h2><p><b>Will be indexed as well</b> if they get linked somewhere</p></section><section><h2>So why use sitemaps?</h2><ul class="read-block"><li>Specify <b>frequency of change</b> and <b>priorities</b></li><li>Point to <b>otherwise unreachable contents</b>.</li></ul></section><section><h2>Specialized sitemaps</h2><p><b>video, mobile, geo, news, code search, images</b></p><a href="http://www.google.com/support/webmasters/bin/topic.py?hl=en&amp;topic=20986" class="source">Source: Google Webmaster Tools</a></section><section><h2>SEO Tools</h2><p><a href="http://www.google.com/webmasters/tools">Google Webmaster Tools</a></p><p><a href="http://analytics.google.com">Google Analytics</a></p></section><section><h2>PageRank</h2><p>Algorithm by Larry Page (Google) used to measure the weight of a page in the Internet</p></section><section><h2>Bits included in PageRank</h2><ul class="read-block"><li><b>Page URL</b> and <b>host name</b></li><li><b>Title</b> and <b>description</b> of the page</li><li>Website <b>performance</b></li><li><b>Language</b> deduced by the search engine</li><li><b>Contents</b> structure</li><li><b>Referrals</b></li></ul></section><section><h2>Bits NOT included in PageRank</h2><ul class="read-block"><li>&lt;meta <b>name=keywords></b></li><li><b>Language</b> set in the page</li><li><b>Invisible contents</b></li><li>&lt;a rel=&quot;<b>nofollow</b>"></li></ul></section><section><h2>Clean URLs</h2><p>Use hyphens to separate words, not underscores</p><p>/posts/why_seo_rocks  <b>WRONG</b></p><p>/posts/why-seo-rocks  <b>CORRECT</b></p></section><section><h2>Meta robots</h2><ul class="read-block"><li><b>nofollow</b>: do not follow any link on this page.</li><li><b>noindex</b>: do not store this page in the search engine index. </li><li><b>noarchive</b>: do not store a cached version of the page.</li><li>There is also <b>follow, index</b>, but they are the default behavior.</li></ul><a href="https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag" class="source">Source: Google for Webmasters</a></section><section><h2>Keep sharp</h2><ul class="read-block"><li> <a href="https://developers.google.com/webmasters/googleforwebmasters/">Google for webmasters</a></li></ul></section></div><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script src="assets/js/html5shiv.js"></script><script>//- Full list of configuration options available here:
+//- https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+rollingLinks: false,
+transition: 'linear',
+//- Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'assets/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+{ src: 'assets/js/classList.js', condition: function() { return !document.body.classList; } },
+//-{ src: 'assets/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//-{ src: 'assets/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+]
+});</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2309405-10']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>

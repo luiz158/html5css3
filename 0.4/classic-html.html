@@ -1,0 +1,752 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Classic HTML and CSS</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/zenburn.css"><script>//- If the query includes 'print-pdf' we'll use the PDF print sheet
+document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script src="assets/js/jquery-1.8.1.min.js"></script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>Classic HTML and CSS</h1></section><section><h2>HTML</h2><p class="read-block"><b>Hypertext Mark-up Language</b></p><p class="read-block">Developed by <b>Tim Berners-Lee</b> in 1989</p><p class="read-block">Maintained by the <b>World Wide Web Consortium</b> (W3C) since 1996</p></section><section><h2>History of HTML</h2><ul class="read-block"><li><b>HTML 2.0</b>: 1995</li><li><b>HTML 3.2</b>: January 1997</li><li><b>HTML 4.0</b>: December 1997</li><li><b>HTML 5</b>: 2004 (first draft in 2008)</li></ul></section><section><h2>Tags</h2><div class="row-fluid"><div class="span6"><ul class="read-block"><li>With / without content</li><li>Attributes enclosed by double quotes</li><li>Semantic CSS</li><li>Lowercase</li></ul></div><div class="span6"><pre><code>&lt;div&gt;
+  &lt;p class=&quot;header&quot;&gt;
+    Text content
+  &lt;/p&gt;
+  &lt;hr&gt;
+  &lt;img src=&quot;a.gif&quot; title=&quot;Foo&quot;&gt;
+&lt;/div&gt;
+</code></pre></div></div></section><section><h2>Most frequent tags</h2><ul><li><b>Headers</b>: h1, h2, h3</li><li><b>Containers</b>: div, p, span</li><li><b>Image</b>: img</li><li><b>Links</b>: a, link, script</li><li><b>Lists</b>: ul, li</li><li><b>Tables</b>: table, thead, tbody, tr, td, th</li><li><b>Forms</b>: form, input, select, textarea, label</li></ul></section><section><h2>doctype</h2><ul class="read-block"><li><b>Quirks mode</b></li><li><b>Standards mode</b></li><li><b>XHTML</b></li></ul></section><section><h2>Quirks mode</h2><p>Default mode in <b>Internet Explorer 6 and 7</b></p><pre><code>&lt;html&gt;
+...
+&lt;/html&gt;
+</code></pre></section><section><h2>Some differences</h2><div class="row-fluid"><div class="span6"><p>QUIRKS MODE</p><pre><code>/* traditional box model */
+.boxmodel {
+   width: 10px; <b>/* total: 10px */</b>
+   border: 1px solid #fff;
+   padding: 2px;
+}
+
+/* missing units */
+.padded {
+   padding: 5; <b>/* defaults to px */</b>
+}</code></pre></div><div class="span6"><p>STANDARDS MODE</p><pre><code>/* W3C box model */
+.boxmodel {
+   width: 10px; <b>/* total: 16px */</b>
+   border: 1px solid #fff;
+   padding: 2px;
+}
+
+/* missing units */
+.padded {
+   padding: 5; <b>/* ignored */</b>
+}</code></pre></div></div><p class="annotation"><a href="http://www.jefftk.com/news/2012-02-18" target="_blank">Box model history</a></p></section><section><h2>Trigger Standards Mode</h2><p>What Google does</p><pre><code><b>&lt;!doctype html&gt;</b>
+&lt;html&gt;
+...
+&lt;/html&gt;
+</code></pre></section><section><h2>XHTML vs HTML</h2><ul class="read-block"><li><b>Case sensitive</b></li><li><b>Void entities:</b> img, br, hr</li><li><b>Unexpected end tags:</b> &lt;/br&gt; &lt;/p&gt;</li><li><b>Unescaped & and &lt;</b></li><li><b>CDATA elements</b>: script and style</li></ul></section><section><h2>Some differences</h2><div class="row-fluid"><div class="span6"><p><b>XHTML</b></p><pre><code>&lt;p&gt;Hello&lt;/p&gt;
+&lt;p&gt;world&lt;/p&gt;
+&lt;img src=&quot;hello?foo=1&amp;amp;amp;bar=2&quot;/&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;![CDATA[
+... unescaped script content ...
+]]>
+&lt;/script&gt;</code></pre></div><div class="span6"><p><b>HTML</b></p><pre><code>&lt;p&gt;Hello
+&lt;p&gt;world
+&lt;IMG src=&quot;hello?foo=1&amp;bar=2&quot;&gt;
+&lt;script&gt;
+... unescaped script content ...
+&lt;/script&gt;
+</code></pre></div></div></section><section><h2>XHTML is a bad idea</h2><ul><li><b>Internet Explorer</b> doesn't support XHTML</li><li>No <b>parsing error recovery</b></li><li>Any <b>JavaScript code</b> must be inside a CDATA block</li><li>Any <b>entities</b> (&amp;amp;) must be escaped</li><li>In general, there is <b>nothing to gain by using XHTML</b></li></ul></section><section><h2>XHTML headers</h2><p>The browser will parse HTML unless it finds the HTTP header</p><p><b>Content-Type: application/xhtml+xml</b></p><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+...
+&lt;/html&gt;
+</code></pre></section><section><h2>HTTP headers</h2><pre><code>GET /index.html HTTP/1.0</code></pre><img src="assets/svg/http-headers.svg" width="600"><pre><code>HTTP/1.0 200 OK
+Date: Mon, 10 Sep 2012 09:11:36 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 1354
+
+&lt;html&gt;
+&lt;body&gt;
+...
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></section><section><h2>Cascading Style Sheets</h2><ul><li><b>CSS1</b><ul><li>Recommendation: 1996</li></ul></li><li><b>CSS2</b><ul><li>First draft: 1997</li><li>Recommendation: 2000</li></ul></li><li><b>CSS3</b><ul><li>Started in 1998 as a list of CSS extensions, and still under development.</li></ul></li></ul></section><section id="css-insertion"><h2>CSS insertion</h2><div class="valign-table"><div class="valign-row"><div class="valign"><p>External CSS</p></div><div class="valign"><pre><code>&lt;head&gt;
+  <b>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</b>
+&lt;/head&gt;</code></pre></div></div><div class="valign-row"><div class="valign"><p>Internal CSS</p></div><div class="valign"><pre><code>&lt;head&gt;
+  <b>
+  &lt;style&gt;
+    .tab {
+      display: block !important;
+    }
+  &lt;/style&gt;
+  </b>
+&lt;/head&gt;</code></pre></div></div><div class="valign-row"><div class="valign"><p>Inline CSS</p></div><div class="valign"><pre><code>&lt;body&gt;
+  &lt;div <b>style="width: 20px; height: 10px"</b>>
+    Hello world!
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre></div></div></div></section><section><h2>@import</h2><p>Import calls to other stylesheets</p><p>Before <b>any</b> other content in the file</p><pre><code>@import url('template-stylesheet.css');
+
+/* The rest of your styles */</code></pre><p class="fragment"><b>Not recommended!</b></p></section><section><h2>Indenting</h2><div class="row-fluid"><div class="span6"><p><b>Classic</b></p><pre><code>a {
+  color: #ccc;
+  /* Your comment here */
+}
+
+p, div, .foo .bar {
+  width: 10px;
+  height: 5px;
+}</code></pre></div><div class="span6"><p><b>Compact</b></p><pre><code>a { color: #ccc; } /* Foo */
+
+p,
+div,
+.foo .bar {  width: 10px; height: 5px; }
+</code></pre></div></div></section><section><h2>CSS Selector</h2><img src="assets/svg/css-selector.svg" width="600"></section><section><h2>Most common selectors</h2><div class="row-fluid"><div class="span6"><p>CSS</p><pre><code>div {
+  width: 10px;
+}
+#foo {
+  color: #fff;
+}
+.baz {
+  width: 15px;
+}
+.bar .baz {
+  width: 30px;
+}</code></pre></div><div class="span6"><p>HTML</p><pre><code class="no-highlight">&lt;p <b style="color: #CC9393;">id="foo"</b>>
+  White text
+&lt;/p&gt;
+
+&lt;div <b style="color: #CC9393;">class="bar"</b>>
+  &lt;div <b style="color: #CC9393;">class="baz"</b>>
+    Hello world!
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div></div></section><section><h2>Not so common selectors</h2><p>Supported by <b>IE 7+</b></p><div class="row-fluid"><div class="span6"><pre><code>input[type="text"] {
+  background: #eee;
+}
+
+.bar.baz {
+  color: #000;
+}</code></pre></div><div class="span6"><pre><code>ul.data > li {
+  border: 1px solid #ccc;
+}
+
+h2 + p {
+  font-size: 18px;
+}
+</code></pre></div></div></section><section><h2>Child and sibling selector</h2><div class="row-fluid"><div class="span6">CSS<pre><code>ul.data > li {
+  border: 1px solid #ccc;
+}
+
+h2 + p {
+  font-size: 18px;
+}</code></pre></div><div class="span6">HTML<pre><code>&lt;ul class=&quot;data&quot;&gt;
+  &lt;li&gt; &lt;!-- match --&gt;
+  My friends:
+  &lt;ul&gt;
+    &lt;li&gt;Bob&lt;/li&gt; &lt;!-- not match --&gt;
+    &lt;li&gt;Kate&lt;/li&gt; &lt;!-- not match --&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Title&lt;/h2&gt;
+&lt;p&gt; &lt;!-- match --&gt;
+  Lorem ipsum goes here
+&lt;/p&gt;
+&lt;p&gt; &lt;!-- not match --&gt;
+  Another Lorem ipsum
+&lt;/p&gt;
+</code></pre></div></div></section><section><h2>Selectors</h2><style>#selector-types td {
+  text-align: left;
+}</style><table id="selector-types" class="table"><tbody><tr> <td style="border-top: 0">Universal</td><td style="border-top: 0"><b>*</b> { line-height: 1.5 em; }</td></tr><tr><td>By Id</td><td><b>#id</b> { display: block; }</td></tr><tr><td>By class</td><td><b>.myclass</b> { font-weight: bold; }</td></tr><tr><td>By tag</td><td><b>div</b> { border: 1px solid #fff; }</td></tr><tr><td>Descendant</td><td><b>.datatable td</b> { width: 100px; }</td></tr><tr><td>Child</td><td>#toc <b>&gt;</b> li { border-top: 1px dotted #ccc; }</td></tr><tr><td>Adjacent sibling</td><td>h1 <b>+</b> p { margin-top: 50px; }</td></tr><tr><td>By attribute</td><td>input<b>[type="text"]</b> { background: #fff; }</td></tr><tr> <td>...</td><td></td></tr></tbody></table></section><section><h2>Selector priority</h2><style>#selector-priority {
+  width: 70%;
+}
+#selector-priority td {
+  border: none;
+  text-align: left;
+  vertical-align: middle;
+}
+#selector-priority .circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  line-height: 58px;
+  font-size: 40px;
+}
+#selector-priority .arrow {
+  height: 0;
+  width: 0;
+  border: 15px solid transparent;
+  margin: auto 10px;
+  border-top: 20px solid black;
+  border-bottom: none;
+}</style><div><table id="selector-priority" class="table"><tbody><tr><td><div class="circle green-bg">+</div></td><td>inline</td><td>&lt;div <b>style="display: block;"</b>>&lt;/div&gt;</td></tr><tr><td><div class="arrow"></div></td><td>ID</td><td><b>#menu</b> { display: block; }</td></tr><tr><td><div class="arrow"></div></td><td>class</td><td><b>.myclass</b> { display: block; }</td></tr><tr><td><div class="circle red-bg">&minus;</div></td><td>element</td><td><b>div</b> { display: block; }</td></tr></tbody></table></div></section><section><h2>Priorities</h2><pre><code>#sidebar ul li a.myclass:hover { ... }</code></pre><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">1</div><div class="priority-level">2</div><div class="priority-level">3</div></div></div><a href="http://specificity.keegan.st/" class="annotation">Try the calculator!</a></section><section><section><h2>Priorities</h2><code>.item { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div></div></div><code>ul li li li li li li li li { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div><div class="priority-level">&nbsp;</div></div></div></section><section><h2>Priorities</h2><code>.item { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">1</div><div class="priority-level">0</div></div></div><code>ul li li li li li li li li { ... }</code><div class="priorities"><div class="labels"><small>inline</small><small>IDs</small><small>classes</small><small>elements</small></div><div class="levels"><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">0</div><div class="priority-level">9</div></div></div></section></section><section><h2>Cascading</h2><p>The last rule breaks the tie</p><div class="span5"><pre><code>&lt;div class=&quot;nav-block&quot;&gt;
+  &lt;ul class=&quot;nav-list&quot;&gt;
+    ...
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre></div><div class="span7"><pre><code>ul.nav-list {
+  list-style: none;
+}
+
+.nav-block > ul {
+  list-style: bullets; /* Wins */
+}
+</code></pre></div></section><section><h2>!important</h2><p>Overrides not <b>!important</b> rules</p><pre><code>#header ul.nav > li > a:hover {
+  color: #4a1;
+}
+
+a.some-class {
+  color: black <b>!important</b>; /*  Wins  */
+}</code></pre><p class="fragment"><b>Not recommended!</b></p></section><section><h2>Shortcuts</h2><p>property: {prop-feature-1} {prop-feature-2} {prop-feature-3} ...</p><div class="row-fluid"><pre class="span6"><code>.element {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial;
+}</code></pre><pre class="span6"><code>.element {
+  font: bold 20px Arial;
+}</code></pre></div></section><section><h2>Box model</h2><ul style="float: left;"><li>width, height</li><li>padding</li><li>border</li><li>margin</li></ul><div id="box-model-example"><style>#box-model-example {
+  float: right;
+}
+#box-model-example .box {
+  margin: 0;
+  padding: 0 20px 20px 20px;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: left;
+}
+#box-model-example .margin {
+  border: 1px dashed black;
+}
+#box-model-example .inner {
+  padding-top: 20px;
+}</style><div class="box margin">margin<div class="box blue-bg">border<div class="box bluedark-bg">padding<div class="box purple-bg inner">width * height</div></div></div></div></div></section><section><h2>Min and max</h2><p>min-width <= width <= max-width</p><p>min-height <= height <= max-height</p></section><section><h2>Shortcuts: margin and padding</h2><p><b>{all}</b></p><p><b>{top / bottom} {left / right}</b></p><p><b>{top} {right} {bottom} {left}</b></p><pre><code>.foo {
+  margin: 4px 2px;
+  padding: 5px 3px 0 0;
+}
+
+.bar {
+  margin: 0 auto;
+  padding: 5px;
+}
+</code></pre></section><section><h2>display</h2><p>display: <b>block | inline | inline-block | none</b></p><div class="row-fluid"><pre class="span5"><code>p, div, h1 {
+  <b>display: block;</b>
+}
+
+a, span, strong, em {
+  <b>display: inline;</b>
+}
+
+.hide {
+  <b>display: none;</b>
+}</code></pre><div id="display-example" class="span7"><style>.display-example.small a {
+  text-decoration: underline !important;
+}
+.display-example.small {
+  font-size: 70%;
+  padding: 20px;          
+}</style><p class="read-block display-example small">Cupcake ipsum dolor sit <b title="This is inline">amet</b> dessert jelly-o. Dragée icing croissant <a title="This is inline">jelly</a> powder. <em title="This is inline">Muffin</em> croissant macaroon pie marzipan lemon drops.</p><p class="read-block display-example small">Sugar plum jelly-o gingerbread <b title="This is inline">tiramisu</b> chocolate bar gummi <i title="This is inline">bears</i>. Jelly beans soufflé <a title="This is inline">cotton</a> candy chocolate cake danish icing.</p><p class="hide display-example small">You should not be seeing this.</p></div></div></section><section><h2>display: inline</h2><p class="read-block">Text is displayed inline</p><p class="read-block">Horizontal padding works, vertical does not.</p><p class="read-block">Horizontal margin works, vertical does not.</p><p class="read-block display-example small">Cupcake ipsum dolor sit <b title="This is inline">amet</b> dessert jelly-o. Dragée icing croissant <a title="This is inline">jelly</a> powder. <em title="This is inline">Muffin</em> croissant macaroon pie marzipan lemon drops.</p></section><section><h2>display: block</h2><div class="row-fluid"><pre class="span4"><code>&lt;div&gt;A&lt;/div&gt;
+&lt;div&gt;B&lt;/div&gt;
+&lt;div&gt;C&lt;/div&gt;</code></pre><div class="span4 offset2"><p class="small-text">100% width</p><div class="display-example">A</div><div class="display-example">B</div><div class="display-example">C</div></div></div></section><section><h2>display: inline-block</h2><pre><code>div {
+  <b>display: inline-block;</b>
+}</code></pre><div id="display-inline-block-example"><style>#display-inline-block-example div {
+  margin: 1%;
+  border: 2px black dashed;
+  font-size: 200%;
+  line-height: 150%;
+  width: 25%;
+  display: inline-block;
+}</style><div>A</div><div>B</div><div>C</div></div></section><section><h2>Display and Visibility</h2><div class="row-fluid"><div class="span8"><pre><code class="two-columns">.B {
+  visibility: hidden;
+}
+.B {
+  opacity: 0;
+}</code></pre></div><div class="span4"><pre><code>.B {
+  display: none;
+}</code></pre></div></div><div id="display-visibility-example" class="row-fluid"><div class="span8"><div class="display-example">A</div><div style="visibility: hidden;" class="display-example">B</div><div class="display-example">C</div></div><div class="span4"><div class="display-example">A</div><div style="display: none;" class="display-example">B</div><div class="display-example">C</div></div></div><a href="http://stackoverflow.com/questions/272360/does-opacity0-have-exactly-the-same-effect-as-visibilityhidden" class="annotation">Subtle differences</a></section><section><h2>Position</h2><p>position: <b>static | relative | absolute | fixed</b></p></section><section><h2>position: static</h2><p>The default</p><div class="row-fluid"><pre class="span4"><code>&lt;div&gt;A&lt;/div&gt;
+&lt;div&gt;B&lt;/div&gt;
+&lt;div&gt;C&lt;/div&gt;</code></pre><div class="span4 offset2"><div class="display-example">A</div><div class="display-example">B</div><div class="display-example">C</div></div></div></section><section><h2>position: relative</h2><p>Relative coords to its default position</p><div class="row-fluid"><pre class="span4"><code>.B {
+  position: relative;
+  left: 15px;
+  top: 10px
+}</code></pre><div id="position-relative-example" class="span4 offset2"><style>#position-relative-example .displaced {
+  position: relative;
+  top: 15px;
+  left: 40px;
+}</style><div class="display-example">A</div><div class="display-example displaced">B</div><div class="display-example">C</div></div></div></section><section><h2>position: absolute</h2><p>Absolute position from the <b>first ancestor element</b> that has a <b>position other than static</b></p><div class="row-fluid"><pre class="span4"><code>.container {
+  position: relative;
+}
+.B {
+  position: absolute;
+  left: 15px;
+  top: 10px
+}</code></pre><div id="position-absolute-example" class="span4 offset2"><style>#position-absolute-example {
+  position: relative;
+}
+#position-absolute-example .displaced {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background-color: rgba(200,200,200,0.5);
+}</style><div class="display-example">A</div><div class="display-example displaced">B</div><div class="display-example">C</div></div></div></section><section id="position-fixed"><h2>position: fixed</h2><p>Fixed position relative to window, unaware of scrolling canvas</p><div class="row-fluid"><pre class="span4"><code>.B {
+  position: fixed;
+  bottom: 100px;
+  left: 0
+}</code></pre><div id="position-fixed-example" class="span4 offset2"><iframe src="assets/html/position-fixed.html"></iframe></div></div></section><section><h2>float</h2><p><b>float: left | right | none</b></p><p><b>clear: left | right | both</b></p><p>Takes the element out of the box model</p></section><section><section><h2>float: none</h2><p>No float</p><pre><code>&lt;div&gt;A&lt;/div&gt;
+&lt;div&gt;B&lt;/div&gt;
+&lt;div&gt;C&lt;/div&gt;</code></pre><div id="float-left-example-1"><div class="row-fluid"><div class="span4 offset4"><div class="display-example">A</div></div></div><div class="row-fluid"><div class="span4 offset4"><div class="display-example">B</div></div></div><div class="row-fluid"><div class="span4 offset4"><div class="display-example">C</div></div></div></div></section><section><h2>float: left</h2><p>Float left</p><pre><code>&lt;div style=&quot;float: left&quot;&gt;A&lt;/div&gt;
+&lt;div&gt;B&lt;/div&gt;
+&lt;div&gt;C&lt;/div&gt;</code></pre><style>#float-left-example-2 .floated {
+  float: left;
+  width: 100px;
+  background-color: rgba(200,200,200,0.5);
+}</style><div id="float-left-example-2" class="row-fluid"><div class="span6"><div class="display-example floated">A</div><div class="display-example">B</div><div class="display-example">C</div></div><div class="span6"><div style="height: 200px;" class="display-example floated">A</div><div class="display-example">B</div><div class="display-example">C</div></div></div></section><section><h2>float: left</h2><p>Float and clear</p><pre><code>&lt;div style=&quot;float: left&quot;&gt;A&lt;/div&gt;
+&lt;div&gt;B&lt;/div&gt;
+&lt;div style=&quot;clear: left&quot;&gt;C&lt;/div&gt;</code></pre><style>#float-left-example-3 .floated {
+  float: left;
+  width: 100px;
+  background-color: rgba(200,200,200,0.5);
+}</style><div id="float-left-example-3" class="row-fluid"><div class="span6"><div class="display-example floated">A</div><div class="display-example">B</div><div style="clear:left" class="display-example">C</div></div><div class="span6"><div style="height: 200px;" class="display-example floated">A</div><div class="display-example">B</div><div style="clear:left" class="display-example">C</div></div></div></section></section><section><h2>Float and clear</h2><div id="float-clear-example"><style>#float-clear-example div {
+  font-size: 70%;
+  border-width: 4px;
+  border-style: solid;
+  width: 150px;
+  height: 100px;
+  margin: 7px 0;
+}
+#float-clear-example .fl, #float-clear-example .fl-cl {
+  float: left;
+}
+#float-clear-example .fl-cl {
+  clear: left;
+}
+#float-clear-example .no-float {
+  border: 4px solid black;
+  margin: 0 0 0 15px;
+  padding: 20px 20px 20px 180px;
+}
+#float-clear-example .fr {
+  float: right;
+}
+#float-clear-example .clear {
+  border: 4px solid black;
+  clear: both;
+  width: auto;
+}</style><div class="fl red-bg red-border">float: left</div><div class="fl-cl red-bg red-border">float: left <br> clear: left</div><p class="small-text read-block no-float">Stingfish, tapetail New Zealand sand diver pelican eel electric ray roanoke bass. Redhorse sucker; angler catfish kanyu, tiger barb butterfly ray. Silver driftfish snoek flagtail tenuis sweeper flashlight fish South American darter pelican eel dwarf gourami, zebrafish, "flat loach European minnow."</p><div class="fr blue-bg blue-border">float: right</div><div class="clear">clear: both</div></div></section><section><h2>Overflow</h2><p>overflow: <b>visible | hidden | auto</b></p><style>#ex-overflow .row-fluid:nth-child(2) .span4 {
+  font-size: 50%;
+  line-height: 120%;
+  height: 120px;
+}
+</style><div id="ex-overflow"><div class="row-fluid small-text"><div class="span4"><b>overflow: visible</b></div><div class="span4"><b>overflow: hidden</b></div><div class="span4"><b>overflow: auto</b></div></div><div class="row-fluid"><div class="span4">anaerobic top-fermenting yeast rims! conditioning bright beer sparge terminal gravity ale noble hops pitching aroma hops anaerobic. yeast malt extract scotch ale hop back krug final gravity; sour/acidic saccharification. trappist krausen, hoppy adjunct: primary fermentation cold filter reinheitsgebot noble hops alpha acid. dry stout, " dunkle, ipa copper mouthfeel pitch hydrometer malt.</div><div style="overflow: hidden;" class="span4">anaerobic top-fermenting yeast rims! conditioning bright beer sparge terminal gravity ale noble hops pitching aroma hops anaerobic. yeast malt extract scotch ale hop back krug final gravity; sour/acidic saccharification. trappist krausen, hoppy adjunct: primary fermentation cold filter reinheitsgebot noble hops alpha acid. dry stout, " dunkle, ipa copper mouthfeel pitch hydrometer malt.</div><div style="overflow: auto;" class="span4">anaerobic top-fermenting yeast rims! conditioning bright beer sparge terminal gravity ale noble hops pitching aroma hops anaerobic. yeast malt extract scotch ale hop back krug final gravity; sour/acidic saccharification. trappist krausen, hoppy adjunct: primary fermentation cold filter reinheitsgebot noble hops alpha acid. dry stout, " dunkle, ipa copper mouthfeel pitch hydrometer malt.
+</div></div></div></section><section><h2>Overflow with floats</h2><div id="overflow-float-example" class="row-fluid"><style>#overflow-float-example .column {
+  padding: 20px;
+  border: 2px dashed black;
+}</style><div class="span5"><p>overflow: visible</p><div class="column"><div style="width: 28%;                    height: 300px;                    float: left;" class="red-bg"></div><div style="height: 200px;                    width: 68%;                    float: right;" class="blue-bg"></div></div></div><div class="span5"><p>overflow: hidden</p><div style="overflow:hidden" class="column"><div style="width: 28%;                    height: 300px;                    float: left;" class="red-bg"></div><div style="height: 200px;                    width: 68%;                    float: right;" class="blue-bg"></div></div></div></div></section><section><h2>Center Horizontally</h2><div class="row-fluid"><div class="span6"><p><b>Block element</b></p><pre><code>.centered_block {
+  width: <b>(anything but auto)</b>
+  margin: 0 auto;
+}</code></pre></div><div class="span6"><p><b>Inline element</b></p><pre><code>.parent {
+  text-align: center;
+}
+
+.children {
+  display: <b>(inline|inline-block)</b>
+}
+</code></pre></div></div></section><section><h2>Center Vertically</h2><div class="row-fluid"><div class="span6"><p><b>Inline elements</b></p><pre><code>.inline_element {
+  line-height: <b>(parent height)</b>;
+}</code></pre></div><div class="span6"><p><b>Inline elements inside inline elements</b></p><pre><code>.inline_inside_inline {
+  vertical-align: <b>middle</b>;
+}
+</code></pre></div></div></section><section><h2>Dead center</h2><pre><code>.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  margin-top: <b>-(element height)/2</b>;
+}</code></pre></section><section><h2>Shortcuts: border</h2><p>border: <b>{border-width} {border-style} {border-color}</b></p><pre><code>p {
+  border: 1px solid #0f0f0f;
+}
+</code></pre><p class="read-block"><b>border-style</b>: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, inherit</p></section><section><h2>CSS triangles</h2><div class="row-fluid"><div class="span6"><style>.arrow_box {
+  position: relative;
+  background: #88b7d5;
+  border: 4px solid #c2e1f5;
+  padding: 10px 5px;
+}
+.arrow_box:after, .arrow_box:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #88b7d5;
+  border-width: 20px;
+  left: 50%;
+  margin-left: -20px;
+}
+.arrow_box:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #c2e1f5;
+  border-width: 26px;
+  left: 50%;
+  margin-left: -26px;
+}</style><div class="arrow_box"><a href="http://cssarrowplease.com">cssarrowplease.com</a></div></div><div class="span6"><pre style="font-size: 45%;"><code>.arrow_box {
+  position: relative;
+  background: #88b7d5;
+  border: 4px solid #c2e1f5;
+  padding: 10px 5px;
+}
+.arrow_box:after, .arrow_box:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #88b7d5;
+  border-width: 20px;
+  left: 50%;
+  margin-left: -20px;
+}
+.arrow_box:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #c2e1f5;
+  border-width: 26px;
+  left: 50%;
+  margin-left: -26px;
+}</code></pre></div></div></section><section><h2>CSS triangles</h2><div id="css-triangles-explanation"><style>#css-triangles-explanation .block {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  
+  border: 20px solid #9d261d;
+  border-bottom-color: #049cdb;
+}
+#css-triangles-explanation .blocks small {
+  font-size: 50%;
+  line-height: 150%;
+  margin-top: 15px;
+  display: block;
+}
+#css-triangles-explanation .block-2,
+#css-triangles-explanation .block-3,
+#css-triangles-explanation .block-4,
+#css-triangles-explanation .block-5 {
+  border-top-color: transparent;
+}
+#css-triangles-explanation .block-3,
+#css-triangles-explanation .block-4,
+#css-triangles-explanation .block-5 {
+  width: 0;
+}
+#css-triangles-explanation .block-4,
+#css-triangles-explanation .block-5 {
+  height: 0;
+  margin-top: 100px;
+}
+#css-triangles-explanation .block-5 {
+  border-right-color: transparent;
+  border-left-color: transparent;
+}</style><div class="row blocks"><div class="span3"><div class="block"></div></div><div class="span3"><div class="block block-2"></div><small>border-top-color: transparent</small></div><div class="span2"><div class="block block-3"></div><small>width 0</small></div><div class="span2"><div class="block block-3 block-4"></div><small>height 0</small></div><div class="span2"><div class="block block-3 block-4 block-5"></div><small>transparent left/right borders</small></div></div></div></section><section><h2>Color notation examples</h2><ul class="read-block"> <li>#f02</li><li>#ff0022</li><li>rgb(255, 0, 34)</li><li>rgb(100%, 0, 13.3%)</li></ul></section><section><h2>Shortcuts: background</h2><p>background: <b>{background-color}</b></p><p><b>{background-image}</b></p><p><b>{background-repeat}</b></p><p><b>{background-position}</b></p><pre><code>.loading {
+   background: transparent url('loading.gif') no-repeat 50% 50%;
+}</code></pre></section><section data-state="lab"><h2>Lab: Button Bar 1</h2><p>Create a button bar with CSS2</p></section><section><section id="img-replacement-1"><h2>Image replacement</h2><div class="row-fluid"><div class="span4"><div id="IR-example-1"><style>#IR-example-1 a {
+  display: block;
+  width: 200px;
+  height: 200px;
+  text-indent: -10000px;
+  background-image: url(assets/svg/html5.svg);
+}</style><a href="#img-replacement-1">HTML5</a></div></div><div class="span8"><pre><code>#pageheader a {
+  display: block;
+  
+  width: 200px;
+  height: 200px;
+  
+  text-indent: -10000px;
+  background-image: url('html5.svg');
+}</code></pre><pre><code>&lt;div id=&quot;pageheader&quot;&gt;
+  &lt;a&gt;HTML5&lt;/a&gt;
+&lt;/div&gt;
+</code></pre></div></div><a href="http://www.mikeindustries.com/blog/archive/2004/08/sifr" class="annotation">Introducing sFIR</a></section><section id="img-replacement-2"><h2>IR using padding</h2><div class="row-fluid"><div class="span4"><div id="IR-example-2"><style>#IR-example-2 a {
+  display: block;
+  width: 0px;
+  height: 0px;
+  padding-right: 200px;
+  padding-top: 200px;
+  overflow: hidden;
+  background-image: url(assets/svg/html5.svg);
+}</style><a href="#img-replacement-2">HTML5</a></div></div><div class="span8"><pre><code>#pageheader a {
+  display: block;
+  
+  width: 0px;
+  height: 0px;
+  padding-right: 200px;
+  padding-top: 200px;
+  
+  overflow: hidden;
+  background-image: url('html5.svg');
+}
+</code></pre></div></div></section><section id="img-replacement-3"><h2>IR using text-indent</h2><div class="row-fluid"><div class="span4"><div id="IR-example-3"><style>#IR-example-3 a {
+  display: block;
+  height: 200px;
+  width: 200px;
+  text-indent: 120%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url(assets/svg/html5.svg);
+}</style><a href="#img-replacement-3">HTML5</a></div></div><div class="span8"><pre><code>#pageheader a {
+  display: block;
+  
+  height: 200px;
+  width: 200px;
+  
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url('html5.svg');
+}
+</code></pre></div></div></section></section><section><h2>CSS sprites</h2><p>Combine <b>all background images</b> in a vertical or horizonal arrangement.</p><pre><code class="two-columns">.browser-icon {
+  background-image: url(browsers-sprite.png);
+}
+.firefox-icon { background-position: -30px 0; }
+.safari-icon  { background-position: -60px 0; }
+...</code></pre><div id="sprites-diagram"><style>#sprites-diagram {
+  background: none;
+}
+#sprites-diagram .mask {
+  height: 50px;
+  background: -webkit-linear-gradient(bottom, rgba(102,102,102,0.5) 0%, rgba(102,102,102,0.5) 6%) no-repeat 0 0,
+              -webkit-linear-gradient(bottom, rgba(102,102,102,0.5) 0%, rgba(102,102,102,0.5) 6%) no-repeat 250px 0;
+  background-size: 200px 50px, auto 50px;
+  position: relative;
+}
+#sprites-diagram .window {
+  position: absolute;
+  left: 200px;
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  border: 2px solid black;
+}
+#sprites-diagram .sprites {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 50px;
+  background: url(assets/raster/browsers.png) no-repeat 100px 0;
+  z-index: -10;
+}
+</style><div class="mask"><div class="sprites"></div><div class="window"></div></div></div><div id="ex-sprites"><style>#ex-sprites .window {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border: 2px solid black;
+  background: url(assets/raster/browsers.png) no-repeat -100px 0;
+}</style><div class="window"></div></div></section><section><h2>Link pseudo-classes</h2><p><b>:link</b>, <b>:hover</b>, <b>:active</b>, <b>:visited</b>, <b>:focus</b></p><pre><code>a {
+  text-decoration: none;
+}
+
+a, a<b>:hover</b>, a<b>:active</b>, a<b>:visited</b>, a<b>:focus</b> {
+   color: #f00;
+}
+
+a<b>:hover</b> {
+  text-decoration: underline;
+}
+</code></pre></section><section><h2>first-child, last-child</h2><p><b>:first-child</b>   IE7+</p><p><b>:last-child</b>    IE8+</p><pre><code>ul.data li {
+  border-top: 1px dotted #ccc;
+}
+
+ul.data li<b>:first-child</b> {
+   border-top: none;
+}</code></pre><div id="ex-first-child"><style>#ex-first-child li {
+  border-top: 2px dotted #06336F;
+}
+#ex-first-child li:first-child {
+  border-top: none;
+}</style><ul class="read-block"><li>item 1</li><li>item 2</li><li>item 3</li></ul></div></section><section><h2>nth-child</h2><p>nth-child<b>(even | odd | {formula})</b></p><pre><code>ul.data li {
+  background: #aaa;
+}
+
+ul.data li<b>:nth-child(even)</b> {
+   background: #ccc;
+}</code></pre><div id="ex-nth-child"><style>#ex-nth-child li:nth-child(even) {
+  background-color: #ccc;
+}</style><ul class="read-block"><li>item 1</li><li>item 2</li><li>item 3</li></ul></div></section><section><h2>nth-child formula</h2><pre><code>ul.data li {
+  float: left;
+  height: 100px;
+}
+
+ul.data li:nth-child(3n + 1) {
+   clear: left;
+}</code></pre><div id="ex-nth-child-formula"><style>#ex-nth-child-formula ul {
+  list-style: none;
+}
+#ex-nth-child-formula li {
+  float: left;
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+#ex-nth-child-formula li:nth-child(3n+1) {
+  clear: left;
+  border-color: red;
+}</style><ul><li>item 1</li><li>item 2</li><li>item 3</li><li>item 4</li><li>item 5</li><li>item 6</li></ul></div><p class="annotation">More examples on <a href="http://nthmaster.com/">http://nthmaster.com/</a></p></section><section><h2>Pseudo-elements</h2><p><b>:after, :before, :first-letter, :first-line</b></p></section><section><h2>:after, :before</h2><pre><code>.my-link<b>:before</b> {
+  content: "» ";
+}</code></pre><div id="ex-pseudo-elements"><style>#ex-pseudo-elements .my-link:before {
+  content: "» ";
+}</style><a href="" class="my-link">Cool link</a></div></section><section><h2>clearfix</h2><pre><code>.clearfix<b>:after</b> {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+</code></pre><a href="http://stackoverflow.com/a/1633170/1525398" class="source">Modern clearfixes</a></section><section><h2>Shorcuts: font</h2><p>font: <b>{font-style} {font-variant} {font-weight} {font-size/line-height} {font-family}</b></p><pre><code>p {
+  font: italic bold 0.9em/1.5em verdana, serif;
+}
+</code></pre><p class="read-block"><b>font-style</b>: normal, italic, oblique, inherit</p><p class="read-block"><b>font-variant</b>: normal, small-caps, inherit</p><p class="read-block"><b>font-weight</b>: normal, bold, bolder, lighter, &lt;thin>, inherit</p></section><section><h2>Font degradation</h2><p>List of fonts to be used if available, from best to worst </p><pre><code>body {
+  font: 13px/1.5 'Helvetica Neue', Arial, FreeSans, sans-serif;
+}
+</code></pre></section><section><h2>Serif vs Sans Serif</h2><p>Best readable results</p><table class="table"><thead><tr><th>screen</th><th>print</th><th>code</th></tr></thead><tbody><tr><td>sans serif</td><td>serif</td><td>monospace</td></tr><tr style="font-size: 130%;"><td>Lorem ipsum</td><td style="font-family: serif">Lorem ipsum</td><td style="font-family: monospace">Lorem ipsum</td></tr></tbody></table></section><section><h2>Typical web-safe fonts</h2><ul class="read-block"><li><b>Serif</b>: Georgia, Times New Roman</li><li><b>Sans serif</b>: Helvetica, Arial, Tahoma, Verdana</li><li><b>Monospace</b>: Monaco, Menlo, Consolas, Courier</li><li>Availability depends on the OS</li></ul></section><section data-state="lab"><h2>Lab: Button Bar 2</h2><p>Use sprites, image replacement and :after</p></section><section><h2>CSS Reset</h2><p>Keeps the inconsistencies between browsers to a minimum.</p><p><b>960gs, YUI-reset, Eric Meyer.</b></p></section><section><h2>Eric Meyer's reset.css</h2><div class="row-fluid"><pre class="span6"><code style="font-size: 70%;                  line-height: 120%;">/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+}</code></pre><pre class="span6"><code style="font-size: 70%;                  line-height: 120%;">/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+body {
+        line-height: 1;
+}
+ol, ul {
+        list-style: none;
+}
+blockquote, q {
+        quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+        content: '';
+        content: none;
+}
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+</code></pre></div></section><section><h2>normalize.css</h2><pre><code>h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+...
+
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+ 
+abbr[title] {
+  border-bottom: 1px dotted;
+}</code></pre><p>Used in <b>HTML5 Boilerplate</b>.</p></section><section><h2>CSS frameworks</h2><ul><li>960gs</li><li>YAML</li><li>OOCSS</li><li>YUI-grid</li></ul></section><section><h2>960 Grid System</h2><div style="background-color:white"><img src="assets/raster/960.png"></div></section><section><h2>Twitter Bootstrap</h2><p><b>12</b>-column grid, <b>940px</b> wide</p><p>Fluid and responsive optionally</p><style>#ex-bootstrap .row-fluid [class*="span"],
+#ex-bootstrap-grid .row-fluid [class*="span"] {
+  min-height: 0;
+}</style><div id="ex-bootstrap"><div class="row-fluid"><div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div></div><div class="row-fluid"><div class="span4 grid-block">4</div><div class="span4 grid-block">4</div><div class="span4 grid-block">4</div></div><div class="row-fluid"><div class="span4 grid-block">4</div><div class="span8 grid-block">8</div></div><div class="row-fluid"><div class="span6 grid-block">6</div><div class="span6 grid-block">6</div></div><div class="row-fluid"><div class="span12 grid-block">12</div></div></div></section><section><h2>Example</h2><pre><code>&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;span2&quot;&gt;Fee&lt;/div&gt;
+  &lt;div class=&quot;span2&quot;&gt;Fi&lt;/div&gt;
+  &lt;div class=&quot;span2&quot;&gt;Fo&lt;/div&gt;
+  &lt;div class=&quot;span3 offset3&quot;&gt;Fum!!&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;span4&quot;&gt;This is a column&lt;/div&gt;
+    &lt;div class=&quot;span7&quot;&gt;This is a larger column&lt;/div&gt;
+&lt;/div&gt;</code></pre><div id="ex-bootstrap-grid"><div class="row-fluid"><div class="span2 grid-block">Fee</div><div class="span2 grid-block">Fi</div><div class="span2 grid-block">Fo</div><div class="span3 offset3 grid-block">Fum!!</div></div><div class="row-fluid"><div class="span4 grid-block">This is a column</div><div class="span7 grid-block">This is a larger column</div></div></div></section><section data-state="lab"><h2>Lab: Bootstrap 1</h2><p>Build a layout with Bootstrap</p></section><section><h2>Bootstrap base CSS: Tables</h2><pre><code>&lt;table class="table">
+...
+&lt;/table>    </code></pre><p>Optional classes:</p><ul><li><b>.table-striped</b></li><li><b>.table-bordered</b></li><li><b>.table-hover</b> Same as striped but in hover</li><li><b>.table-condensed</b></li></ul></section><section><h2>Bootstrap base CSS: Forms</h2><p class="read-block">Default style is vertical</p><iframe src="assets/html/bootstrap-base-forms1.html" width="700" height="400" style="margin-top: 20px; background-color: white;"> </iframe></section><section><h2>Bootstrap base CSS: Forms</h2><p class="read-block">Optional layouts (applied to the form tag):</p><ul><li><b>.form-search</b>: Inline search like layout</li><li><b>.form-inline</b>: Inline components </li><li><b>.form-horizontal</b>: Labels to the right of the components. Control groups needed:<pre><code>&lt;div class="control-group">
+  &lt;label class="control-label" for="inputEmail">Email&lt;/label>
+  &lt;div class="controls">
+    &lt;input type="text" id="inputEmail" placeholder="Email">
+  &lt;/div>
+&lt;/div>
+</code></pre></li></ul></section><section><h2>Bootstrap base CSS: Forms</h2><p class="read-block">Horizontal form:</p><iframe src="assets/html/bootstrap-base-forms3.html" width="700" height="400" style="margin-top: 20px; background-color: white;"> </iframe></section><section><h2>Bootstrap base CSS: Forms</h2><p class="read-block">Extending controls with addon prepend and append:</p><iframe src="assets/html/bootstrap-base-forms2.html" width="700" height="400" style="margin-top: 20px; background-color: white;"> </iframe></section><section><h2>Bootstrap base CSS: Forms</h2><p class="read-block">Extending controls:</p><iframe src="assets/html/bootstrap-base-forms4.html" width="700" height="400" style="margin-top: 20px; background-color: white;"> </iframe></section><section><h2>Bootstrap base CSS: Forms</h2><p class="read-block">Extending controls:</p><iframe src="assets/html/bootstrap-base-forms5.html" width="700" height="400" style="margin-top: 20px; background-color: white;"> </iframe></section><section><h2>Bootstrap components</h2><iframe src="assets/html/bootstrap-reusable-components.html" width="1000" height="400" style="margin-top: 20px; background-color:white;"></iframe></section><section><h2>Bootstrap components</h2><p>Navigation bar</p><iframe src="assets/html/bootstrap-navigation-bar.html" width="1000" height="300" style="margin-top: 20px; background-color: white;"></iframe></section><section><h2>Bootstrap components</h2><p>Responsive navigation bar</p><iframe src="assets/html/bootstrap-navigation-bar-collapsed.html" width="500" height="600" style="margin-top: 20px; background-color: white;"></iframe></section><section><h2>Bootstrap components</h2><p>Navigation components</p><iframe src="assets/html/bootstrap-navigation-components.html" width="1000" height="470" style="margin-top: 20px; background-color: white;"></iframe></section><section><h2>Bootstrap JS plugins</h2><p>Pure markup, zero lines of JS</p><iframe src="assets/html/bootstrap-js-plugins.html" width="1000" height="480" style="margin-top: 20px; background-color: white;"></iframe></section><section><h2>Customization</h2><div class="row-fluid"><div class="span6"><ul><li>Themes:<ul><li><a href="http://bootswatch.com">Bootswatch </a></li><li><a href="http://wrapbootstrap.com">WrapBootstrap</a></li></ul></li><li>Snippets:<ul><li><a href="http://bootsnipp.com/">Bootsnipp</a></li></ul></li></ul></div><div class="span6"><ul><li>Customize<ul><li><a href="http://twitter.github.com/bootstrap/customize.html">Customize Bootstrap</a></li><li>LESS source files</li></ul><pre><code>@baseFontSize: 13px;
+@tableBorder: #ddd;
+@inputBorderRadius: 3px;
+@gridColumns: 12;
+  ...
+  </code></pre></li></ul></div></div></section><section data-state="lab"><h2>Lab: Bootstrap 2</h2><p>Experiment with the Bootstrap components</p></section><section><h2>print CSS</h2><p>Media-specific stylesheet</p><pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;print.css&quot; media=&quot;print&quot;&gt;</code></pre><pre><code>/* Regular CSS */
+
+@media print {
+  /* Print CSS */
+}
+</code></pre></section><section><h2>Whitewashed backgrounds</h2><p class="read-block">All background colors and images are <b>removed</b></p><p class="read-block"><b>Not all browsers are configured with the defaults</b>. You should remove your backgrounds anyway.</p><p class="read-block">Borders, images and font colors still apply.</p></section><section><h2>Fonts for printing</h2><p class="read-block"><b>font-size: 12pt</b> is usually fine for printing</p><p class="read-block"><b>Choose serif / sans serif</b></p><p class="read-block"><b>Underline links</b></p><p class="read-block"><b>Modify font color</b> for best contrast with white background</p></section><section><h2>A note about color-blind users</h2><p class="read-block"><b>1 in 12</b> people have some sort of color deficiency</p><p class="read-block"><b>Underlining links</b> on screen is usually considered good practice</p></section><section><h2>Print link target</h2><pre><code>p a:after {
+  content: " ("attr(href)") ";
+  font-size: 10pt;
+}
+
+p a[href^="/"]:after {
+  content: " (http://myhost.com" attr(href) ") ";
+}
+</code></pre><div id="ex-print-link"><style>#ex-print-link .print {
+  text-decoration: underline;
+}
+#ex-print-link .print:after {
+  content: " ("attr(href)") ";
+  font-size: 10pt;
+}</style><div class="row-fluid small-text"><div class="span4 offset1">Go visit <a href="http://instructormatters.com">external link</a></div><div class="span4 offset2">Go visit <a href="http://instructormatters.com" class="print" >external link</a></div></div></div></section><section><h2>QR code</h2><p>You cannot click it but...</p><img src="assets/svg/qr.svg" width="400"></section><section><h2>Page breaks</h2><p>page-break-before, page-break-after, page-break-inside</p><pre><code>#comments {
+  page-break-before: always;
+}
+
+table {
+  page-break-inside: avoid;
+}
+</code></pre><ul><li><b>page-break-before</b>: auto, always, avoid, left, right, inherit</li><li><b>page-break-after:</b> auto, always, avoid, left, right, inherit</li><li><b>page-break-inside</b>: auto, avoid, inherit      </li></ul></section><section><h2>How to test</h2><p class="read-block">Temporarily <b>remove the "media" attribute</b></p><p class="read-block">Use <b>print preview</b></p><p class="read-block"><b>Print to PDF</b></p></section><section data-state="lab"><h2>Lab: print CSS</h2><p>Create a print stylesheet</p></section></div><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script src="assets/js/html5shiv.js"></script><script>//- Full list of configuration options available here:
+//- https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+rollingLinks: false,
+transition: 'linear',
+//- Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'assets/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+{ src: 'assets/js/classList.js', condition: function() { return !document.body.classList; } },
+//-{ src: 'assets/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//-{ src: 'assets/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+]
+});</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2309405-10']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>

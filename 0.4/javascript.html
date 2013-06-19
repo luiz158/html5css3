@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>JavaScript</title><link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/zenburn.css"><script>//- If the query includes 'print-pdf' we'll use the PDF print sheet
+document.write( '<link rel="stylesheet" href="assets/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script><script src="assets/js/jquery-1.8.1.min.js"></script></head><body><div class="reveal"><div class="state-background"></div><div class="slides"><section><h1>JavaScript</h1></section><section><h2>Client-Side Storage</h2><ul><li><b>IndexedDB:</b> Structured data storage</li><li><b>File:</b> Manipulate local files from the browser</li><li><b>LocalStorage:</b> Key-value storage</li></ul></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">19+</div><div class="support ff"></div><div class="support-version">12+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">No</div></div><h2>IndexedDB</h2><ul><li><b>Unlimited storage</b></li><li><b>Query capabilities</b></li><li><b>Very limited</b> browser support</li></ul></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">19+</div><div class="support ff"></div><div class="support-version">12+</div><div class="support safari"></div><div class="support-version">No</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">No</div></div><h2>IndexedDB</h2><pre><code>myDatabase.indexedDB.addTodo = function(friendText) {
+  var db = myDatabase.indexedDB.db
+  , trans = db.transaction(["friend"], IDBTransaction.READ_WRITE, 0)
+  , store = trans.objectStore("friend")
+  , request = store.put({
+    "text": friendText,
+    "timeStamp" : new Date().getTime()
+  });
+  
+  request.onsuccess = function(e) {
+    // Render new data
+  };
+  
+  request.onerror = function(e) {
+    console.log(e.value);
+  };
+};
+</code></pre></section><section><h2>IDBWrapper.js</h2><pre><code>var friends = new IDBStore();
+
+friends.put({ 
+    name: 'James' 
+}, 
+  function(id) {
+    // success
+  }, 
+  function(e) {
+    // error
+  }
+);
+</code></pre></section><section><h2>IDBWrapper.js</h2><p>Methods</p><pre><code>// Add new entry
+friends.put(friend, onsuccess, onerror)
+
+// Query an entry
+friends.get(friendId, onsuccess, onerror)
+
+// Updating an entry
+friends.update(updatedFriend, onsuccess, onerror)
+
+// Get all entries
+friends.getAll(onsuccess, onerror)
+
+// Delete an entry
+friends.remove(friendId, onsuccess, onerror)
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">13+</div><div class="support ff"></div><div class="support-version">3.6+</div><div class="support safari"></div><div class="support-version">5.1*</div><div class="support msie"></div><div class="support-version">10?</div><div class="support opera"></div><div class="support-version">11.1+</div></div><h2>File APIs</h2><p>Get file attributes</p><pre><code>&lt;input type=&quot;file&quot; id=&quot;yourFile&quot; name=&quot;file&quot;&gt;
+&lt;ul id=&quot;list&quot;&gt;&lt;/ul&gt;
+</code></pre><pre><code>var listener = function (evt) {
+  var file = evt.target.files[0];
+  $('#list').append('&lt;li>' + file.name + ' - ' + file.size + ' bytes.');
+};
+
+$('#yourFile').on('change', listener);
+</code></pre></section><section><h2>FileReader</h2><p>Read file contents</p><pre><code>var listener = function (evt) {
+  var file = evt.target.files[0],
+    reader = new FileReader();
+    
+  reader.onload = function (e) {
+    var $img = $('&lt;img>').attr({
+      src: e.target.result,
+      title: file.name
+    });
+    //Insert $img
+  }
+  
+  reader.readAsDataURL(file); // Read in the image file as a data URL.
+}
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">4+</div><div class="support msie"></div><div class="support-version">8+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>Web Storage</h2><ul><li><b>Great</b> browser support (plus fallbacks)</li><li><b>localStorage</b>: persists contents</li><li><b>sessionStorage</b>: contents are lost after browser session</li></ul><img src="assets/svg/web-storage.svg" width="200"></section><section><h2>localStorage</h2><p>Global object used to store <b>only strings</b></p><pre><code>// Set data
+localStorage<b>.setItem</b>("key", "value");
+
+// Get data
+localStorage<b>.getItem</b>("key"); // => "value"
+
+// Remove data
+localStorage<b>.removeData</b>("key");
+
+// Number of entries
+localStorage<b>.length</b>
+</code></pre></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">2+</div><div class="support safari"></div><div class="support-version">4+</div><div class="support msie"></div><div class="support-version">5+</div><div class="support opera"></div><div class="support-version">10.5+</div></div><h2>store.js</h2><ul><li><b>JSON datatypes</b> (objects, arrays, boolean...)</li><li>Supports <b>default values</b></li><li><b>Fallback</b> to</li><ul><li><b>globalStorage</b> for older Firefox (2+)</li><li><b>userData</b> for older IE (5+)</li></ul></ul></section><section><h2>store.js</h2><pre><code>var myStuff = new Store("myStuff");
+
+// Set data
+myStuff.set('key', 'value')
+
+// Get data
+myStuff.get('key')
+
+// Remove data
+myStuff.remove('key');
+
+</code></pre></section><section data-state="lab"><h2>Lab: localstorage</h2><p>Use the store.js library</p></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3+</div><div class="support safari"></div><div class="support-version">4+</div><div class="support msie"></div><div class="support-version">10+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>Appcache</h2><p>Offline web applications</p><pre><code>&lt;!doctype html&gt;
+&lt;html manifest=&quot;/cache.manifest&quot;&gt;
+
+...
+
+&lt;/html&gt;
+</code></pre></section><section><h2>Cache.manifest</h2><pre><code>CACHE MANIFEST
+# Remember to update the version number!
+# version 2.3.1
+<span class="fragment">
+# Explicit cache: (no wildcard allowed)
+CACHE:
+/css/style.css
+/img/funny_image.png
+</span><span class="fragment">
+# Do not cache: (folders and wildcards are allowed)
+NETWORK:
+/js
+/status.html
+</span><span class="fragment">
+# If A is not online, serve B
+FALLBACK:
+/account /offline.html
+</span>
+</code></pre></section><section><h2>Process</h2><img src="assets/svg/appcache-flow.svg" width="80%"></section><section data-state="lab"><h2>Lab: AppCache</h2><p>Configure a web app to work offline</p></section><section><h2>Offline limits</h2><p>Lower common values:<ul><li>localStorage: 5MB</li><li>Appcache & IndexedDB: 50MB</li></ul></p></section><section><h2>Real life limits</h2><p class="read-block">JS uses <b>UTF-16</b> (2 bytes per character)</p><p class="read-block">Consider <b>reencoding</b></p><br><p>String → base64 → UTF-16</p><a href="http://labs.ft.com/2012/06/text-re-encoding-for-optimising-storage-capacity-in-the-browser/" class="source">Source: Financial Times Labs</a></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>Geolocation</h2><p>Where are we?</p><pre><code>if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error, options);
+} else {
+    alert('Get a fancier browser!');
+}</code></pre><iframe src="assets/html/geolocation.html" width="100%" height="300"></iframe></section><section class="browser-support-container"><div class="browser-support"><div class="support chrome"></div><div class="support-version">4+</div><div class="support ff"></div><div class="support-version">3.5+</div><div class="support safari"></div><div class="support-version">5+</div><div class="support msie"></div><div class="support-version">9+</div><div class="support opera"></div><div class="support-version">10.6+</div></div><h2>getCurrentPosition</h2><p>Return the current location <b>if the user accepts the request</b></p><pre><code>var getLocation = function(callback) {
+  var errorCallback = function(e) {
+    e && console.info(e.message);
+    // use a default location
+    callback({
+      coords: { latitude: 0.5, longitude: 0.5 }
+    });
+  };
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getLocation, errorCallback);
+  } else {
+    errorCallback();
+  }
+}
+</code></pre></section><section><h2>Watch position</h2><pre><code>navigator.geolocation.watchPosition(success, error, options)
+
+navigator.geolocation.clearWatch(watchId)</code></pre></section></div><aside class="controls"><a href="#" class="left">◄</a><a href="#" class="right">►</a><a href="#" class="up">▲</a><a href="#" class="down">▼</a></aside><div class="progress"><span></span></div></div><script src="assets/js/head.min.js"></script><script src="assets/js/reveal.custom.min.js"></script><script src="assets/js/html5shiv.js"></script><script>//- Full list of configuration options available here:
+//- https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+rollingLinks: false,
+transition: 'linear',
+//- Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'assets/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+{ src: 'assets/js/classList.js', condition: function() { return !document.body.classList; } },
+//-{ src: 'assets/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+//-{ src: 'assets/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+]
+});</script><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2309405-10']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script></body></html>
