@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="foundation-5.0.2/css/normalize.css">
+  <link rel="stylesheet" href="foundation-5.0.2/css/foundation.css">
+  <link rel="stylesheet" href="base.css">
+
+  <script src="foundation-5.0.2/js/modernizr.js"></script>
+</head>
+
+<body>
+  <h3>Nested grid</h3>
+
+  <style>
+    .row div { border: 1px solid gray; }
+  </style>
+
+   <div class="row">
+    <div class="small-8 columns">small-8
+      <div class="row">
+        <div class="small-8 columns">small-8
+          <div class="row">
+            <div class="small-8 columns">small-8</div>
+            <div class="small-4 columns">small-4</div>
+          </div>
+        </div>
+        <div class="small-4 columns">small-4</div>
+      </div>
+    </div>
+    <div class="small-4 columns">small-4</div>
+  </div>
+
+  <script src="foundation-5.0.2/js/vendor/jquery.js"></script>
+  <script src="foundation-5.0.2/js/foundation.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

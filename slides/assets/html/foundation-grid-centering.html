@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="foundation-5.0.2/css/normalize.css">
+  <link rel="stylesheet" href="foundation-5.0.2/css/foundation.css">
+  <link rel="stylesheet" href="base.css">
+
+  <script src="foundation-5.0.2/js/modernizr.js"></script>
+</head>
+
+<body>
+  <h3>Grid column centering</h3>
+
+  <style>
+    .row div { border: 1px solid gray; padding: 0.3em; font-size:0.8em;}
+  </style>
+
+  <div class="row">
+    <div class="small-3 small-centered columns">small-3 small-centered</div>
+  </div>
+  <div class="row">
+    <div class="small-6 large-centered columns">small-6 large-centered</div>
+  </div>
+  <div class="row">
+    <div class="small-9 small-centered large-uncentered columns">small-9 small-centered large-uncentered</div>
+  </div>
+  <div class="row">
+    <div class="small-11 small-centered columns">small-11 small-centered</div>
+  </div>
+
+  <script src="foundation-5.0.2/js/vendor/jquery.js"></script>
+  <script src="foundation-5.0.2/js/foundation.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

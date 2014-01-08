@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="foundation-5.0.2/css/normalize.css">
+  <link rel="stylesheet" href="foundation-5.0.2/css/foundation.css">
+  <link rel="stylesheet" href="base.css">
+
+  <script src="foundation-5.0.2/js/modernizr.js"></script>
+</head>
+
+<body>
+  <h3>Grid source ordering</h3>
+
+  <style>
+    .row div { border: 1px solid gray; padding: 0.3em; font-size:0.8em;}
+  </style>
+
+  <div class="row">
+    <div class="small-10 small-push-2 columns">a1, small-10 small-push-2</div>
+    <div class="small-2 small-pull-10 columns">a2, small-2 small-pull-10</div>
+  </div>
+  <div class="row">
+    <div class="large-9 large-push-3 columns">b1, large-9 large-push-3</div>
+    <div class="large-3 large-pull-9 columns">b2, large-3 large-pull-9</div>
+  </div>
+  <div class="row">
+    <div class="large-8 large-push-4 columns">c1, large-8 large-push-4</div>
+    <div class="large-4 large-pull-8 columns">c2, large-4 large-pull-8</div>
+  </div>
+  <div class="row">
+    <div class="medium-7 small-5 small-push-7 medium-push-5 columns">d1, medium-7 small-5 small-push-7 medium-push-5</div>
+    <div class="medium-5 small-7 small-pull-5 medium-pull-7 columns">d2, medium-5 small-7 small-pull-5 medium-pull-7</div>
+  </div>
+  <div class="row">
+    <div class="medium-6 medium-push-6 columns">e1, medium-6 medium-push-6</div>
+    <div class="medium-6 medium-pull-6 columns">e2, medium-6 medium-pull-6</div>
+  </div>
+
+  <script src="foundation-5.0.2/js/vendor/jquery.js"></script>
+  <script src="foundation-5.0.2/js/foundation.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
