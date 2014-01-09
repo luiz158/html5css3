@@ -1,0 +1,42 @@
+section
+  h2 Responsive Bootstrap
+  pre
+    code.
+      #{'<'}div class="<b>row-fluid</b>">
+          #{'<div class="span2">Fee</div>'}
+          #{'<div class="span2">Fi</div>'}
+          #{'<div class="span2">Fo</div>'}
+          #{'<div class="span3 offset3">Fum!!</div>'}
+      #{'</div>'}
+  pre
+    code.
+      .row-fluid .span2 {
+        width: 14.52991452991453%;
+      }
+
+section
+  h2 Responsive Bootstrap
+  p Several media queries implemented
+  p 0 – 480px – 768px – 980px – 1200px
+  p Try resizing this window
+  pre
+    code.
+      #{'<'}link href="<b>bootstrap-responsive.css</b>" rel="stylesheet">
+  style
+    @media (max-width: 600px) {
+      #ex-bootstrap-rwd .grid-block {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  #ex-bootstrap-rwd
+    .row-fluid
+      .span2.grid-block Fee
+      .span2.grid-block Fi
+      .span1.grid-block.offset2 Fo
+      .span4.grid-block Fum!
+
+section(data-state="lab")
+  h2 Lab: Responsive design
+  p Make a web page responsive
