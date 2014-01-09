@@ -3,3 +3,5 @@ node_modules
 *.sublime-workspace
 slides/generated
 npm-debug.log
+.idea
+*.swp
