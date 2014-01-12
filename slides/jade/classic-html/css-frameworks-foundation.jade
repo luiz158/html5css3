@@ -1,163 +1,652 @@
 section
   h2 Zurb Foundation
 
-  p <b>12</b>-column grid, <b>940px</b> wide
-  p Fluid and responsive optionally
-  style.
-    #ex-bootstrap .row-fluid [class*="span"],
-    #ex-bootstrap-grid .row-fluid [class*="span"] {
-      min-height: 0;
-    }
-  #ex-bootstrap
-    .row-fluid.
-      <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div> <div class="span1 grid-block">1</div>
-    .row-fluid
-      .span4.grid-block 4
-      .span4.grid-block 4
-      .span4.grid-block 4
-    .row-fluid
-      .span4.grid-block 4
-      .span8.grid-block 8
-    .row-fluid
-      .span6.grid-block 6
-      .span6.grid-block 6
-    .row-fluid
-      .span12.grid-block 12
+  p.read-block The most advanced responsive front-end framework in the world
 
 section
-  h2 Example
+  h2 Configuration
+
+  p.read-block Requirements:
+  .read-block
+    ul(style="margin-left:2em")
+      li Git
+      li Ruby 1.9+
+      li NodeJS
+
+  p.read-block Updating process managed by Bower:
+  pre
+    code.
+      [sudo] npm install -g bower grunt-cli
+
+  p.read-block Foundation command line executor:
+  pre
+    code.
+      gem install foundation
+
+section
+  h2 Project layout alternatives
+
+  .read-block
+    ul
+      li Foundation + compass:
+        pre
+          code.
+            foundation new test-f5c
+      li Foundation with Grunt + Libsass:
+        pre
+          code.
+            foundation new test-f5c --libsass
+
+section
+  h2 Available modules
+
+  .read-block
+    ul
+      li The Grid
+      li Navigation
+      li Buttons
+      li Plugins
+
+section
+  h2 Documentation
+
+  p Always check the online documentation at:
+  a(href="http://foundation.zurb.com/docs/") http://foundation.zurb.com/docs/
+
+section
+  h2 IE8 compatibility
+
+  p Foundation 4 and 5 doesn't support IE8
+
+  ul.fragment(style="margin-top:1em")
+    li No media query support
+    li No rem units in CSS
+
+  p.fragment(style="margin-top:1em")
+    strong Overcome both with a few simple polyfills!!!
+
+section
+  h2 IE8 compatibility
+
+  p.read-block To fix the media query issue, just add this to your head:
 
   pre
     code.
-      #{'<div class="row">'}
-        #{'<div class="span2">Fee</div>'}
-        #{'<div class="span2">Fi</div>'}
-        #{'<div class="span2">Fo</div>'}
-        #{'<div class="span3 offset3">Fum!!</div>'}
-      #{'</div>'}
-      #{'<div class="row">'}
-          #{'<div class="span4">This is a column</div>'}
-          #{'<div class="span7">This is a larger column</div>'}
-      #{'</div>'}
-  #ex-bootstrap-grid
-    .row-fluid
-      .span2.grid-block Fee
-      .span2.grid-block Fi
-      .span2.grid-block Fo
-      .span3.offset3.grid-block Fum!!
-    .row-fluid
-      .span4.grid-block This is a column
-      .span7.grid-block This is a larger column
-
-section(data-state="lab")
-  h2 Lab: Bootstrap 1
-  p Build a layout with Bootstrap
+      #{'<!--[if lt IE 9]>'}
+      #{'<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>'}
+      #{'<script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>'}
+      #{'<script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>'}
+      #{'<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>'}
+      #{'<![endif]-->'}
 
 section
-  h2 Bootstrap base CSS: Tables
+  h2 IE8 compatibility
+
+  p.read-block To fix the rem issue, just add a link to this polyfill js file at the bottom of your body tag:
+
   pre
     code.
-      &lt;table class="table">
-      ...
-      &lt;/table>    
-  p Optional classes:
-  ul
-    li <b>.table-striped</b>
-    li <b>.table-bordered</b>
-    li <b>.table-hover</b> Same as striped but in hover
-    li <b>.table-condensed</b>
+      https://github.com/chuckcarpenter/REM-unit-polyfill
 
 section
-  h2 Bootstrap base CSS: Forms
-  p.read-block Default style is vertical
-  iframe(src="assets/html/bootstrap-base-forms1.html", width="700", height="400", style="margin-top: 20px; background-color: white;") 
+  h2 IE8 compatibility
+
+  .read-block Some documentation and workarounds are also available in:
+    ul(style="margin-left:2em")
+      li
+        a(href="http://foundation.zurb.com/forum/posts/241-foundation-5-and-ie8") http://foundation.zurb.com/forum/posts/241-foundation-5-and-ie8
+      li
+        a(href="http://foundation.zurb.com/forum/posts/260-ie8-doesnt-support-foundation-5-stylesheet") http://foundation.zurb.com/forum/posts/260-ie8-doesnt-support-foundation-5-stylesheet
+      li
+        a(href="http://stackoverflow.com/questions/13639499/zurb-foundation-and-ie-8") http://stackoverflow.com/questions/13639499/zurb-foundation-and-ie-8
+      li
+        a(href="https://gist.github.com/hatefulcrawdad/5068210") https://gist.github.com/hatefulcrawdad/5068210
+      li
+        a(href="https://gist.github.com/replete/7082477") https://gist.github.com/replete/7082477
+      li
+        a(href="https://gist.github.com/replete/7082518") https://gist.github.com/replete/7082518
 
 section
-  h2 Bootstrap base CSS: Forms
-  p.read-block Optional layouts (applied to the form tag):
-  ul
-    li <b>.form-search</b>: Inline search like layout
-    li <b>.form-inline</b>: Inline components 
-    li <b>.form-horizontal</b>: Labels to the right of the components. Control groups needed:
-      pre
-        code.
-          &lt;div class="control-group">
-            &lt;label class="control-label" for="inputEmail">Email&lt;/label>
-            &lt;div class="controls">
-              &lt;input type="text" id="inputEmail" placeholder="Email">
-            &lt;/div>
-          &lt;/div>
+  h2 Distribution
+
+  .read-block
+    ul
+      li index.html, humans.txt, robots.txt
+      li /css
+        ul
+          li foundation.css
+          li foundation.min.css
+          li normalize.css
+      li /js
+        ul
+          li foundation.min.js
+          li /foundation
+          li /vendor
 
 section
-  h2 Bootstrap base CSS: Forms
-  p.read-block Horizontal form:
-  iframe(src="assets/html/bootstrap-base-forms3.html", width="700", height="400", style="margin-top: 20px; background-color: white;") 
+  h2 Basic template file
+
+  pre
+    code.
+      #{'<!DOCTYPE html>'}
+      #{'<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->'}
+      #{'<html class="no-js" lang="en" >'}
+      #{'  <head>'}
+      #{'    <meta charset="utf-8">'}
+      #{'    <meta name="viewport" content="width=device-width, initial-scale=1.0">'}
+      #{'    <title>Foundation 5</title>'}
+
+      #{'    <link rel="stylesheet" href="css/normalize.css">'}
+      #{'    <link rel="stylesheet" href="css/foundation.css">'}
+
+      #{'    <link rel="stylesheet" href="css/app.css">'}
+      #{'    <script src="js/vendor/modernizr.js"></script>'}
+      #{'  </head>'}
+      #{'  <body>'}
+      #{'    <!-- body content here -->'}
+
+      #{'    <script src="js/vendor/jquery.js"></script>'}
+      #{'    <script src="js/foundation.min.js"></script>'}
+
+      #{'    <script>'}
+      #{'       $(document).foundation();'}
+      #{'    </script>'}
+      #{'  </body>'}
+      #{'</html>'}
 
 section
-  h2 Bootstrap base CSS: Forms
-  p.read-block Extending controls with addon prepend and append:
-  iframe(src="assets/html/bootstrap-base-forms2.html", width="700", height="400", style="margin-top: 20px; background-color: white;") 
+  h2 FastClick dependency
+
+  p Eliminate the 300ms delay between a physical tap and the firing of a click event on mobile browsers.
+
+  .fragment.read-block According to Google:
+    blockquote
+      ...mobile browsers will wait approximately 300ms from the time that you tap the button to fire the click event. The reason for this is that the browser is waiting to see if you are actually performing a double tap.
+
+  p.fragment
+    strong Chrome 32+ on Android with width=device-width in the viewport meta tag doesn't have a 300ms delay, therefore listeners aren't attached.
 
 section
-  h2 Bootstrap base CSS: Forms
-  p.read-block Extending controls:
-  iframe(src="assets/html/bootstrap-base-forms4.html", width="700", height="400", style="margin-top: 20px; background-color: white;") 
+  h2 Media queries
+
+  p.read-block Available media queries list:
+
+  pre
+    code.
+      // Small screens
+      @media only screen { } /* Define mobile styles */
+      @media only screen and (max-width: 40em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+      // Medium screens
+      @media only screen and (min-width: 40.063em) { } /* min-width 641px, medium screens */
+      @media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+      // Large screens
+      @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
+      @media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1024px and max-width 1440px, use when QAing large screen-only issues */
+      // XLarge screens
+      @media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */
+      @media only screen and (min-width: 90.063em) and (max-width: 120em) { } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+      // XXLarge screens
+      @media only screen and (min-width: 120.063em) { } /* min-width 1921px, xlarge screens */
 
 section
-  h2 Bootstrap base CSS: Forms
-  p.read-block Extending controls:
-  iframe(src="assets/html/bootstrap-base-forms5.html", width="700", height="400", style="margin-top: 20px; background-color: white;") 
+  h2 Visiblity
+
+  p Show by Screen Size:
+
+  pre
+    code.
+      #{'<p class="panel">'}
+      #{'  <strong class="show-for-small-only">This text is shown only on a small screen.</strong>'}
+      #{'  <strong class="show-for-medium-up">This text is shown on medium screens and up.</strong>'}
+      #{'  <strong class="show-for-medium-only">This text is shown only on a medium screen.</strong>'}
+      #{'  <strong class="show-for-large-up">This text is shown on large screens and up.</strong>'}
+      #{'  <strong class="show-for-large-only">This text is shown only on a large screen.</strong>'}
+      #{'  <strong class="show-for-xlarge-up">This text is shown on xlarge screens and up.</strong>'}
+      #{'  <strong class="show-for-xlarge-only">This text is shown only on an xlarge screen.</strong>'}
+      #{'  <strong class="show-for-xxlarge-up">This text is shown on xxlarge screens and up.</strong>'}
+      #{'</p>'}
 
 section
-  h2 Bootstrap components
-  iframe(src="assets/html/bootstrap-reusable-components.html", width="1000", height="400", style="margin-top: 20px; background-color:white;")
+  h2 Visiblity
+
+  p Hide by Screen Size:
+
+  pre
+    code.
+      #{'<p class="panel">'}
+      #{'  <strong class="hide-for-small-only">You are <em>not</em> on a small screen.</strong>'}
+      #{'  <strong class="hide-for-medium-up">You are <em>not</em> on a medium, large, xlarge, or xxlarge screen.</strong>'}
+      #{'  <strong class="hide-for-medium-only">You are <em>not</em> on a medium screen.</strong>'}
+      #{'  <strong class="hide-for-large-up">You are <em>not</em> on a large, xlarge, or xxlarge screen.</strong>'}
+      #{'  <strong class="hide-for-large-only">You are <em>not</em> on a large screen.</strong>'}
+      #{'  <strong class="hide-for-xlarge-up">You are <em>not</em> on an xlarge screen and up.</strong>'}
+      #{'  <strong class="hide-for-xlarge-only">You are <em>not</em> on an xlarge screen.</strong>'}
+      #{'  <strong class="hide-for-xxlarge-up">You are <em>not</em> on an xxlarge screen.</strong>'}
+      #{'</p>'}
+
+  a(href="assets/html/foundation-visibility.html", target="_blank") Example
 
 section
-  h2 Bootstrap components
-  p Navigation bar
-  iframe(src="assets/html/bootstrap-navigation-bar.html", width="1000", height="300", style="margin-top: 20px; background-color: white;")
+  h2 Visiblity
+
+  p Orientation Detection:
+
+  pre
+    code.
+      #{'<p class="panel">'}
+      #{'  <strong class="show-for-landscape">You are in landscape orientation.</strong>'}
+      #{'  <strong class="show-for-portrait">You are in portrait orientation.</strong>'}
+      #{'</p>'}
+
+  p Touch Detection:
+
+  pre
+    code.
+      #{'<p class="panel">'}
+      #{'  <strong class="show-for-touch">You are on a touch-enabled device.</strong>'}
+      #{'  <strong class="hide-for-touch">You are not on a touch-enabled device.</strong>'}
+      #{'</p>'}
 
 section
-  h2 Bootstrap components
-  p Responsive navigation bar
-  iframe(src="assets/html/bootstrap-navigation-bar-collapsed.html", width="500", height="600", style="margin-top: 20px; background-color: white;")
+  h2 Grid configuration
+
+  p <b>12</b> column grid, <b>940px</b> wide
+
+  .fragment
+    p.read-block Basic class names:
+    .read-block
+      ul(style="margin-left:2em")
+        li row
+        li small-#, medium-#, and large-#
+        li column/columns
 
 section
-  h2 Bootstrap components
-  p Navigation components
-  iframe(src="assets/html/bootstrap-navigation-components.html", width="1000", height="470", style="margin-top: 20px; background-color: white;")
+  h2 Grid: Basic
+
+  p Foundation is mobile-first. Code for small screens first, and larger devices will inherit those styles. Customize for larger screens as necessary.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+        #{'<div class="small-2 large-4 columns">small-2 large-4</div>'}
+        #{'<div class="small-4 large-4 columns">small-4 large-4</div>'}
+        #{'<div class="small-6 large-4 columns">small-6 large-4</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+        #{'<div class="large-3 columns">large-3</div>'}
+        #{'<div class="large-6 columns">large-6</div>'}
+        #{'<div class="large-3 columns">large-3</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+        #{'<div class="small-6 large-2 columns">small-6 large-2</div>'}
+        #{'<div class="small-6 large-8 columns">small-6 large-8</div>'}
+        #{'<div class="small-12 large-2 columns">small-12 large-2</div>'}
+      #{'</div>'}
+
+  a.fragment(href="assets/html/foundation-grid.html", target="_blank") Example
 
 section
-  h2 Bootstrap JS plugins
-  p Pure markup, zero lines of JS
-  iframe(src="assets/html/bootstrap-js-plugins.html", width="1000", height="480", style="margin-top: 20px; background-color: white;")
+  h2 Grid: Small
+
+  p Small grids expand to large screens easier than large grids cram into small screens.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="small-2 columns">2 columns</div>'}
+      #{'  <div class="small-10 columns">10 columns</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="small-3 columns">3 columns</div>'}
+      #{'  <div class="small-9 columns">9 columns</div>'}
+      #{'</div>'}
 
 section
-  h2 Customization
-  .row-fluid
-    .span6
-      ul
-        li Themes:
-          ul
-            li <a href="http://bootswatch.com">Bootswatch </a>
-            li <a href="http://wrapbootstrap.com">WrapBootstrap</a>
-        li Snippets:
-          ul
-            li <a href="http://bootsnipp.com/">Bootsnipp</a>
-    .span6
-      ul
-        li Customize
-          ul
-            li <a href="http://twitter.github.com/bootstrap/customize.html">Customize Bootstrap</a>
-            li LESS source files
-          pre
-            code.
-              @baseFontSize: 13px;
-              @tableBorder: #ddd;
-              @inputBorderRadius: 3px;
-              @gridColumns: 12;
-                ...
+  h2 Grid: Medium
 
-section(data-state="lab")
-  h2 Lab: Bootstrap 2
-  p Experiment with the Bootstrap components
+  p Medium sized screens will inherit styles from small, unless you specify a different layout, using the medium grid classes.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="medium-2 columns">2 columns</div>'}
+      #{'  <div class="medium-10 columns">10 columns</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="medium-3 columns">3 columns</div>'}
+      #{'  <div class="medium-9 columns">9 columns</div>'}
+      #{'</div>'}
+
+section
+  h2 Grid: Nested rows
+
+  p You can nest the grids indefinitely, though at a certain point it will get absurd.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="small-8 columns">8'}
+      #{'    <div class="row">'}
+      #{'      <div class="small-8 columns">8 Nested'}
+      #{'        <div class="row">'}
+      #{'          <div class="small-8 columns">8 Nested Again</div>'}
+      #{'          <div class="small-4 columns">4</div>'}
+      #{'        </div>'}
+      #{'      </div>'}
+      #{'      <div class="small-4 columns">4</div>'}
+      #{'    </div>'}
+      #{'  </div>'}
+      #{'  <div class="small-4 columns">4</div>'}
+      #{'</div>'}
+
+  a.fragment(href="assets/html/foundation-grid-nested.html", target="_blank") Example
+
+section
+  h2 Grid: Offsets
+
+  p Move blocks up to 11 columns to the right by using classes like .large-offset-1 and .small-offset-3.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="large-1 columns">1</div>'}
+      #{'  <div class="large-11 columns">11</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="large-1 columns">1</div>'}
+      #{'  <div class="large-10 large-offset-1 columns">10, offset 1</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="large-1 columns">1</div>'}
+      #{'  <div class="large-9 large-offset-2 columns">9, offset 2</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="large-1 columns">1</div>'}
+      #{'  <div class="large-8 large-offset-3 columns">8, offset 3</div>'}
+      #{'</div>'}
+
+  a.fragment(href="assets/html/foundation-grid-offsets.html", target="_blank") Example
+
+section
+  h2 Grid: Centered columns
+
+  p Use small-centered. Large will inherit small centering by default. To uncenter on large screens use large-uncentered.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="small-3 small-centered columns">3 centered</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="small-6 large-centered columns">6 centered</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="small-9 small-centered large-uncentered columns">9 centered</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="small-11 small-centered columns">11 centered</div>'}
+      #{'</div>'}
+
+  a.fragment(href="assets/html/foundation-grid-centering.html", target="_blank") Example
+
+section
+  h2 Grid: Source ordering
+
+  p Shift columns around between our breakpoints. Prefix push/pull with the size of the device you want to apply the styles to.
+
+  pre.fragment
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="small-10 small-push-2 columns">10</div>'}
+      #{'  <div class="small-2 small-pull-10 columns">2, last</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="large-9 large-push-3 columns">9</div>'}
+      #{'  <div class="large-3 large-pull-9 columns">3, last</div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="large-8 large-push-4 columns">8</div>'}
+      #{'  <div class="large-4 large-pull-8 columns">4, last</div>'}
+      #{'</div>'}
+
+  a.fragment(href="assets/html/foundation-grid-ordering.html", target="_blank") Example
+
+section
+  h2 Block grid
+
+  p Use a simple small-block-# class to specify the number of items in a row.
+
+  pre.fragment
+    code.
+      #{'<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">'}
+      #{'  <li><!-- Your content goes here --></li>'}
+      #{'  <li><!-- Your content goes here --></li>'}
+      #{'  <li><!-- Your content goes here --></li>'}
+      #{'  <li><!-- Your content goes here --></li>'}
+      #{'  <li><!-- Your content goes here --></li>'}
+      #{'  <li><!-- Your content goes here --></li>'}
+      #{'</ul>'}
+
+  p.fragment With small-block-grid the grid will keep its spacing and configuration.
+  p.fragment With large-block-grid the list items will stack on top of each other for small devices
+
+  a.fragment(href="assets/html/foundation-grid-block.html", target="_blank") Example
+
+section
+  h2 Utility Classes
+
+  p Float Classes
+
+  pre
+    code.
+      #{'<div class="panel clearfix">'}
+      #{'  <a class="button right">Float Right</a>'}
+      #{'  <a class="button left">Float Left</a>'}
+      #{'</div>'}
+
+  .fragment
+    p Text Align Classes
+    pre
+      code.
+        #{'<p class="text-left"><!-- text goes here --></p>'}
+        #{'<p class="text-right"><!-- text goes here --></p>'}
+        #{'<p class="text-center"><!-- text goes here --></p>'}
+        #{'<p class="text-justify"><!-- text goes here --></p>'}
+
+  .fragment
+    p Hide an Element
+    pre
+      code.
+        #{'<div class="hide"></div>'}
+
+section
+  h2 Off Canvas
+
+  p The off canvas menu is positioned outside of the viewport and slide in when activated.
+
+  img(src="assets/raster/offcanvas.png")
+
+section
+  h2 Off Canvas
+
+  a(href="http://foundation.zurb.com/docs/components/offcanvas.html",target="_blank") Full example
+
+  pre
+    code.
+      #{'<div class="off-canvas-wrap">'}
+      #{'  <div class="inner-wrap">'}
+      #{'    <a class="left-off-canvas-toggle">Menu</a>'}
+
+      #{'    <!-- Off Canvas Menu -->'}
+      #{'    <aside class="left-off-canvas-menu">'}
+      #{'      <ul>'}
+      #{'        <li><a href="#">Item 1</a></li>'}
+      #{'        ...'}
+      #{'      </ul>'}
+      #{'    </aside>'}
+
+      #{'    <!-- main content goes here -->'}
+      #{'    <p>Lorem ipsum ...</p>'}
+      #{'    <!-- close the off-canvas menu -->'}
+      #{'    <a class="exit-off-canvas"></a>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section
+  h2 Top bar
+
+  p Allow to display a complex navigation bar on small, medium or large screens.
+
+  img(src="assets/raster/topbar.png")
+
+section
+  h2 Top bar
+
+  pre
+    code.
+      #{'<nav class="top-bar" data-topbar>'}
+      #{'  <ul class="title-area">'}
+      #{'    <li class="name">'}
+      #{'      <h1><a href="#">My Site</a></h1>'}
+      #{'    </li>'}
+      #{'    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>'}
+      #{'  </ul>'}
+      #{'  <section class="top-bar-section">'}
+      #{'    <!-- Right Nav Section -->'}
+      #{'    <ul class="right">'}
+      #{'      <li class="active"><a href="#">Right Nav Button Active</a></li>'}
+      #{'      <li class="has-dropdown">'}
+      #{'        <a href="#">Right Button with Dropdown</a>'}
+      #{'        <ul class="dropdown">'}
+      #{'          <li><a href="#">First link in dropdown</a></li>'}
+      #{'        </ul>'}
+      #{'      </li>'}
+      #{'    </ul>'}
+      #{'    <!-- Left Nav Section -->'}
+      #{'    <ul class="left">'}
+      #{'      <li><a href="#">Left Nav Button</a></li>'}
+      #{'    </ul>'}
+      #{'  </section>'}
+      #{'</nav>'}
+
+section
+  h2 Top bar
+
+  p Reuse all the Foundation components in the tool bar
+
+  img(src="assets/raster/topbar2.png")
+
+section
+  h2 Magellan
+
+  p Plugin that lets you give your site sticky navigation.
+
+  pre
+    code.
+      #{'<div data-magellan-expedition="fixed">'}
+      #{'  <dl class="sub-nav">'}
+      #{'    <dd data-magellan-arrival="build"><a href="#build">Build with HTML</a></dd>'}
+      #{'    <dd data-magellan-arrival="js"><a href="#js">JavaScript</a></dd>'}
+      #{'  </dl>'}
+      #{'</div>'}
+
+  pre
+    code.
+      #{'<a name="build"></a>'}
+      #{'<h3 data-magellan-destination="build">Build with HTML</h3>'}
+      #{'...'}
+      #{'<a name="js"></a>'}
+      #{'<h3 data-magellan-destination="js">JavaScript</h3>'}
+      #{'...'}
+
+  a(href="http://foundation.zurb.com/docs/components/magellan.html", target="_blank") Example
+
+section
+  h2
+
+  img(src="assets/raster/breadcrumbs.png")
+
+section
+  h2
+
+  img(src="assets/raster/pagination.png")
+
+section
+  h2
+
+  img(src="assets/raster/orbit.png")
+
+section
+  h2
+
+  img(src="assets/raster/form.png")
+
+section
+  h2
+
+  img(src="assets/raster/abide.png")
+
+section
+  h2
+
+  img(src="assets/raster/button.png")
+
+section
+  h2
+
+  img(src="assets/raster/buttongroup.png")
+
+section
+  h2
+
+  img(src="assets/raster/splitbutton.png")
+
+section
+  h2
+
+  img(src="assets/raster/dropdownbutton.png")
+
+section
+  h2
+
+  img(src="assets/raster/tooltip.png")
+
+section
+  h2
+
+  img(src="assets/raster/joyride.png")
+
+section
+  h2
+
+  img(src="assets/raster/contentdropdown.png")
+
+section
+  h2
+
+  img(src="assets/raster/progressbar.png")
+
+section
+  h2
+
+  img(src="assets/raster/accordion.png")
+
+section
+  h2
+
+  img(src="assets/raster/tab.png")
+
+section
+  h2
+
+  img(src="assets/raster/form-fieldset.png")
+
+section
+  h2
+
+  img(src="assets/raster/form-postfix.png")
+
+section
+  h2
+
+  img(src="assets/raster/form-error.png")

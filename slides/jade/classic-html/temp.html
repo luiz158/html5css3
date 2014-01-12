@@ -1,0 +1,533 @@
+
+-------------------------------------------------------------------------------
+Breadcrumbs
+-------------------------------------------------------------------------------
+
+Breadcrumbs come in handy to show a navigation trail for users clicking through a site or app. They'll fill out 100% of the width of their parent container.
+
+Basic
+Add a class of .breadcrumbs to a ul element. List items will automatically be styled, and you can add .current or .unavailable classes to list items to denote their state.
+
+<nav class="breadcrumbs">
+  <a href="#">Home</a>
+  <a href="#">Features</a>
+  <a class="unavailable" href="#">Gene Splicing</a>
+  <a class="current" href="#">Cloning</a>
+</nav>
+
+-------------------------------------------------------------------------------
+Pagination
+-------------------------------------------------------------------------------
+
+Pagination is a type of navigation that lets users tap through a series of related pages. Moving between pages has become less common with the advent of longer pages and AJAX loading, but if you need pagination, Foundation has you covered.
+
+Basic
+Add a .pagination class to a ul to get started, then add list items with links in them.
+
+Create arrows by adding an .arrow class to the first and last list items.
+To mark the current page, add a .current class to a list item.
+Add a class of .unavailable to a list item to make it not clickable, like for the ellipsis in the middle.
+
+<div class="pagination-centered">
+  <ul class="pagination">
+    <li class="arrow unavailable"><a href="">&laquo;</a></li>
+    <li class="current"><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li class="unavailable"><a href="">&hellip;</a></li>
+    <li><a href="">12</a></li>
+    <li><a href="">13</a></li>
+    <li class="arrow"><a href="">&raquo;</a></li>
+  </ul>
+</div>
+
+-------------------------------------------------------------------------------
+Orbit Slider
+-------------------------------------------------------------------------------
+
+TODO
+
+-------------------------------------------------------------------------------
+Clearing Lightbox
+-------------------------------------------------------------------------------
+
+TODO
+
+-------------------------------------------------------------------------------
+Flex Video
+-------------------------------------------------------------------------------
+
+TODO
+
+-------------------------------------------------------------------------------
+Forms
+-------------------------------------------------------------------------------
+
+We set out to create an easy, powerful and versatile form layout system. A combination of form styles and the Foundation grid means you can do almost anything.
+
+<form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Input Label</label>
+      <input type="text" placeholder="large-12.columns" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Input Label</label>
+      <input type="text" placeholder="large-4.columns" />
+    </div>
+    <div class="large-4 columns">
+      <label>Input Label</label>
+      <input type="text" placeholder="large-4.columns" />
+    </div>
+    <div class="large-4 columns">
+      <div class="row collapse">
+        <label>Input Label</label>
+        <div class="small-9 columns">
+          <input type="text" placeholder="small-9.columns" />
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix">.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Select Box</label>
+      <select>
+        <option value="husker">Husker</option>
+        <option value="starbuck">Starbuck</option>
+        <option value="hotdog">Hot Dog</option>
+        <option value="apollo">Apollo</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Choose Your Favorite</label>
+      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
+      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
+    </div>
+    <div class="large-6 columns">
+      <label>Check these out</label>
+      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Textarea Label</label>
+      <textarea placeholder="small-12.columns"></textarea>
+    </div>
+  </div>
+</form>
+
+Inline Labels
+Sometimes you want a form with labels to the left of your inputs. Piece of cake. You can put the label inside a different column to the left of the input. Then add a class of .right to the label to have it align to the right.
+
+<form>
+  <div class="row">
+    <div class="small-8">
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="right-label" class="right inline">Label</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" id="right-label" placeholder="Inline Text Input">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+Defining a Fieldset
+We don't see them too much, but one of the useful form elements included with Foundation is <fieldset>. This is used as a wrapper right inside the form element. Right after you define a fieldset, you can include a legend title by using <legend>. Here's some HTML to help make copy paste.
+
+<form>
+  <fieldset>
+    <legend>Fieldset Legend</legend>
+
+    <label>Input Label</label>
+    <input type="text" placeholder="Inputs and other form elements go inside...">
+  </fieldset>
+</form>
+
+Pre/Postfix Labels & Actions
+Foundation forms support actions tied to buttons, and prefix / postfix labels, through a versatile approach using special grid properties. Essentially you can use <div class="row collapse"> to create label / action / input combinations. You use the Foundation columns to define the size of the pre/postfix <span class="postfix"> or <span class="prefix">. Here are a few examples:
+
+<form>
+  <div class="row collapse">
+    <div class="small-3 large-2 columns">
+      <span class="prefix">http://</span>
+    </div>
+    <div class="small-9 large-10 columns">
+      <input type="text" placeholder="Enter your URL...">
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="Hex Value">
+        </div>
+        <div class="small-2 columns">
+          <a href="#" class="button postfix">Go</a>
+        </div>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <input type="text" placeholder="Value">
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix radius">Label</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+You'll notice that on the last postfix element, we've included the class of radius. This adds the border radius on the appropriate edge depending on whether it's a prefix or a postfix element. You can even include buttons with these styles, just apply the .button as well as the pre/postfix class.
+
+
+Error States
+Foundation includes error states for labels, inputs and messaging that you can have your app generate programatically. You can attach a class of .error either to the individual elements (label, input, small) or to a column/div.
+
+<form>
+  <div class="row">
+    <div class="large-6 columns">
+      <label class="error">Error</label>
+      <input type="text" class="error" />
+      <small class="error">Invalid entry</small>
+    </div>
+    <div class="large-6 columns error">
+      <label>Another Error</label>
+      <input type="text" />
+      <small>Invalid entry</small>
+    </div>
+  </div>
+  <textarea class="error" placeholder="Message..."></textarea>
+  <small class="error">Invalid entry</small>
+</form>
+
+-------------------------------------------------------------------------------
+Abide Form Validation
+-------------------------------------------------------------------------------
+
+Abide is an HTML5 form validation library that supports the native API by using patterns and required attributes.
+
+Setting Up Validation
+To enable validation with Abide, add the data-abide attribute to your form element. Then add the required attribute to each input that you want to require. Additionaly, you can define a pattern to define restraints on what users can input.
+
+<form data-abide>
+  <div class="name-field">
+    <label>Your name <small>required</small></label>
+    <input type="text" required pattern="[a-zA-Z]+">
+    <small class="error">Name is required and must be a string.</small>
+  </div>
+  <div class="email-field">
+    <label>Email <small>required</small></label>
+    <input type="email" required>
+    <small class="error">An email address is required.</small>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+Predefined Patterns
+Abide has several patterns common validation patterns built into the library:
+
+Name	Valid Example or Format
+alpha	Foundation
+alpha_numeric	A1 Sauce
+integer	-1
+number	2937
+password	LittleW0men.
+card	visa, amex, mastercard
+cvv	384 or 3284
+email	foundation@zurb.com
+url	http://zurb.com
+domain	zurb.com
+datetime	YYYY-MM-DDThh:mm:ssTZD
+date	YYYY-MM-DD
+time	HH:MM:SS
+dateISO	not sure yet
+month_day_year	MM/DD/YYYY
+color	#FFF or #FFFFFF
+
+Custom Named Patterns
+By overriding Abide during Foundation initilization, you can define your own custom patterns or override the default patterns to validate against.
+
+$(document)
+  .foundation()
+  .foundation('abide', {
+    patterns: {
+      dashes_only: /^[0-9-]*$/,
+      ip_address: /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$/
+    }
+  });
+You can then use these custom patterns like you would the predfined patterns in your markup:
+
+<form class="custom" data-abide>
+  <label>Serial Number</label>
+  <input type="text" pattern="dashes_only" required>
+</form>
+
+Error Messages
+To display an error message for your invalid form element, include a small tag with an error class as a sibling of your input.
+
+<div class="input-wrapper">
+  <label>Email Address <small>required</small></label>
+  <input type="email" required>
+  <small class="error">A valid email address is required.</small>
+</div>
+
+-------------------------------------------------------------------------------
+Buttons
+-------------------------------------------------------------------------------
+
+Basic
+You can create a button using minimal markup.
+
+<a href="#" class="button">Default Button</a>
+
+Advanced
+Additional classes can be added to your component to change its appearance.
+
+<!-- Size Classes -->
+<a href="#" class="button [tiny small large]">Default Button</a>
+<!-- Color Classes -->
+<a href="#" class="button [secondary success alert]">Color Button</a>
+<!-- Radius Classes -->
+<a href="#" class="button [radius round]">Radius Button</a>
+<!-- Disabled Class -->
+<a href="#" class="button disabled">Disabled Button</a>
+
+-------------------------------------------------------------------------------
+Button Groups
+-------------------------------------------------------------------------------
+
+Button groups are containers for related action items. They're great when you need to display a group of actions in a bar. These build off the button styles and work perfectly with the grid.
+
+Basic
+You can create a button group using minimal markup.
+
+<div class="button-bar">
+  <ul class="button-group">
+    <li><a href="#" class="small button">Button 1</a></li>
+    <li><a href="#" class="small button">Button 2</a></li>
+    <li><a href="#" class="small button">Button 3</a></li>
+  </ul>
+  <ul class="button-group round">
+    <li><a href="#" class="small button">Button 1</a></li>
+    <li><a href="#" class="small button">Button 2</a></li>
+    <li><a href="#" class="small button">Button 3</a></li>
+  </ul>
+</div>
+
+-------------------------------------------------------------------------------
+Split Buttons
+-------------------------------------------------------------------------------
+
+We've simplified our split downdrop buttons by removing the dedicated ones associated with a style of button. Instead, you'll use our new dropdown plugin to attach a split button to the button style of your choice.
+
+<a href="#" class="[tiny small medium large] [secondary alert success] [radius round] button split">Split Button <span data-dropdown="drop"></span></a><br>
+<ul id="drop" class="f-dropdown" data-dropdown-content>
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+
+-------------------------------------------------------------------------------
+Dropdown Buttons
+-------------------------------------------------------------------------------
+
+Dropdown buttons are elements that, when tapped, reveal additional content. We've simplified our dropdown buttons by getting rid of the dedicated ones associated with the various buttons styles. Instead, you'll use our new dropdown plugin to attach a dropdown to the button style of your choice.
+
+<a href="#" data-dropdown="drop" class="[tiny small medium large] [secondary alert success] [radius round] button dropdown">Dropdown Button</a><br>
+<ul id="drop" data-dropdown-content class="f-dropdown">
+  <li><a href="#">This is a link</a></li>
+  <li><a href="#">This is another</a></li>
+  <li><a href="#">Yet another</a></li>
+</ul>
+
+-------------------------------------------------------------------------------
+Progress Bars
+-------------------------------------------------------------------------------
+
+A simple way to add progress bars to your layouts. You only need two HTML elements to make them and they're easy to customize.
+
+<div class="progress [small-# large-#] [secondary alert success] [radius round]">
+  <span class="meter" style="width: [1 - 100]%"></span>
+</div>
+
+-------------------------------------------------------------------------------
+Tables
+-------------------------------------------------------------------------------
+
+Okay, they're not the sexiest things ever, but tables get the job done (for tabular data, of course).
+
+
+-------------------------------------------------------------------------------
+Accordion
+-------------------------------------------------------------------------------
+
+Accordions are elements used to expand and collapse content that is broken into logical sections, much like tabs.
+
+<dl class="accordion" data-accordion>
+  <dd>
+    <a href="#panel1">Accordion 1</a>
+    <div id="panel1" class="content active">
+      <dl class="tabs" data-tab>
+        <dd class="active"><a href="#panel2-1">Tab 1</a></dd>
+        <dd><a href="#panel2-2">Tab 2</a></dd>
+        <dd><a href="#panel2-3">Tab 3</a></dd>
+        <dd><a href="#panel2-4">Tab 4</a></dd>
+      </dl>
+      <div class="tabs-content">
+        <div class="content active" id="panel2-1">
+          <p>First panel content goes here...</p>
+        </div>
+        <div class="content" id="panel2-2">
+          <p>Second panel content goes here...</p>
+        </div>
+        <div class="content" id="panel2-3">
+          <p>Third panel content goes here...</p>
+        </div>
+        <div class="content" id="panel2-4">
+          <p>Fourth panel content goes here...</p>
+        </div>
+      </div>
+    </div>
+  </dd>
+  <dd>
+    <a href="#panel2">Accordion 2</a>
+    <div id="panel2" class="content">
+      Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+  </dd>
+  <dd>
+    <a href="#panel3">Accordion 3</a>
+    <div id="panel3" class="content">
+      Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+  </dd>
+</dl>
+
+-------------------------------------------------------------------------------
+Tabs
+-------------------------------------------------------------------------------
+
+Tabs are elements that help you organize and navigate multiple documents in a single container. They can be used for switching between items in the container.
+
+
+Horizontal tabs:
+
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel2-1">Tab 1</a></dd>
+  <dd><a href="#panel2-2">Tab 2</a></dd>
+  <dd><a href="#panel2-3">Tab 3</a></dd>
+  <dd><a href="#panel2-4">Tab 4</a></dd>
+</dl>
+<div class="tabs-content">
+  <div class="content active" id="panel2-1">
+    <p>First panel content goes here...</p>
+  </div>
+  <div class="content" id="panel2-2">
+    <p>Second panel content goes here...</p>
+  </div>
+  <div class="content" id="panel2-3">
+    <p>Third panel content goes here...</p>
+  </div>
+  <div class="content" id="panel2-4">
+    <p>Fourth panel content goes here...</p>
+  </div>
+</div>
+
+Vertical tabs:
+
+<dl class="tabs vertical" data-tab>
+  <dd class="active"><a href="#panel1a">Tab 1</a></dd>
+  <dd><a href="#panel2a">Tab 2</a></dd>
+  <dd><a href="#panel3a">Tab 3</a></dd>
+  <dd><a href="#panel4a">Tab 4</a></dd>
+</dl>
+<div class="tabs-content vertical">
+  <div class="content active" id="panel1a">
+    <p>Panel 1 content goes here.</p>
+  </div>
+  <div class="content" id="panel2a">
+    <p>Panel 2 content goes here.</p>
+  </div>
+  <div class="content" id="panel3a">
+    <p>Panel 3 content goes here.</p>
+  </div>
+  <div class="content" id="panel4a">
+    <p>Panel 4 content goes here.</p>
+  </div>
+</div>
+
+-------------------------------------------------------------------------------
+Typography
+-------------------------------------------------------------------------------
+
+Typography in Foundation 5 is meant to make your life easier by providing clean, attractive, simple default styles for all of the most basic typographical elements.
+
+<h1>h1. This is a very large header.</h1>
+<h2>h2. This is a large header.</h2>
+<h3>h3. This is a medium header.</h3>
+<h4>h4. This is a moderate header.</h4>
+<h5>h5. This is a small header.</h5>
+<h6>h6. This is a tiny header.</h6>
+
+<h1 class="subheader">h1.subheader</h1>
+<h2 class="subheader">h2.subheader</h2>
+<h3 class="subheader">h3.subheader</h3>
+<h4 class="subheader">h4.subheader</h4>
+<h5 class="subheader">h5.subheader</h5>
+<h6 class="subheader">h6.subheader</h6>
+
+<h1>h1. <small>Small segment header.</small></h1>
+<h2>h2. <small>Small segment header.</small></h2>
+<h3>h3. <small>Small segment header.</small></h3>
+<h4>h4. <small>Small segment header.</small></h4>
+<h5>h5. <small>Small segment header.</small></h5>
+<h6>h6. <small>Small segment header.</small></h6>
+
+<ul class="disc|circle|square|no-bullet">
+  <li>List item with a much longer description or more content.</li>
+  <li>List item</li>
+  <li>List item
+    <ul>
+      <li>Nested List Item</li>
+      <li>Nested List Item</li>
+      <li>Nested List Item</li>
+    </ul>
+  </li>
+  <li>List item</li>
+  <li>List item</li>
+  <li>List item</li>
+</ul>
+
+<blockquote>Those people who think they know everything are a great annoyance to those of us who do.<cite>Isaac Asimov</cite></blockquote>
+
+<ul class="vcard">
+  <li class="fn">Gaius Baltar</li>
+  <li class="street-address">123 Colonial Ave.</li>
+  <li class="locality">Caprica City</li>
+  <li><span class="state">Caprica</span>, <span class="zip">12345</span></li>
+  <li class="email"><a href="#">g.baltar@cmail.com</a></li>
+</ul>
+
+Print Styles
+Foundation includes print styles developed by HTML5 Boilerplate to give you some basic print-specific styles. These are activated when you print through a media query. It includes:
+
+Clearing out backgrounds, box shadows and text shadows
+Appending link URLs after the anchor text
+Bordering blockquotes and pre elements
+Page cleanup and window minimization
+On top of that, Foundation includes a couple of simple classes you can use to control elements printing, or not printing. Simply attach .show-for-print to an element to only show when printing, and .hide-for-print to hide something when printing.
+
