@@ -40,12 +40,11 @@ section
 section
   h2 Available modules
 
-  .read-block
-    ul
-      li The Grid
-      li Navigation
-      li Buttons
-      li Plugins
+  ul
+    li The Grid
+    li Navigation
+    li Buttons
+    li Plugins
 
 section
   h2 Documentation
@@ -107,7 +106,22 @@ section
         a(href="https://gist.github.com/replete/7082518") https://gist.github.com/replete/7082518
 
 section
-  h2 Distribution
+  h2 Download
+
+  p.read-block Main distribution placed at:
+  a(href="http://foundation.zurb.com/develop/download.html")  http://foundation.zurb.com/develop/download.html
+
+  .fragment(style="margin-top:1em;")
+    p.read-block Choose between:
+
+    .read-block
+      ul(style="margin-left:2em")
+        li Default CSS
+        li Custom CSS
+        li Sass
+
+section
+  h2 Deafult CSS structure
 
   .read-block
     ul
@@ -160,7 +174,7 @@ section
   p Eliminate the 300ms delay between a physical tap and the firing of a click event on mobile browsers.
 
   .fragment.read-block According to Google:
-    blockquote
+    blockquote(style="font-size:.9em;")
       ...mobile browsers will wait approximately 300ms from the time that you tap the button to fire the click event. The reason for this is that the browser is waiting to see if you are actually performing a double tap.
 
   p.fragment
@@ -168,8 +182,6 @@ section
 
 section
   h2 Media queries
-
-  p.read-block Available media queries list:
 
   pre
     code.
@@ -189,7 +201,7 @@ section
       @media only screen and (min-width: 120.063em) { } /* min-width 1921px, xlarge screens */
 
 section
-  h2 Visiblity
+  h2 Visibility
 
   p Show by Screen Size:
 
@@ -207,7 +219,7 @@ section
       #{'</p>'}
 
 section
-  h2 Visiblity
+  h2 Visibility
 
   p Hide by Screen Size:
 
@@ -227,7 +239,7 @@ section
   a(href="assets/html/foundation-visibility.html", target="_blank") Example
 
 section
-  h2 Visiblity
+  h2 Visibility
 
   p Orientation Detection:
 
@@ -276,11 +288,6 @@ section
         #{'<div class="large-3 columns">large-3</div>'}
         #{'<div class="large-6 columns">large-6</div>'}
         #{'<div class="large-3 columns">large-3</div>'}
-      #{'</div>'}
-      #{'<div class="row">'}
-        #{'<div class="small-6 large-2 columns">small-6 large-2</div>'}
-        #{'<div class="small-6 large-8 columns">small-6 large-8</div>'}
-        #{'<div class="small-12 large-2 columns">small-12 large-2</div>'}
       #{'</div>'}
 
   a.fragment(href="assets/html/foundation-grid.html", target="_blank") Example
@@ -423,12 +430,10 @@ section
       #{'  <li><!-- Your content goes here --></li>'}
       #{'  <li><!-- Your content goes here --></li>'}
       #{'  <li><!-- Your content goes here --></li>'}
-      #{'  <li><!-- Your content goes here --></li>'}
-      #{'  <li><!-- Your content goes here --></li>'}
       #{'</ul>'}
 
-  p.fragment With small-block-grid the grid will keep its spacing and configuration.
-  p.fragment With large-block-grid the list items will stack on top of each other for small devices
+  p.fragment small-block-grid: the grid keep spacing and configuration.
+  p.fragment large-block-grid: the items will stack on top of each other for small devices.
 
   a.fragment(href="assets/html/foundation-grid-block.html", target="_blank") Example
 
@@ -502,7 +507,9 @@ section
 section
   h2 Top bar
 
-  pre
+  img(style="margin:0px;", src="assets/raster/topbar.png")
+
+  pre(style="margin:0px;")
     code.
       #{'<nav class="top-bar" data-topbar>'}
       #{'  <ul class="title-area">'}
@@ -512,7 +519,6 @@ section
       #{'    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>'}
       #{'  </ul>'}
       #{'  <section class="top-bar-section">'}
-      #{'    <!-- Right Nav Section -->'}
       #{'    <ul class="right">'}
       #{'      <li class="active"><a href="#">Right Nav Button Active</a></li>'}
       #{'      <li class="has-dropdown">'}
@@ -522,7 +528,6 @@ section
       #{'        </ul>'}
       #{'      </li>'}
       #{'    </ul>'}
-      #{'    <!-- Left Nav Section -->'}
       #{'    <ul class="left">'}
       #{'      <li><a href="#">Left Nav Button</a></li>'}
       #{'    </ul>'}
@@ -562,44 +567,294 @@ section
   a(href="http://foundation.zurb.com/docs/components/magellan.html", target="_blank") Example
 
 section
-  h2
+  h2 Breadcrumbs
+
+  p.read-block Show a navigation trail for users clicking through a site:
 
   img(src="assets/raster/breadcrumbs.png")
 
+  pre
+    code.
+      #{'<nav class="breadcrumbs">'}
+      #{'  <a href="#">Home</a>'}
+      #{'  <a href="#">Features</a>'}
+      #{'  <a class="unavailable" href="#">Gene Splicing</a>'}
+      #{'  <a class="current" href="#">Cloning</a>'}
+      #{'</nav>'}
+
 section
-  h2
+  h2 Pagination
+
+  p.read-block Lets users tap through a series of related pages:
 
   img(src="assets/raster/pagination.png")
 
+  pre
+    code.
+      #{'<div class="pagination-centered">'}
+      #{'  <ul class="pagination">'}
+      #{'    <li class="arrow unavailable"><a href="">&laquo;</a></li>'}
+      #{'    <li class="current"><a href="">1</a></li>'}
+      #{'    <li><a href="">2</a></li>'}
+      #{'    <li><a href="">3</a></li>'}
+      #{'    <li><a href="">4</a></li>'}
+      #{'    <li class="unavailable"><a href="">&hellip;</a></li>'}
+      #{'    <li><a href="">12</a></li>'}
+      #{'    <li><a href="">13</a></li>'}
+      #{'    <li class="arrow"><a href="">&raquo;</a></li>'}
+      #{'  </ul>'}
+      #{'</div>'}
+
 section
-  h2
+  h2 Orbit slider
+
+  p.read-block Responsive image slider that allows users to swipe on touch-enabled devices:
 
   img(src="assets/raster/orbit.png")
 
 section
-  h2
+  h2 Orbit slider
+
+  pre
+    code.
+      #{'<ul class="example-orbit" data-orbit>'}
+      #{'  <li>'}
+      #{'    <img src="../assets/img/examples/satelite-orbit.jpg" alt="slide 1" />'}
+      #{'    <div class="orbit-caption">Caption One</div>'}
+      #{'  </li>'}
+      #{'  <li>'}
+      #{'    <img src="../assets/img/examples/andromeda-orbit.jpg" alt="slide 2" />'}
+      #{'    <div class="orbit-caption">Caption Two</div>'}
+      #{'  </li>'}
+      #{'  <li>'}
+      #{'    <img src="../assets/img/examples/launch-orbit.jpg" alt="slide 3" />'}
+      #{'    <div class="orbit-caption">Caption Three</div>'}
+      #{'  </li>'}
+      #{'</ul>'}
+
+section
+  h2 Forms
+
+  p.read-block Complex form layout visualization:
 
   img(src="assets/raster/form.png")
 
 section
-  h2
+  h2 Forms: input text
 
-  img(src="assets/raster/abide.png")
+  img(style="margin:0px;", src="assets/raster/form1.png")
+
+  pre(style="margin:0px; line-height:1.2;")
+    code(style="font-size: 80%;").
+      #{'<div class="row">'}
+      #{'  <div class="large-12 columns">'}
+      #{'    <input type="text" placeholder="large-12.columns" />'}
+      #{'  </div>'}
+      #{'</div>'}
+      #{'<div class="row">'}
+      #{'  <div class="large-4 columns">'}
+      #{'    <input type="text" placeholder="large-4.columns" />'}
+      #{'  </div>'}
+      #{'  <div class="large-4 columns">'}
+      #{'    <input type="text" placeholder="large-4.columns" />'}
+      #{'  </div>'}'
+      #{'  <div class="large-4 columns">'}
+      #{'    <div class="row collapse">'}
+      #{'      <div class="small-9 columns">'}
+      #{'        <input type="text" placeholder="small-9.columns" />'}
+      #{'      </div>'}
+      #{'      <div class="small-3 columns">'}
+      #{'        <span class="postfix">.com</span>'}
+      #{'      </div>'}
+      #{'    </div>'}
+      #{'  </div>'}
+      #{'</div>'}
 
 section
-  h2
+  h2 Forms: select
+
+  img(style="margin:0px;", src="assets/raster/form2.png")
+
+  pre(style="margin:0px;")
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="large-12 columns">'}
+      #{'    <label>Select Box</label>'}
+      #{'    <select>'}
+      #{'      <option value="husker">Husker</option>'}
+      #{'      <option value="starbuck">Starbuck</option>'}
+      #{'      <option value="hotdog">Hot Dog</option>'}
+      #{'      <option value="apollo">Apollo</option>'}
+      #{'    </select>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section
+  h2 Forms: radio/check
+
+  img(style="margin:0px;", src="assets/raster/form3.png")
+
+  pre(style="margin:0px;")
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="large-6 columns">'}
+      #{'    <label>Choose Your Favorite</label>'}
+      #{'    <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>'}
+      #{'    <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>'}
+      #{'  </div>'}
+      #{'  <div class="large-6 columns">'}
+      #{'    <label>Check these out</label>'}
+      #{'    <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>'}
+      #{'    <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section
+  h2 Forms: textarea
+
+  img(style="margin:0px;", src="assets/raster/form4.png")
+
+  pre(style="margin:0px;")
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="large-12 columns">'}
+      #{'    <label>Textarea Label</label>'}
+      #{'    <textarea placeholder="small-12.columns"></textarea>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section
+  h2 Forms: inline labels
+
+  img(style="margin:0px;", src="assets/raster/form5.png")
+
+  pre(style="margin:0px;")
+    code.
+      #{'<div class="row">'}
+      #{'  <div class="small-8">'}
+      #{'    <div class="row">'}
+      #{'      <div class="small-3 columns">'}
+      #{'        <label for="right-label" class="right inline">Label</label>'}
+      #{'      </div>'}
+      #{'      <div class="small-9 columns">'}
+      #{'        <input type="text" id="right-label" placeholder="Inline Text Input">'}
+      #{'      </div>'}
+      #{'    </div>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section
+  h2 Forms: fieldset
+
+  img(style="margin:0px;", src="assets/raster/form6.png")
+
+  pre(style="margin:0px;")
+    code.
+      #{'<fieldset>'}
+      #{'  <legend>Fieldset Legend</legend>'}
+      #{'  <label>Input Label</label>'}
+      #{'  <input type="text" placeholder="Inputs and other form elements go inside...">'}
+      #{'</fieldset>'}
+
+section
+  h2 Forms: pre/postfix labels
+
+  img(style="margin:0px;", src="assets/raster/form7.png")
+
+section
+  h2 Forms: pre/postfix labels
+
+  pre(style="margin:0px;")
+    code.
+      #{'<div class="row collapse">'}
+      #{'  <div class="small-3 large-2 columns">'}
+      #{'    <span class="prefix">http://</span>'}
+      #{'  </div>'}
+      #{'  <div class="small-9 large-10 columns">'}
+      #{'    <input type="text" placeholder="Enter your URL...">'}
+      #{'  </div>'}
+      #{'</div>'}
+      #{'<div class="row collapse">'}
+      #{'  <div class="small-10 columns">'}
+      #{'    <input type="text" placeholder="Hex Value">'}
+      #{'  </div>'}
+      #{'  <div class="small-2 columns">'}
+      #{'    <a href="#" class="button postfix radius">Go</a>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section
+  h2 Forms: errors
+
+  img(style="margin:0px;", src="assets/raster/form8.png")
+
+  pre
+    code.
+      #{'<div class="large-6 columns">'}
+      #{'  <label class="error">Error</label>'}
+      #{'  <input type="text" class="error" />'}
+      #{'  <small class="error">Invalid entry</small>'}
+      #{'</div>'}
+      #{'<div class="large-6 columns error">'}
+      #{'  <label>Another Error</label>'}
+      #{'  <input type="text" />'}
+      #{'  <small>Invalid entry</small>'}
+      #{'</div>'}
+
+section
+  h2 Abide form validation
+
+  img(style="margin:-10px", src="assets/raster/abide.png")
+
+section
+  h2 Button
 
   img(src="assets/raster/button.png")
 
+  pre
+    code.
+      #{'<!-- Size Classes -->'}
+      #{'<a href="#" class="button [tiny small large]">Default Button</a>'}
+      #{'<!-- Color Classes -->'}
+      #{'<a href="#" class="button [secondary success alert]">Color Button</a>'}
+      #{'<!-- Radius Classes -->'}
+      #{'<a href="#" class="button [radius round]">Radius Button</a>'}
+      #{'<!-- Disabled Class -->'}
+      #{'<a href="#" class="button disabled">Disabled Button</a>'}
+
 section
-  h2
+  h2 Button group
 
   img(src="assets/raster/buttongroup.png")
 
-section
-  h2
+  pre
+    code.
+      #{'<div class="button-bar">'}
+      #{'  <ul class="button-group">'}
+      #{'    <li><a href="#" class="small button">Button 1</a></li>'}
+      #{'    <li><a href="#" class="small button">Button 2</a></li>'}
+      #{'    <li><a href="#" class="small button">Button 3</a></li>'}
+      #{'  </ul>'}
+      #{'  <ul class="button-group round">'}
+      #{'    <li><a href="#" class="small button">Button 1</a></li>'}
+      #{'    <li><a href="#" class="small button">Button 2</a></li>'}
+      #{'    <li><a href="#" class="small button">Button 3</a></li>'}
+      #{'  </ul>'}
+      #{'</div>'}
 
-  img(src="assets/raster/splitbutton.png")
+section
+  h2 Split button
+
+  img(style="margin-top:0px;", src="assets/raster/splitbutton.png")
+
+  pre(style="margin-top:0px;")
+    code.
+      #{'<a href="#" class="[tiny small medium large] [secondary alert success] [radius round] button split">Split Button <span data-dropdown="drop"></span></a><br>'}
+      #{'<ul id="drop" class="f-dropdown" data-dropdown-content>'}
+      #{'  <li><a href="#">This is a link</a></li>'}
+      #{'  <li><a href="#">This is another</a></li>'}
+      #{'  <li><a href="#">Yet another</a></li>'}
+      #{'</ul>'}
 
 section
   h2
@@ -635,18 +890,3 @@ section
   h2
 
   img(src="assets/raster/tab.png")
-
-section
-  h2
-
-  img(src="assets/raster/form-fieldset.png")
-
-section
-  h2
-
-  img(src="assets/raster/form-postfix.png")
-
-section
-  h2
-
-  img(src="assets/raster/form-error.png")
