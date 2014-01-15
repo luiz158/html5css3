@@ -1,0 +1,131 @@
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forms</title>
+
+
+  <meta name="description" content="Documentation and reference library for ZURB Foundation. JavaScript, CSS, components, grid and more." />
+
+  <meta name="author" content="ZURB, inc. ZURB network also includes zurb.com" />
+  <meta name="copyright" content="ZURB, inc. Copyright (c) 2013" />
+
+  <link rel="stylesheet" href="http://foundation.zurb.com/assets/css/templates/foundation.css" />
+  <script src="http://foundation.zurb.com/assets/js/modernizr.js"></script>
+</head>
+<body>
+
+<div class="row">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">My Site</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="has-dropdown">
+          <a href="#">Right Button with Dropdown</a>
+          <ul class="dropdown">
+            <li><a href="#">First link in dropdown</a></li>
+          </ul>
+        </li>
+        <li class="has-form"><a href="#" class="button">Login</a></li>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="has-form">
+          <div class="row collapse">
+            <div class="large-8 small-9 columns">
+              <input type="text" placeholder="Find Stuff">
+            </div>
+            <div class="large-4 small-3 columns">
+              <a href="#" class="alert button expand">Search</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</div>
+
+<div class="row" style="margin-top:1em;">
+  <ul class="example-orbit" data-orbit>
+    <li>
+      <img src="http://foundation.zurb.com/docs/assets/img/examples/satelite-orbit.jpg" alt="slide 1" />
+      <div class="orbit-caption">
+        Caption One.
+      </div>
+    </li>
+    <li>
+      <img src="http://foundation.zurb.com/docs/assets/img/examples/andromeda-orbit.jpg" alt="slide 2" />
+      <div class="orbit-caption">
+        Caption Two.
+      </div>
+    </li>
+    <li>
+      <img src="http://foundation.zurb.com/docs/assets/img/examples/launch-orbit.jpg" alt="slide 3" />
+      <div class="orbit-caption">
+        Caption Three.
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="row" style="margin-top:1em;">
+  <div class="small-6 columns">
+    <div class="button-bar">
+      <ul class="button-group round">
+        <li><a href="#" class="[tiny small large] button [alert success secondary] [disabled]">Button 1</a></li>
+        <li><a href="#" class="[tiny small large] button [alert success secondary] [disabled]">Button 2</a></li>
+        <li><a href="#" class="[tiny small large] button [alert success secondary] [disabled]">Button 3</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="small-6 columns">
+    <a href="#" data-dropdown="drop" class="button dropdown">Dropdown Button</a><br>
+    <ul id="drop" data-dropdown-content class="f-dropdown">
+      <li><a href="#">This is a link</a></li>
+      <li><a href="#">This is another</a></li>
+      <li><a href="#">Yet another</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" style="margin-top:1em;">
+  <ul class="small-block-grid-2 large-block-grid-3">
+    <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/satelite.jpg"></li>
+    <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/space.jpg"></li>
+    <li><img class="th" src="http://foundation.zurb.com/docs/assets/img/examples/spacewalk.jpg"></li>
+  </ul>
+</div>
+
+<div class="row" style="margin-top: 1em;">
+  <div class="small-12 columns">
+    <div class="progress small-12 alert round">
+      <span class="meter" style="width: 50%"></span>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 1em;">
+  <div class="small-12 columns">
+    <div class="progress small-12 sucess round">
+      <span class="meter" style="width: 80%"></span>
+    </div>
+  </div>
+</div>
+
+<script src="http://foundation.zurb.com/assets/js/jquery.js"></script>
+<script src="http://foundation.zurb.com/assets/js/templates/foundation.js"></script>
+<script>
+  $(document).foundation();
+</script>
+</body>
+</html>
