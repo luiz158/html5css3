@@ -418,6 +418,10 @@ section
 
   a.fragment(href="assets/html/foundation-grid-ordering.html", target="_blank") Example
 
+section(data-state="lab")
+  h2 Lab: Foundation 1
+  p Build a layout with Foundation
+
 section
   h2 Block grid
 
@@ -857,36 +861,145 @@ section
       #{'</ul>'}
 
 section
-  h2
+  h2 Dropdown button
+
+  p.read-block Buttons that, when tapped, reveal additional content:
 
   img(src="assets/raster/dropdownbutton.png")
 
+  pre
+    code.
+      #{'<a href="#" data-dropdown="drop" class="[tiny small medium large] [secondary alert success] [radius round] button dropdown">Dropdown Button</a><br>'}
+      #{'<ul id="drop" data-dropdown-content class="f-dropdown">'}
+      #{'  <li><a href="#">This is a link</a></li>'}
+      #{'  <li><a href="#">This is another</a></li>'}
+      #{'  <li><a href="#">Yet another</a></li>'}
+      #{'</ul>'}
+
 section
-  h2
+  h2 Tooltip
+
+  p.read-block A quick way to provide extended information on a term or action:
 
   img(src="assets/raster/tooltip.png")
 
+  pre
+    code.
+      #{'<span data-tooltip data-options="disable_for_touch:true"'}
+      #{'      class="has-tip [tip-top tip-bottom tip-left tip-right]"'}
+      #{'      title="Title text!">extended information</span>'}
+
 section
-  h2
+  h2 Joyride
+
+  p.read-block Joyride gives users a tour of your site or app when they visit:
+
+  img(style="margin-top:0px", src="assets/raster/joyride.png")
+
+  pre(style="margin-top:0px")
+    code.
+      #{'<ol class="joyride-list" data-joyride>'}
+      #{'  <li data-id="firstStop" data-text="Next" data-options="tip_location: top">'}
+      #{'    <p>Hello and welcome to the Joyride documentation page.</p>'}
+      #{'  </li>'}
+      #{'  <li data-id="numero1" data-class="custom so-awesome" data-text="Next">'}
+      #{'    <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>'}
+      #{'  </li>'}
+      #{'  <li data-button="End">'}
+      #{'    <p>It works as a modal too!</p>'}
+      #{'  </li>'}
+      #{'</ol>'}
+
+section
+  h2 Joyride
 
   img(src="assets/raster/joyride.png")
 
-section
-  h2
+  pre
+    code.
+      #{'<div id="firstStop"><h1>Text of the initial section</h1> ... </div>'}
+      #{'<!-- more content in the page -->'}
+      #{'<div id="numero1"><h1>Text of the first section</h1> ... </div>'}
 
-  img(src="assets/raster/contentdropdown.png")
+section
+  h2 Content dropdown
+
+  img(src="assets/raster/contentdropdown.png", style="width:40%")
 
 section
-  h2
+  h2 Content dropdown
+
+  p.read-block Dropdown on click:
+
+  pre
+    code.
+      #{'<a href="#" data-dropdown="drop2">Has Content Dropdown</a>'}
+      #{'<div id="drop2" data-dropdown-content class="f-dropdown content">'}
+      #{'  <p>Some text that people will think is awesome!</p>'}
+      #{'</div>'}
+
+  p.read-block Dropdown on hover:
+
+  pre
+    code.
+      #{'<a href="#" data-dropdown="hover1" data-options="is_hover:true">Has Hover Dropdown</a>'}
+      #{'<ul id="hover1" class="f-dropdown" data-dropdown-content>'}
+      #{'  <li><a href="#">This is a link</a></li>'}
+      #{'</ul>'}
+
+section
+  h2 Progressbar
 
   img(src="assets/raster/progressbar.png")
 
-section
-  h2
+  pre
+    code.
+      #{'<div class="progress [small-# large-#] [secondary alert success] [radius round]">'}
+      #{'  <span class="meter" style="width: [1 - 100]%"></span>'}
+      #{'</div>'}
 
-  img(src="assets/raster/accordion.png")
+section
+  h2 Accordion
+
+  img(style="margin-top:0px;", src="assets/raster/accordion.png")
+
+  pre(style="margin-top:0px;")
+    code.
+      #{'<dl class="accordion" data-accordion>'}
+      #{'  <dd>'}
+      #{'    <a href="#panel1">Accordion 1</a>'}
+      #{'    <div id="panel1" class="content active"><!-- content --></div>'}
+      #{'  </dd>'}
+      #{'  <dd>'}
+      #{'    <a href="#panel2">Accordion 2</a>'}
+      #{'    <div id="panel2" class="content"><!-- content --></div>'}
+      #{'  </dd>'}
+      #{'  <dd>'}
+      #{'    <a href="#panel3">Accordion 3</a>'}
+      #{'    <div id="panel3" class="content"><!-- content --></div>'}
+      #{'  </dd>'}
+      #{'</dl>'}
 
 section
-  h2
+  h2 Tabs
 
   img(src="assets/raster/tab.png")
+
+  pre
+    code.
+      #{'<dl class="tabs" data-tab>'}
+      #{'  <dd class="active"><a href="#panel2-1">Tab 1</a></dd>'}
+      #{'  <dd><a href="#panel2-2">Tab 2</a></dd>'}
+      #{'</dl>'}
+      #{'<div class="tabs-content">'}
+      #{'  <div class="content active" id="panel2-1">'}
+      #{'    <p>First panel content goes here...</p>'}
+      #{'  </div>'}
+      #{'  <div class="content" id="panel2-2">'}
+      #{'    <p>Second panel content goes here...</p>'}
+      #{'  </div>'}
+      #{'</div>'}
+
+section(data-state="lab")
+  h2 Lab: Foundation 2
+  p Experiment with the Foundation components
