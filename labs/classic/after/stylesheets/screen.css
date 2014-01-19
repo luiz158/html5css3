@@ -1,0 +1,86 @@
+/*.header, .footer, .content, .menu {
+	@include debug;	
+}*/
+/* line 11, ../sass/screen.scss */
+body {
+  font-family: 'Michroma', Arial, sans-serif;
+  max-width: 740px;
+  margin: auto;
+}
+
+/* line 17, ../sass/screen.scss */
+.header {
+  border-bottom: 3px solid gray;
+}
+/* line 20, ../sass/screen.scss */
+.header img {
+  float: left;
+  width: 5em;
+}
+/* line 25, ../sass/screen.scss */
+.header h1 {
+  padding-left: 3em;
+  line-height: 1.2em;
+}
+
+/* line 31, ../sass/screen.scss */
+.content {
+  overflow: hidden;
+  clear: left;
+}
+/* line 35, ../sass/screen.scss */
+.content .menu {
+  border: 1px solid rgba(50, 50, 50, 0.5);
+  margin-top: 1em;
+  float: left;
+  width: 13em;
+  -webkit-transform: rotate(-4deg) translatex(7px);
+  -moz-box-shadow: 5px 5px 10px 0px gray;
+  -webkit-box-shadow: 5px 5px 10px 0px gray;
+  box-shadow: 5px 5px 10px 0px gray;
+}
+/* line 44, ../sass/screen.scss */
+.content .menu ul {
+  list-style-type: none;
+  padding: 0 1em 0 1em;
+}
+/* line 49, ../sass/screen.scss */
+.content .menu ul li a {
+  display: block;
+  padding: 0.7em;
+  border-bottom: 1px solid gray;
+}
+/* line 58, ../sass/screen.scss */
+.content .news {
+  padding-left: 15em;
+}
+/* line 61, ../sass/screen.scss */
+.content .news .new {
+  font-family: Arial, sans-serif;
+}
+/* line 64, ../sass/screen.scss */
+.content .news .new img {
+  float: left;
+  width: 15em;
+  padding-right: 1em;
+}
+/* line 70, ../sass/screen.scss */
+.content .news .new .references {
+  float: left;
+  clear: left;
+  padding-right: 1em;
+  width: 15em;
+}
+/* line 76, ../sass/screen.scss */
+.content .news .new .references h1 {
+  font-size: 1em;
+}
+
+/* line 84, ../sass/screen.scss */
+.footer {
+  clear: left;
+  text-align: right;
+  background-color: #222;
+  color: #ddd;
+  padding: 2em;
+}
