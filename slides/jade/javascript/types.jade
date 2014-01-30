@@ -1,0 +1,17 @@
+script.
+  function w(statement) {
+    document.write(statement + '<br/>');
+    document.write(eval(statement) + '<br/>');
+  }
+
+section
+  h2 Types
+
+  p JavaScript has dynamic typing
+
+  pre
+    code
+      script.
+        w("var a = 1;")
+        w("typeof a;")
+
