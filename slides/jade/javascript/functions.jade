@@ -1,2 +1,151 @@
 section
   h2 Functions
+
+  p Variable number of arguments
+
+  pre
+    code.
+      > function add(a,b) { return a+b; }
+      > add(1,2);
+        3
+      > add(1,2,4);
+        3
+      > function add() {
+           var result = 0;
+           for (var i=0, len=arguments.length; i&lt;len ; i++)
+                result+= arguments[i];
+           return result;
+        }
+      > add(1,2,4);
+        7
+
+section
+  h2 Variable scope in functions
+
+  p Global vs Local
+
+  pre
+    code.
+      > var globalvar = "global";
+      > function calc() { var localvar = "local"; console.log(globalvar, localvar); }
+      > calc();
+        global local
+      > console.log(globalvar);
+        global
+      > console.log(localvar);
+        undefined
+
+section
+  h2 Functions context
+
+  p <code>this</code> defaults to the global window
+
+  pre
+    code.
+      > console.log(this);
+        Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
+      > function calc() { function inner() { console.log(this); } inner(); }
+      > calc();
+        Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…}
+      > var o = { calc: function() { console.log(this); }}
+      > o.calc();
+        Object {calc: function}
+
+section
+  h2 Functions context: Closures
+
+  p Use context variables in injected functions
+
+  pre
+    code.
+      > function create() { var local = 100; return function() { return local; } }
+      > create()
+        function () { return local; }
+      > create()();
+        100
+
+section
+  h2 Functions context: this
+
+  p Always preserve context execution binding
+
+  pre
+    code.
+      > var context = "global context";
+      > var o = {
+           context : "an object",
+           getContext: function() {
+              return function() {
+                 return this.context;
+              }
+           },
+           getMyContext : function() {
+              return this.context;
+           }
+        };
+      > console.log(o.getMyContext());
+        an object
+      > console.log(o.getContext()());
+        global context
+
+section
+  h2 Function invocation
+
+  p How we call to a function
+
+  pre
+    code.
+      > function add(a,b) { return a+b; }
+      > add(1,2);
+        3
+      > var add = function(a,b) { return a+b; }
+      > add(1,2);
+        3
+      > var math = { add: function(a,b) { return a+b; } };
+      > math.add(1,2);
+        3
+
+section
+  h2 Function invocation
+
+  p Use <code>call</code> to set the context
+
+  pre
+    code.
+      > var context = { number: 3 };
+      > var plusOne = function(value) { return this.number + value; }
+      > var number = 5;
+      > plusOne(1);
+        6
+      > plusOne.call(null, 1);
+        6
+      > plusOne.call(context, 1);
+        4
+
+section
+  h2 Function invocation
+
+  p Use <code>call</code> and <code>apply</code> to call functions
+
+  pre
+    code.
+      > var add = function() {
+           var result = 0;
+           for (var i=0 ; i&lt;arguments.length ; i++) {
+              result += arguments[i];
+           }
+           return result;
+        }
+      > add(1,2,3);
+        6
+      > add.call(null, 1, 2, 3)
+        6
+      > add.apply(null, [1,2,3]);
+        6
+
+  p.fragment Use apply with arguments expression
+
+
+section(data-state="lab")
+  h2 Lab: JavaScript Functions
+  p TaskList.js construction

@@ -1,2 +1,71 @@
 section
   h2 DOM
+
+  p JavaScript has access to:
+
+  ul
+    li Page: Document Object Model (DOM)
+    li Browser/Screen: Browser Object Model (BOM)
+
+section
+  h2 DOM and browser
+
+  p We have a global object called window.
+  p All globals are stored in window.
+
+section
+  h2 Select elements in the page
+
+  pre
+    code.
+      > document.getElementById('title')
+      > document.getElementsByTagName('a')
+      > document.getElementsByClassName('fragment')
+
+section
+  h2 jQuery like element selection
+
+  pre
+    code.
+      > document.querySelector('.fragment')
+      > document.querySelectorAll('.fragment')
+
+section
+  h2 DOM inspection
+
+  p With a DOM element as a reference, we can access:
+
+  ul
+    li parentNode
+    li childNodes
+    li firstChild
+    li lastChild
+
+section
+  h2 Access node properties
+
+  p With or without getAttribute() function:
+
+  pre
+    code.
+      > var image = document.getElementById("myimage");
+      > var url = image.src;
+      > url = image.getAttribute('src');
+
+  p.fragment Use <code>className</code> for accesing <code>class</code> attribute
+  p.fragment You can use also <code>.innerHTML</code>
+
+section
+  h2 DOM modify
+
+  p We can create/alter/remove content with:
+
+  ul
+    li document.createElement
+    li node.appendChild
+    li node.insertBefore
+    li node.removeChild
+
+section(data-state="lab")
+  h2 Lab: JavaScript DOM
+  p Create a TODO list

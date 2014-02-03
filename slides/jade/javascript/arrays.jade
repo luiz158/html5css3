@@ -1,2 +1,46 @@
 section
   h2 Arrays
+
+  p Loose typing and dynamic
+
+  pre
+    code.
+      > var a = [1, 2, 3];
+      > var b = [1, "a", true];
+      > var c = new Array(1, "a", true);
+      > typeof c
+        "object"
+
+section
+  h2 Arrays functions
+
+  pre
+    code.
+      > var result = [];
+      > result.push("this");
+        1
+      > result.push("is", "a", "test");
+        4
+      > result.join("_")
+        "this_is_a_test"
+      > result.pop()
+        "test"
+      > result
+        ["this", "is", "a"]
+
+section
+  h2 Arrays functions
+
+  pre
+    code.
+      > var result = ["this", "is", "a", "test"];
+      > result.slice(1,3);
+        ["is", "a"]
+      > result.shift();
+        "this"
+      > result
+        ["is", "a", "test"]
+      > result.splice(1, 1)
+        ["a"]
+      > result
+        ["is", "test"]

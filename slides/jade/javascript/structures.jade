@@ -1,2 +1,84 @@
 section
   h2 Structures: Expressions, declarations and control
+
+section
+  h2 Functions
+
+  p High order functions: Define functions or assign a function to a variable
+
+  pre
+    code.
+      > function add(a,b) { return a+b; }
+      > var minus = function(a,b) { return a-b; }
+      > add(1,2);
+        3
+      > minus(1,2);
+        -1
+
+section
+  h2 Functions
+
+  p High order functions: Pass a function to another function (callback)
+
+  pre
+    code.
+      > function add(a,b) { return a+b; }
+      > function compute(a, b, f) { return f(a, b); }
+      > compute(2, 3, add);
+        5
+
+section
+  h2 Functions
+
+  p High order functions: Pass an <strong>anonym</strong> function to another function
+
+  pre
+    code.
+      > function compute(a, b, f) { return f(a, b); }
+      > compute(2, 3, function(a,b) { return a+b; });
+        5
+
+section
+  h2 Control: loops
+
+  p Simple looping
+
+  pre
+    code.
+      > var list = [1, 2, 3];
+      > for (var i=0 ; i&lt;list.length ; i++) { console.log(i); }
+        0
+        1
+        2
+
+  p Not recommended!!!!
+
+section
+  h2 Control: loops
+
+  p Optimized looping
+
+  pre
+    code.
+      > var list = [1, 2, 3];
+      > for (var i=0, len=list.length ; i&lt;len; i++) { console.log(i); }
+        0
+        1
+        2
+
+section
+  h2 Control: loops
+
+  p Object property iteration
+
+  pre
+    code.
+      > var o = { value1: 1, value2: 2 };
+      > for (var key in o) { console.log(key, o[key]); }
+        value1 1
+        value2 2
+
+section(data-state="lab")
+  h2 Lab: JavaScript structures
+  p Solve the FizzBuzz code kata
+

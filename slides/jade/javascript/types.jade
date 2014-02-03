@@ -1,17 +1,104 @@
-script.
-  function w(statement) {
-    document.write(statement + '<br/>');
-    document.write(eval(statement) + '<br/>');
-  }
-
 section
   h2 Types
 
   p JavaScript has dynamic typing
 
   pre
-    code
-      script.
-        w("var a = 1;")
-        w("typeof a;")
+    code.
+      > var a = 1;
+      > typeof a;
+        "number"
 
+section
+  h2 Types
+
+  p Static typing vs loose typing (Scala vs JS)
+  p Can the type be altered?
+
+  pre
+    code.
+      > var a = 1;
+      > typeof a;
+        "number"
+      > var a = "test";
+      > typeof a
+        "string"
+
+section
+  h2 Types
+
+  p Base types: string, number, boolean and object
+  p No type: null and undefined
+
+section
+  h2 Types: String
+
+  pre
+    code.
+      > "a" + "b"
+        "ab"
+      > "a" < "b"
+        true
+      > "a,b".split(",")
+        ["a", "b"]
+      > "this is a test".substring(2, 7)
+        "is is"
+
+section
+  h2 Types: Object
+
+  p Key-value structure (like Map in Java).
+
+  pre
+    code.
+      > var o = Object.create({});
+      > var o = {}
+      > var o = { key: 'test', value: 12 };
+      > a["key"]
+        "test"
+      > a.key
+        "test"
+      > JSON.stringify(o)
+        "{ key: 'test', value: 12 }"
+
+section
+  h2 Operations
+
+  p.read-block Arithmetic: +, -, *, /, %
+  p.read-block.fragment Asign: =, +=, *= ...
+  p.read-block.fragment Comparison: ==, !=, ===, !==, >, < ...
+  p.read-block.fragment Logical: &&, ||, !
+  p.read-block.fragment Special: typeof, delete, instanceof, new ...
+
+  pre.fragment
+    code.
+      > 3 == 3
+        true
+      > 3 == "3"
+        true
+      > 3 === "3"
+        false
+
+section
+  h2 Truthy and falsy values
+
+  p Implicit conversion of an expression to a boolean value
+  p All is evaluated to <strong>Truthy</strong> except: <strong>undefined, null, NaN, 0, "" and false</strong>
+  p An expression is truthy when is not falsy
+
+  pre
+    code.
+      > if (1) console.log("truthy"); else console.log("falsy");
+        truthy
+      > if ({}) console.log("truthy"); else console.log("falsy");
+        truthy
+      > if ([]) console.log("truthy"); else console.log("falsy");
+        truthy
+      > if (0) console.log("truthy"); else console.log("falsy");
+        falsy
+      > if ("") console.log("truthy"); else console.log("falsy");
+        falsy
+
+section(data-state="lab")
+  h2 Lab: JavaScript types
+  p First steps with types and property checking

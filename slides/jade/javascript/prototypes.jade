@@ -1,2 +1,106 @@
 section
   h2 Prototypes
+
+  p Plain objects vs instantiation. References are not shared!!!
+
+  pre
+    code.
+      > var o = {}
+      > o instanceof Object
+        true
+      > var MyObject = function() {}
+      > new MyObject() instanceof Object
+        true
+
+section
+  h2 Constructors
+
+  p When can define instance variables inside constructors
+  p Objects created with <code>new</code> share prototype defined in the constructor
+
+  pre
+    code.
+      > function MyObject() {
+           this.field1 = 0;
+           this.field2 = "test";
+        }
+      > var o = new MyObject();
+      > console.log(o.field1, o.field2);
+
+section
+  h2 Prototypes
+
+  p Use object encapsulation for code reuse
+
+  pre
+    code.
+      > var Person = function(name) {
+           this.name = name;
+        }
+
+      > Person.prototype.sayName = function() {
+           console.log(this.name);
+        }
+
+      > var p = new Person('John');
+      > p.sayName();
+        "John"
+
+section
+  h2 Prototypes
+
+  p Use object encapsulation for code reuse
+
+  pre
+    code.
+      > var Person = function(name) {
+           this.name = name;
+           this.sayName = function() {
+              console.log(this.name);
+           }
+        }
+
+      > var p = new Person('John');
+      > p.sayName();
+        "John"
+
+section
+  h2 Prototypes inheritance
+
+  p Inherit prototypes
+
+  pre
+    code.
+      > var Person = function() {
+           this.sayHello = function() {
+              console.log("hello");
+           }
+        }
+      > var MyPerson = function() {
+        }
+      > MyPerson.prototype = new Person();
+      > MyPerson.prototype
+        Person {sayHello: function}
+      > var p = new MyPerson();
+      > p.sayHello();
+        "hello"
+
+section
+  h2 Namespaces
+
+  p Avoid using the global scope!!!
+
+  pre
+    code.
+      > var GG = {};
+      > GG.Senda = {};
+      > GG.Senda.UI = {
+           Forms : {
+              load: function() { ... },
+              save: function() { ... }
+           }
+        }
+
+section(data-state="lab")
+  h2 Lab: JavaScript Prototypes
+  p Enhance TaskList problem with prototypes
