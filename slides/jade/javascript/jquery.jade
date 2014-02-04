@@ -1,0 +1,212 @@
+section
+  h2 jQuery
+
+  p jQuery 1.X vs 2.X
+  
+section
+  h2 jQuery
+
+  p Configure your application:
+
+  pre
+    code.
+      &lt;script src="http://code.jquery.com/jquery-1.10.1.min.js"&gt;&lt;/script&gt;
+      &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
+
+section
+  h2 jQuery: DOM
+
+  p Work with the DOM when ready:
+
+  pre
+    code.
+       $(document).ready(function() {
+          console.log('DOM ready');
+       });      
+
+section
+  h2 jQuery: DOM
+
+  p Query for elements:
+
+  pre
+    code.
+      $('#myId'); 
+      $('div.myClass');
+      $('input[type=number]');
+
+section
+  h2 jQuery: DOM
+
+  p Special pseudo-selectors:
+
+  ul
+    li :button. Button + type=button
+    li :checkbox
+    li :checked. Selected checkboxes
+    li :disabled
+    li :enabled
+    li :file
+    li :input. Form elements including input, textarea and select
+    li :password
+    li :radio
+    li :reset
+    li :selected. Options selected
+    li :submit
+    li :text
+
+section
+  h2 jQuery: DOM
+
+  p Styles:
+
+  pre
+    code.
+      $('h1').css('fontSize');
+      $('h1').css('font-size');
+
+      $('h1').css('fontSize', '100px');
+      $('h1').css({ 
+        'fontSize' : '100px',
+        'color' : 'red'     
+      });
+
+section
+  h2 jQuery: DOM
+
+  p Classes:
+
+  pre
+    code.
+      e.addClass('big');
+      e.removeClass('big');
+      e.toggleClass('big');
+      if (e.hasClass('big')) { ... }
+
+section
+  h2 jQuery: DOM
+
+  p General attributes:
+
+  pre
+    code.
+      $('a').attr('href', 'index.html');
+      $('a').attr({
+        'title' : 'my title',
+        'href' : 'index.html'
+      });
+
+section
+  h2 jQuery: DOM
+
+  p Content:
+
+  pre
+    code.
+      $('#myDiv p:first').html('This is &lt;strong&gt;new&lt;/strong&gt; content');
+
+section
+  h2 jQuery: DOM
+
+  p Traverse DOM tree:
+
+  pre
+    code.
+      $('h1').next('p');
+      $('div:visible').parent();
+      $('input[name=first_name]').closest('form');
+      $('#myList').children();
+      $('li.selected').siblings();
+
+section
+  h2 jQuery: DOM
+
+  p Element construction:
+
+  pre
+    code.
+      $('#myList').append($('#myList li:first')); // Move
+      $('#myList li:first').clone().appendTo('#myList'); // Clone &amp; append
+      $('&lt;p&gt;Un nuevo párrafo&lt;/p&gt;'); // Create
+
+section
+  h2 jQuery utils
+
+  p Utilities:
+
+  pre
+    code.
+      $.trim('    varios espacios en blanco   ');
+      $.each([ 'foo', 'bar', 'baz' ], function(idx, val) {
+         console.log('elemento ' + idx + 'es ' + val);
+      });
+      if ($.inArray(4, [ 1, 2, 3, 5 ]) !== -1) { ... }
+
+section
+  h2 jQuery utils
+
+  p Type checking:
+
+  pre
+    code.
+      jQuery.isFunction(myValue);
+      jQuery.isPlainObject(myValue);
+      jQuery.isArray(myValue);
+      jQuery.isNumeric(16);
+
+section
+  h2 jQuery data-*
+
+  p HTML5 data attribute integration:
+
+  pre
+    code.
+      &lt;a id='foo' data-foo='baz' href='#'&gt;Foo&lt;/a&gt;
+      $('#myDiv').data('keyName', { foo : 'bar' });
+      $('#myDiv').data('keyName'); // { foo : 'bar' }
+
+section
+  h2 jQuery events
+
+  pre
+    code.
+      $('p').click(function() { 
+         console.log('click'); 
+      });
+      $('p').on('click', function() {
+         console.log('click');
+      });  
+      $('p').off('click');
+
+section
+  h2 jQuery AJAX
+
+  pre
+    code.
+      $.ajax({
+        url : 'post.php',
+        data : { id : 123 },
+        type : 'GET',
+        dataType : 'json',
+        success : function(json) {
+            ...
+        },    
+        error : function(jqXHR, status, error) {
+            ...
+        },  
+        complete : function(jqXHR, status) {
+            ...
+        }
+      });
+
+section
+  h2 jQuery AJAX
+
+  pre
+    code.
+      $.get('/users.php', { userId : 1234 }, function(resp) {
+         console.log(resp);
+      });
+      $.getJSON('/details.php', function(resp) {
+         console.log(resp);
+      });

@@ -66,6 +66,38 @@ section
     li node.insertBefore
     li node.removeChild
 
+section
+  h2 Events
+
+  p Consider bubbling and default behaviour
+
+  ul
+    li event.stopPropagation()
+    li event.preventDefault()
+
+  pre
+    code.
+      > var button = document.getElementById('myButton');
+      > button.addEventListener('click', function() {
+           alert("click");
+        }, false);
+
+section
+  h2 Events
+
+  p Event structure:
+
+  ul
+    li bubbles: yes or no
+    li button: mouse button pressed
+    li isChar: is a key character event?
+    li charCode: pressed character
+    li keyCode: pressed key
+    li pageX / pageY: fire position
+    li currentTarget: current element
+    li target / originalTarget: origin element
+
+
 section(data-state="lab")
   h2 Lab: JavaScript DOM
   p Create a TODO list
